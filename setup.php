@@ -9,7 +9,7 @@ $conn = new mysqli($servername, $username, $password, $database);
 
 // Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die("<p style=\"color: red\">Connection failed: </p>" . $conn->connect_error);
 }
-echo "Connected successfully -- PHP Flux Capacitors are GO!!!";
+echo "<p style=\"color: #63ebb0\">Connected to database successfully -- PHP Flux Capacitors are GO!!!</p>";
 ?>
