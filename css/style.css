@@ -1,0 +1,73 @@
+/*
+First of all, the colours I have decided to use in my Adobe XD prototype are: 
+White:          #ffffff
+Black:          #707070
+Turquoise:      #63ebb0
+These will be used in the website, too.
+*/
+
+/*Do this here once instead of in every single page!*/
+/*Get fonts from google -- we can pull the fonts from google's CDN instead of hosting them locally to save on traffic and load times*/
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&family=Source+Code+Pro&display=swap');
+
+/*Colour inheritance -- puts the cascading in cascading style sheets*/
+    html{
+        color: #707070;
+    }
+
+/*need some nice fonts for the website, font inheritance can save some space here*/
+    .body{
+        font-family: 'Quicksand', sans-serif;
+    }
+
+    header{
+        font-family: 'Source Code Pro', monospace;
+        text-align: center;
+        font-size: 1.2vw;
+        line-height: 7vh;
+    }
+
+/*All the navbar stuff uses a single class and decendent selectors, this is much cleaner and also won't break other lists elseware on the page*/
+/*Navbar needs to take up the whole page width*/
+        .navbar{
+            width:100%;
+        }
+
+    /*Make the buttons turn the highlight colour when a user hovers over them: more for desktop use than mobile/tablet*/
+        .navbar :hover{
+            background-color: #63ebb0;
+        }
+
+    /*The nav bar needs to display horizontally, except on mobile where I will override this:*/
+        .navbar > li {
+            display: inline-block;
+            width: 12.5%;
+            border-style: solid;
+            border-width: 2px;
+            border-color: #707070;
+            float:left;
+            height: 7vh;
+        }
+
+    /*HTML links have purple underlines that I don't want by default*/
+    /*Inherit colour means I can change the colour of everything in one place easily.*/
+        .navbar > li > a{
+            text-decoration: none;
+            color: inherit;
+        }
+
+    /*One of these navlinks is special, and it has to be bigger*/
+    /*Originally this used an ID selector but first-child is much cleaner and simplifies the HTML*/
+        .navbar > li:first-child {
+            width: 37.5%;
+            text-align: left;
+            padding-left: 1.6%
+        }
+
+    /*The title of the website is very special and needs specific attributes*/
+    /*Again, selectors have replaced the ID system, which gives a much more general solution*/
+        header > nav > .navbar:first-child > li:first-child{
+            width: 75%;
+            text-align: center;
+            padding: 0;
+        }
