@@ -64,7 +64,7 @@ $conn->close();
     <div class="body">
         
         <!--PHP -- Here Be Dragons-->
-        <?php print $row["heading1"]?>
+        <?php echo $row["heading1"]?>
         
     </div>
     
