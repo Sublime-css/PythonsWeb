@@ -2,8 +2,6 @@
 <!--------------------Python's Web--------------------->
 <!----------------------------------------------------->
 
-<!--This page displays all pages of content using PHP _GET method, eliminating the need for multiple HTML documents-->
-
 <!--Browser needs to know what (machine) language this document is in:-->
 <!DOCTYPE html>
 <!--Googlebot and screen readers need to know what (human) language the website is in:-->
@@ -22,7 +20,8 @@
         <link rel="stylesheet" href="css/reset.css" type="text/css" "media=screen">
         <link rel="stylesheet" href="https://sublime-css.github.io/SublimeCSS/code/css/sublime.css">
         <link rel="stylesheet" href="css/style.css" type="text/css" "media=screen">
-        <link rel="stylesheet" href="form.css" type="text/css" "media=screen">
+        <!--Additional stylesheet for admin form-->
+        <link rel="stylesheet" href="css/form.css" type="text/css" "media=screen">
     </head>
 
     <!--PHP is used to pull data from the database-->
@@ -40,7 +39,7 @@
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
     } else {
-        //Explain what went wrong:
+        //Explain what went wrong (debug only-not in production code):
         echo "<p style=\"color: red\">ERROR: Database error -- Tried to load page " . $Page . " (Content nonexistent -- pending upload)</p>";
     }
     $conn->close();
@@ -71,57 +70,170 @@
         <!--The main body of the site, where content goes-->
         <div class="body">
             <!--PHP - Here Be Dragons (dynamic content)-->
+            <!--A form for the admin to add new content:-->
+            <!--Found at https://www.w3schools.com/howto/howto_css_responsive_form.asp, and-->
+            <!--modified exsensively for my use (see write-up)-->
+            <!--TODO: make each class (video links, text, images) toggleable via javascript (menu is too big)-->
             <div class="container">
-  <form action="action_page.php" method="post">
-    <div class="row">
-      <div class="col-25">
-        <label for="pagenum">Page Number</label>
-      </div>
-      <div class="col-75">
-        <input type="text" id="pagenum" name="pagenum" placeholder="Page Number..">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-25">
-        <label for="video1">Video 1</label>
-      </div>
-      <div class="col-75">
-        <input type="text" id="video1" name="video1" placeholder="1st Video Link..">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-25">
-        <label for="country">Country</label>
-      </div>
-      <div class="col-75">
-        <select id="country" name="country">
-          <option value="australia">Australia</option>
-          <option value="canada">Canada</option>
-          <option value="usa">USA</option>
-        </select>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-25">
-        <label for="text1">Paragraph 1</label>
-      </div>
-      <div class="col-75">
-        <textarea id="text1" name="text1" placeholder="Paragraph 1" style="height:200px"></textarea>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-25">
-        <label for="video2">Paragraph 1</label>
-      </div>
-      <div class="col-75">
-        <input type="text" id="video2" name="video2" placeholder="Image 1..">
-      </div>
-    </div>
-    <div class="row">
-      <input type="submit" value="Submit">
-    </div>
-  </form>
-</div>
+                <form action="databaseInsertion.php" method="POST">
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="pagenum">Page Number</label>
+                        </div>
+                        <div class="col-75">
+                            <select id="pagenum" name="pagenum">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--Video links:-->
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="video1">Video 1</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="video1" name="video1" placeholder="1st Video Link..">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="video2">Video 2</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="video2" name="video2" placeholder="2nd Video Link..">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="video3">Video 3</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="video3" name="video3" placeholder="3rd Video Link..">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="video4">Video 4</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="video4" name="video4" placeholder="4th Video Link..">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="video5">Video 5</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="video5" name="video5" placeholder="5th Video Link..">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="video6">Video 6</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="video6" name="video6" placeholder="6th Video Link..">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="video7">Video 7</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="video7" name="video7" placeholder="7th Video Link..">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="video8">Video 8</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="video8" name="video8" placeholder="8th Video Link..">
+                        </div>
+                    </div>
+                    <!--End of video links:-->
+                    <!--Start of heading text:-->
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="heading1">Heading 1</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="heading1" name="heading1" placeholder="Heading for article 1...">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="heading1">Heading 2</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="heading2" name="heading2" placeholder="Heading for article 2...">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="heading2">Heading 3</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="heading3" name="heading3" placeholder="Heading for article 3...">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="heading4">Heading 4</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="heading4" name="heading4" placeholder="Heading for article 4...">
+                        </div>
+                    </div>
+                    <!--End of heading text:-->
+                    <!--Start of main text:-->
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="text1">Article 1</label>
+                        </div>
+                        <div class="col-75">
+                            <textarea id="text1" name="text1" placeholder="Paragraph 1" style="height:200px"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="text2">Article 2</label>
+                        </div>
+                        <div class="col-75">
+                            <textarea id="text2" name="text2" placeholder="Paragraph 2" style="height:200px"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="text3">Article 3</label>
+                        </div>
+                        <div class="col-75">
+                            <textarea id="text3" name="text3" placeholder="Paragraph 3" style="height:200px"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="text4">Article 4</label>
+                        </div>
+                        <div class="col-75">
+                            <textarea id="text4" name="text4" placeholder="Paragraph 4" style="height:200px"></textarea>
+                        </div>
+                    </div>
+                    <!--End of main text:-->
+                    <div class="row">
+                        <input type="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+            <!--End of the third-party form -- my code resumes-->
             <!--End of Dragon's territory-->
         </div>
         <footer>

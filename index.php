@@ -72,7 +72,7 @@
             <!--PHP - Here Be Dragons (dynamic content)-->
             <?php echo $row["heading1"]?>
             <?php echo $row["text1"]?>
-            <img scr=<?php echo $row["text2"]?> width="142" height="87">
+            <img scr="<?php echo $row["text2"]?>" width="142" height="87">
             <!--End of Dragon's territory-->
         </div>
         <footer>
