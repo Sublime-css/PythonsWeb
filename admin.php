@@ -22,6 +22,7 @@
         <link rel="stylesheet" href="css/reset.css" type="text/css" "media=screen">
         <link rel="stylesheet" href="https://sublime-css.github.io/SublimeCSS/code/css/sublime.css">
         <link rel="stylesheet" href="css/style.css" type="text/css" "media=screen">
+        <link rel="stylesheet" href="form.css" type="text/css" "media=screen">
     </head>
 
     <!--PHP is used to pull data from the database-->
@@ -70,9 +71,57 @@
         <!--The main body of the site, where content goes-->
         <div class="body">
             <!--PHP - Here Be Dragons (dynamic content)-->
-            <?php echo $row["heading1"]?>
-            <?php echo $row["text1"]?>
-            <img scr=<?php echo $row["text2"]?> width="142" height="87">
+            <div class="container">
+  <form action="action_page.php" method="post">
+    <div class="row">
+      <div class="col-25">
+        <label for="pagenum">Page Number</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="pagenum" name="pagenum" placeholder="Page Number..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="video1">Video 1</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="video1" name="video1" placeholder="1st Video Link..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="country">Country</label>
+      </div>
+      <div class="col-75">
+        <select id="country" name="country">
+          <option value="australia">Australia</option>
+          <option value="canada">Canada</option>
+          <option value="usa">USA</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="text1">Paragraph 1</label>
+      </div>
+      <div class="col-75">
+        <textarea id="text1" name="text1" placeholder="Paragraph 1" style="height:200px"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="video2">Paragraph 1</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="video2" name="video2" placeholder="Image 1..">
+      </div>
+    </div>
+    <div class="row">
+      <input type="submit" value="Submit">
+    </div>
+  </form>
+</div>
             <!--End of Dragon's territory-->
         </div>
         <footer>
