@@ -8,66 +8,106 @@ These will be used in the website, too.
 
 /*Do this here once instead of in every single page!*/
 /*Get fonts from google -- we can pull the fonts from google's CDN instead of hosting them locally to save on traffic and load times*/
-    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&family=Source+Code+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&family=Source+Code+Pro&display=swap');
 
 /*Colour inheritance -- puts the cascading in cascading style sheets*/
-    html{
-        color: #707070;
-    }
+html {
+    color: #707070;
+}
 
+body{
+    background-color: #707070;
+}
 /*need some nice fonts for the website, font inheritance can save some space here*/
-    .body{
-        font-family: 'Quicksand', sans-serif;
-    }
+.body {
+    font-family: 'Quicksand', sans-serif;
+}
 
-    header{
-        font-family: 'Source Code Pro', monospace;
-        text-align: center;
-        font-size: 1.2vw;
-        line-height: 7vh;
-    }
+header {
+    font-family: 'Source Code Pro', monospace;
+    text-align: center;
+    font-size: 1.2vw;
+    line-height: 7vh;
+}
 
 /*All the navbar stuff uses a single class and decendent selectors, this is much cleaner and also won't break other lists elseware on the page*/
 /*Navbar needs to take up the whole page width*/
-        .navbar{
-            width:100%;
-        }
+.navbar {
+    width: 100%;
+}
 
-    /*Make the buttons turn the highlight colour when a user hovers over them: more for desktop use than mobile/tablet*/
-        .navbar :hover{
-            background-color: #63ebb0;
-        }
+/*Make the buttons turn the highlight colour when a user hovers over them: more for desktop use than mobile/tablet*/
+.navbar :hover {
+    background-color: #63ebb0;
+}
 
-    /*The nav bar needs to display horizontally, except on mobile where I will override this:*/
-        .navbar > li {
-            display: inline-block;
-            width: 12.5%;
-            border-style: solid;
-            border-width: 2px;
-            border-color: #707070;
-            float:left;
-            height: 7vh;
-        }
+/*The nav bar needs to display horizontally, except on mobile where I will override this:*/
+.navbar > li {
+    display: inline-block;
+    width: 12.5%;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #444444;
+    float: left;
+    height: 7vh;
+    background-color: #ffffff;
+}
 
-    /*HTML links have purple underlines that I don't want by default*/
-    /*Inherit colour means I can change the colour of everything in one place easily.*/
-        .navbar > li > a{
-            text-decoration: none;
-            color: inherit;
-        }
+/*HTML links have purple underlines that I don't want by default*/
+/*Inherit colour means I can change the colour of everything in one place easily.*/
+.navbar > li > a {
+    text-decoration: none;
+    color: inherit;
+}
 
-    /*One of these navlinks is special, and it has to be bigger*/
-    /*Originally this used an ID selector but first-child is much cleaner and simplifies the HTML*/
-        .navbar > li:first-child {
-            width: 37.5%;
-            text-align: left;
-            padding-left: 1.6%
-        }
+/*One of these navlinks is special, and it has to be bigger*/
+/*Originally this used an ID selector but first-child is much cleaner and simplifies the HTML*/
+.navbar > li:first-child {
+    width: 37.5%;
+    text-align: left;
+    padding-left: 1.6%;
+}
 
-    /*The title of the website is very special and needs specific attributes*/
-    /*Again, selectors have replaced the ID system, which gives a much more general solution*/
-        header > nav > .navbar:first-child > li:first-child{
-            width: 75%;
-            text-align: center;
-            padding: 0;
-        }
+/*The title of the website is very special and needs specific attributes*/
+/*Again, selectors have replaced the ID system, which gives a much more general solution*/
+header > nav > .navbar:first-child > li:first-child {
+    width: 75%;
+    text-align: center;
+    padding: 0;
+}
+
+/*The dynamic content works in much the same way as the navbar*/
+.dynamic {
+    float: left;
+    display: inline-block;
+    border: 3px solid #444444;
+    box-sizing: border-box;
+    width: 23.75%;
+    height: 40vh;
+    margin: 1% 0% 0% 1%;
+    background-color: #ffffff;
+    border-radius: 1rem;
+}
+
+/*PHP will dynamically assign these classes where they are needed*/
+.medium {
+    width: 48.5%;
+}
+
+.large {
+    width: 48.5%;
+    height: 82vh;
+}
+
+.long{
+    width: 98%;
+}
+
+.whole{
+    width: 98%;
+    height: 82vh;
+}
+
+.none{
+    display: none;
+}

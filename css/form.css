@@ -30,6 +30,7 @@ input[type=submit] {
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
+  display: none;
 }
 
 /* Floating column for labels: 25% width */
@@ -59,4 +60,10 @@ input[type=submit] {
     width: 100%;
     margin-top: 0;
   }
+}
+
+.pagelist{
+    font-size: 1rem;
+    color: #ffffff;
+    display: none;
 }
