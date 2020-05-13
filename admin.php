@@ -56,13 +56,20 @@
         <!--A form for the admin to add new content:-->
         <!--Found at https://www.w3schools.com/howto/howto_css_responsive_form.asp, and-->
         <!--modified exsensively for my use (see write-up)-->
-        <!--TODO: make each class (video links, text, heading, etc) toggleable via javascript (menu is too big)-->
-        <button onclick="newpage()">New Page:</button>
-        <button onclick="editpage()">Edit Page:</button>
-        <button onclick="pagelist1()">Page List (Headings)</button>
-        <button onclick="pagelist2()">Page List (Text)</button>
-        <button onclick="pagelist3()">Page List (Videos)</button>
-        <button onclick="pagelist4()">Page List (Sizing)</button>
+        <!--TODO: make each class (video links, text, heading, etc) toggleable via javascript (menu is too big) *DONE*-->
+        <div class="container" style="display:block">
+            <div class="row">
+            <div class="col-25">Remote Admin active.</div>
+            <div class="col-75">You are logged in with administrator rights. Select an option below.</div>
+            </div>
+        </div>
+        <button class="tabbutton" onclick="newpage()">New Page:</button>
+        <button class="tabbutton" onclick="editpage()">Edit Page:</button>
+        <button class="tabbutton" onclick="delpage()">Delete Page:</button>
+        <button class="tabbutton" onclick="pagelist1()">Page Headings</button>
+        <button class="tabbutton" onclick="pagelist2()">Page Text</button>
+        <button class="tabbutton" onclick="pagelist3()">Page Videos</button>
+        <button class="tabbutton" onclick="pagelist4()">Page Sizing</button>
         
         <div class="container" id="newPage" style="display:none">
             <form action="databaseInsertion.php" method="POST">
@@ -429,6 +436,14 @@
                 x.style.display = "none";
               }
             }
+            function delpage() {
+              var x = document.getElementById("delpage");
+              if (x.style.display === "none") {
+                x.style.display = "block";
+              } else {
+                x.style.display = "none";
+              }
+            }
             function pagelist1() {
               var x = document.getElementById("pagelist1");
               if (x.style.display === "none") {
@@ -488,12 +503,26 @@
                     while($row = $result->fetch_assoc()){
                         $pagenum=$row["pagenum"];
                         $heading1=$row["heading1"];
+                        $heading2=$row["heading2"];
+                        $heading3=$row["heading3"];
+                        $heading4=$row["heading4"];
+                        $heading5=$row["heading5"];
+                        $heading6=$row["heading6"];
+                        $heading7=$row["heading7"];
+                        $heading8=$row["heading8"];
             ?>
             
             <!--Write up the results every time:-->
             <tr>
                 <td><?php echo "$pagenum";?></td>
                 <td><?php echo "$heading1";?></td>
+                <td><?php echo "$heading2";?></td>
+                <td><?php echo "$heading3";?></td>
+                <td><?php echo "$heading4";?></td>
+                <td><?php echo "$heading5";?></td>
+                <td><?php echo "$heading6";?></td>
+                <td><?php echo "$heading7";?></td>
+                <td><?php echo "$heading8";?></td>
             </tr>
             <?php
                     }
@@ -529,13 +558,27 @@
                     //Loop through the results:
                     while($row = $result->fetch_assoc()){
                         $pagenum=$row["pagenum"];
-                        $heading1=$row["heading1"];
+                        $text1=$row["text1"];
+                        $text2=$row["text2"];
+                        $text3=$row["text3"];
+                        $text4=$row["text4"];
+                        $text5=$row["text5"];
+                        $text6=$row["text6"];
+                        $text7=$row["text7"];
+                        $text8=$row["text8"];
             ?>
             
             <!--Write up the results every time:-->
             <tr>
                 <td><?php echo "$pagenum";?></td>
-                <td><?php echo "$heading1";?></td>
+                <td><?php echo "$text1";?></td>
+                <td><?php echo "$text2";?></td>
+                <td><?php echo "$text3";?></td>
+                <td><?php echo "$text4";?></td>
+                <td><?php echo "$text5";?></td>
+                <td><?php echo "$text6";?></td>
+                <td><?php echo "$text7";?></td>
+                <td><?php echo "$text8";?></td>
             </tr>
             <?php
                     }
@@ -572,13 +615,28 @@
                     //Loop through the results:
                     while($row = $result->fetch_assoc()){
                         $pagenum=$row["pagenum"];
-                        $heading1=$row["heading1"];
+                        $video1=$row["video1"];
+                        $video2=$row["video2"];
+                        $video3=$row["video3"];
+                        $video4=$row["video4"];
+                        $video5=$row["video5"];
+                        $video6=$row["video6"];
+                        $video7=$row["video7"];
+                        $video8=$row["video8"];
+                        
             ?>
             
             <!--Write up the results every time:-->
             <tr>
                 <td><?php echo "$pagenum";?></td>
-                <td><?php echo "$heading1";?></td>
+                <td><?php echo "$video1";?></td>
+                <td><?php echo "$video2";?></td>
+                <td><?php echo "$video3";?></td>
+                <td><?php echo "$video4";?></td>
+                <td><?php echo "$video5";?></td>
+                <td><?php echo "$video6";?></td>
+                <td><?php echo "$video7";?></td>
+                <td><?php echo "$video8";?></td>
             </tr>
             <?php
                     }
@@ -614,13 +672,27 @@
                     //Loop through the results:
                     while($row = $result->fetch_assoc()){
                         $pagenum=$row["pagenum"];
-                        $heading1=$row["heading1"];
+                        $size1=$row["size1"];
+                        $size2=$row["size1"];
+                        $size3=$row["size1"];
+                        $size4=$row["size1"];
+                        $size5=$row["size1"];
+                        $size6=$row["size1"];
+                        $size7=$row["size1"];
+                        $size8=$row["size1"];
             ?>
             
             <!--Write up the results every time:-->
             <tr>
                 <td><?php echo "$pagenum";?></td>
-                <td><?php echo "$heading1";?></td>
+                <td><?php echo "$size1";?></td>
+                <td><?php echo "$size2";?></td>
+                <td><?php echo "$size3";?></td>
+                <td><?php echo "$size4";?></td>
+                <td><?php echo "$size5";?></td>
+                <td><?php echo "$size6";?></td>
+                <td><?php echo "$size7";?></td>
+                <td><?php echo "$size8";?></td>
             </tr>
             <?php
                     }
@@ -703,6 +775,34 @@
                         <textarea id="updatevalue" name="updatevalue" placeholder="" style="height:200px"></textarea>
                     </div>
                 </div>
+                <div class="row">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+        
+        <div class="container" id="delpage" style="display:none">
+            <form action="databaseDel.php" method="POST">
+            <div class="row">
+                    <div class="col-25">
+                        <label for="delpagenum">Page to Delete:</label>
+                    </div>
+                    <div class="col-75">
+                        <select id="delpagenum" name="delpagenum">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                </div>
+                
                 <div class="row">
                     <input type="submit" value="Submit">
                 </div>

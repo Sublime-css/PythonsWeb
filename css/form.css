@@ -2,7 +2,7 @@
 input[type=text], select, textarea{
   width: 100%;
   padding: 12px;
-  border: 1px solid #ccc;
+  border: 3px solid #707070;
   border-radius: 4px;
   box-sizing: border-box;
   resize: vertical;
@@ -16,10 +16,10 @@ label {
 
 /* Style the submit button */
 input[type=submit] {
-  background-color: #4CAF50;
-  color: white;
+  background-color: #63ebb0;
+  color: #707070;
   padding: 12px 20px;
-  border: none;
+  border: 3px solid #707070;
   border-radius: 4px;
   cursor: pointer;
   float: right;
@@ -27,10 +27,11 @@ input[type=submit] {
 
 /* Style the container */
 .container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
+/*  border-radius: 5px;*/
+  background-color: #ffffff;
   padding: 20px;
   display: none;
+    font-size: 1.5rem;
 }
 
 /* Floating column for labels: 25% width */
@@ -66,4 +67,22 @@ input[type=submit] {
     font-size: 1rem;
     color: #ffffff;
     display: none;
+    width: 12.5%;
 }
+
+.tabbutton{
+    width: 14.2857%;
+    float: left;
+    border: none;
+    font-size: 1.5vw;
+    background-color: #ffffff;
+    color: #707070;
+}
+
+@media only screen and (max-width: 600px) {
+    .tabbutton{
+    width: 25%;
+    font-size: 3vw;
+    }
+}
+    

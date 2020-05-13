@@ -4,19 +4,16 @@
     <meta http-equiv="refresh" content="3;url=admin.php">
     <?php
         //Store data in variables:
-        $updatefield= $_POST["updatefield"];
-        $updatevalue= $_POST["updatevalue"];
-        $updatepagenum= $_POST["updatepagenum"];
+        $delpagenum= $_POST["delpagenum"];
         //Log into the database:
         include"setup.php";
         //Insert data by SQL:
-        $sql = "UPDATE pages
-        SET $updatefield = '$updatevalue'
-        WHERE pagenum = '$updatepagenum';";
+        $sql = "DELETE FROM pages
+        WHERE pagenum = $delpagenum;";
         //Check that attempt was successfull:
         if ($conn->query($sql) === TRUE) {
             //give some feedback:
-            echo "<p style=\"color: #63ebb0\"size=\"5rem\">Record updated sucessfully!!</p>";
+            echo "<p style=\"color: #63ebb0\"size=\"5rem\">Page Removed Successfully.</p>";
         }
         //Tell the user that it didn't work:
         else {
