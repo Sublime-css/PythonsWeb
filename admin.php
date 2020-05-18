@@ -17,12 +17,17 @@
     <!--For SEO and screen readers-->
     <meta name="description" content="Learn to code Python online!">
 
+    <!--For Mobile users:-->
+    <meta name="theme-color" content="#6e3bb0">
+    
     <!--CSS reset, followed by CSS library, followed by site stylesheet (order is important)-->
     <link rel="stylesheet" href="css/reset.css" type="text/css" "media=screen">
     <link rel="stylesheet" href="https://sublime-css.github.io/SublimeCSS/code/css/sublime.css">
     <link rel="stylesheet" href="css/style.css" type="text/css" "media=screen">
     <!--Additional stylesheet for admin form-->
     <link rel="stylesheet" href="css/form.css" type="text/css" "media=screen">
+    
+    <script type="text/javascript" src="js/admin.js"></script>  
 </head>
 
 <!--PHP is used to pull data from the database-->
@@ -53,16 +58,15 @@
 
     <!--The main body of the site, where content goes-->
     <div class="body">
+        <?php
+            if (true){//Admin authentication goes here eventually.
+                echo "<p style=\"color: #63ebb0; position: absolute; top:2rem\">Logged in with remote admin privileges</p>";
+            }
+        ?>
         <!--A form for the admin to add new content:-->
         <!--Found at https://www.w3schools.com/howto/howto_css_responsive_form.asp, and-->
         <!--modified exsensively for my use (see write-up)-->
         <!--TODO: make each class (video links, text, heading, etc) toggleable via javascript (menu is too big) *DONE*-->
-        <div class="container" style="display:block">
-            <div class="row">
-            <div class="col-25">Remote Admin active.</div>
-            <div class="col-75">You are logged in with administrator rights. Select an option below.</div>
-            </div>
-        </div>
         <button class="tabbutton" onclick="newpage()">New Page:</button>
         <button class="tabbutton" onclick="editpage()">Edit Page:</button>
         <button class="tabbutton" onclick="delpage()">Delete Page:</button>
@@ -420,62 +424,7 @@
         <!--End of the third-party form -- my code resumes-->
         
         <script>
-            function editpage() {
-              var x = document.getElementById("updatepage");
-              if (x.style.display === "none") {
-                x.style.display = "block";
-              } else {
-                x.style.display = "none";
-              }
-            }
-            function newpage() {
-              var x = document.getElementById("newPage");
-              if (x.style.display === "none") {
-                x.style.display = "block";
-              } else {
-                x.style.display = "none";
-              }
-            }
-            function delpage() {
-              var x = document.getElementById("delpage");
-              if (x.style.display === "none") {
-                x.style.display = "block";
-              } else {
-                x.style.display = "none";
-              }
-            }
-            function pagelist1() {
-              var x = document.getElementById("pagelist1");
-              if (x.style.display === "none") {
-                x.style.display = "block";
-              } else {
-                x.style.display = "none";
-              }
-            }
-            function pagelist2() {
-              var x = document.getElementById("pagelist2");
-              if (x.style.display === "none") {
-                x.style.display = "block";
-              } else {
-                x.style.display = "none";
-              }
-            }
-            function pagelist3() {
-              var x = document.getElementById("pagelist3");
-              if (x.style.display === "none") {
-                x.style.display = "block";
-              } else {
-                x.style.display = "none";
-              }
-            }
-            function pagelist4() {
-              var x = document.getElementById("pagelist4");
-              if (x.style.display === "none") {
-                x.style.display = "block";
-              } else {
-                x.style.display = "none";
-              }
-            }
+            
         </script>
         
         <table class="pagelist" id="pagelist1">

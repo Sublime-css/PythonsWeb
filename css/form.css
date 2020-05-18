@@ -31,7 +31,7 @@ input[type=submit] {
   background-color: #ffffff;
   padding: 20px;
   display: none;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 /* Floating column for labels: 25% width */
@@ -65,18 +65,24 @@ input[type=submit] {
 
 .pagelist{
     font-size: 1rem;
-    color: #ffffff;
+    background-color: #ffffff;
     display: none;
-    width: 12.5%;
+    width: 100%;
+    border-collapse: collapse;
 }
 
 .tabbutton{
     width: 14.2857%;
+    height: 7vh;
     float: left;
-    border: none;
+    border: 2px solid #707070;
     font-size: 1.5vw;
     background-color: #ffffff;
     color: #707070;
+}
+
+.tabbutton:hover{
+    background-color: #63ebb0;
 }
 
 @media only screen and (max-width: 600px) {
@@ -85,4 +91,9 @@ input[type=submit] {
     font-size: 3vw;
     }
 }
-    
+
+th, tr, td {
+    border: 2px solid #707070;
+    width:11.11111%;
+    height:7vh;
+}

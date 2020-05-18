@@ -19,6 +19,9 @@
     <!--For SEO and screen readers-->
     <meta name="description" content="Learn to code Python online!">
 
+    <!--For Mobile users:-->
+    <meta name="theme-color" content="#6e3bb0">
+    
     <!--CSS reset, followed by CSS library, followed by site stylesheet (order is important)-->
     <link rel="stylesheet" href="css/reset.css" type="text/css" "media=screen">
     <link rel="stylesheet" href="https://sublime-css.github.io/SublimeCSS/code/css/sublime.css">

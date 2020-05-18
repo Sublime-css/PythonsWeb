@@ -16,7 +16,7 @@
         //Check that attempt was successfull:
         if ($conn->query($sql) === TRUE) {
             //give some feedback:
-            echo "<p style=\"color: #63ebb0\"size=\"5rem\">Record updated sucessfully!!</p>";
+            echo "<p style=\"color: #63ebb0\"size=\"5rem\">Record updated sucessfully.</p>";
         }
         //Tell the user that it didn't work:
         else {
