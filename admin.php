@@ -19,15 +19,16 @@
 
     <!--For Mobile users:-->
     <meta name="theme-color" content="#6e3bb0">
-    
+
     <!--CSS reset, followed by CSS library, followed by site stylesheet (order is important)-->
     <link rel="stylesheet" href="css/reset.css" type="text/css" "media=screen">
     <link rel="stylesheet" href="https://sublime-css.github.io/SublimeCSS/code/css/sublime.css">
     <link rel="stylesheet" href="css/style.css" type="text/css" "media=screen">
     <!--Additional stylesheet for admin form-->
     <link rel="stylesheet" href="css/form.css" type="text/css" "media=screen">
-    
-    <script type="text/javascript" src="js/admin.js"></script>  
+
+    <script type="text/javascript" src="js/admin.js"></script>
+
 </head>
 
 <!--PHP is used to pull data from the database-->
@@ -74,8 +75,8 @@
         <button class="tabbutton" onclick="pagelist2()">Page Text</button>
         <button class="tabbutton" onclick="pagelist3()">Page Videos</button>
         <button class="tabbutton" onclick="pagelist4()">Page Sizing</button>
-        
-        <div class="container" id="newPage" style="display:none">
+
+        <div class="container" id="newpage" style="display:none">
             <form action="databaseInsertion.php" method="POST">
                 <div class="row">
                     <div class="col-25">
@@ -83,337 +84,78 @@
                     </div>
                     <div class="col-75">
                         <select id="pagenum" name="pagenum">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
+                            <?php
+                for ($i = 1; $i <= 10; $i++) {
+                echo "<option value=\"" . $i . "\">" . $i . "</option>\r\n";
+                }
+                ?>
                         </select>
                     </div>
                 </div>
                 <!--Video links:-->
-                <div class="row">
-                    <div class="col-25">
-                        <label for="video1">Video 1</label>
+                <?php
+                for ($i = 1; $i <= 8; $i++) {
+                echo "<div class=\"row\">
+                    <div class=\"col-25\">
+                        <label for=\"video" . $i . "\">Video " . $i . "</label>
                     </div>
-                    <div class="col-75">
-                        <input type="text" id="video1" name="video1" placeholder="1st Video Link..">
+                    <div class=\"col-75\">
+                        <input type=\"text\" id=\"video" . $i . "\" name=\"video" . $i . "\" placeholder=\"Video No." . $i . "...\">
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="video2">Video 2</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="video2" name="video2" placeholder="2nd Video Link..">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="video3">Video 3</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="video3" name="video3" placeholder="3rd Video Link..">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="video4">Video 4</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="video4" name="video4" placeholder="4th Video Link..">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="video5">Video 5</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="video5" name="video5" placeholder="5th Video Link..">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="video6">Video 6</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="video6" name="video6" placeholder="6th Video Link..">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="video7">Video 7</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="video7" name="video7" placeholder="7th Video Link..">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="video8">Video 8</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="video8" name="video8" placeholder="8th Video Link..">
-                    </div>
-                </div>
+                </div>\r\n";
+                }
+                ?>
                 <!--End of video links:-->
                 <!--Start of heading text:-->
-                <div class="row">
-                    <div class="col-25">
-                        <label for="heading1">Heading 1</label>
+                <?php
+                for ($i = 1; $i <= 8; $i++) {
+                echo "<div class=\"row\">
+                    <div class=\"col-25\">
+                        <label for=\"heading" . $i . "\">Heading " . $i . "</label>
                     </div>
-                    <div class="col-75">
-                        <input type="text" id="heading1" name="heading1" placeholder="Heading for article 1...">
+                    <div class=\"col-75\">
+                        <input type=\"text\" id=\"heading" . $i . "\" name=\"heading" . $i . "\" placeholder=\"Heading for article " . $i . "...\">
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="heading2">Heading 2</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="heading2" name="heading2" placeholder="Heading for article 2...">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="heading3">Heading 3</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="heading3" name="heading3" placeholder="Heading for article 3...">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="heading4">Heading 4</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="heading4" name="heading4" placeholder="Heading for article 4...">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="heading5">Heading 5</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="heading5" name="heading5" placeholder="Heading for article 5...">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="heading6">Heading 6</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="heading6" name="heading6" placeholder="Heading for article 6...">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="heading7">Heading 7</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="heading7" name="heading7" placeholder="Heading for article 7...">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="heading8">Heading 8</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="heading8" name="heading8" placeholder="Heading for article 8...">
-                    </div>
-                </div>
+                </div>\r\n";
+                }
+                ?>
+
                 <!--End of heading text:-->
                 <!--Start of main text:-->
-                <div class="row">
-                    <div class="col-25">
-                        <label for="text1">Article 1</label>
+                <?php
+                for ($i = 1; $i <= 8; $i++) {
+                echo "<div class=\"row\">
+                    <div class=\"col-25\">
+                        <label for=\"text" . $i . "\">Article " . $i . "</label>
                     </div>
-                    <div class="col-75">
-                        <textarea id="text1" name="text1" placeholder="Paragraph 1" style="height:200px"></textarea>
+                    <div class=\"col-75\">
+                        <textarea id=\"text" . $i . "\" name=\"text" . $i . "\" placeholder=\"Paragraph " . $i . "\" style=\"height:200px\"></textarea>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="text2">Article 2</label>
-                    </div>
-                    <div class="col-75">
-                        <textarea id="text2" name="text2" placeholder="Paragraph 2" style="height:200px"></textarea>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="text3">Article 3</label>
-                    </div>
-                    <div class="col-75">
-                        <textarea id="text3" name="text3" placeholder="Paragraph 3" style="height:200px"></textarea>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="text4">Article 4</label>
-                    </div>
-                    <div class="col-75">
-                        <textarea id="text4" name="text4" placeholder="Paragraph 4" style="height:200px"></textarea>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="text5">Article 5</label>
-                    </div>
-                    <div class="col-75">
-                        <textarea id="text5" name="text5" placeholder="Paragraph 5" style="height:200px"></textarea>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="text6">Article 6</label>
-                    </div>
-                    <div class="col-75">
-                        <textarea id="text6" name="text6" placeholder="Paragraph 6" style="height:200px"></textarea>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="text3">Article 7</label>
-                    </div>
-                    <div class="col-75">
-                        <textarea id="text7" name="text7" placeholder="Paragraph 7" style="height:200px"></textarea>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="text8">Article 8</label>
-                    </div>
-                    <div class="col-75">
-                        <textarea id="text8" name="text8" placeholder="Paragraph 8" style="height:200px"></textarea>
-                    </div>
-                </div>
+                </div>\r\n";
+                }
+                ?>
+
                 <!--End of main text:-->
                 <!--Start of box sizes:-->
-                <div class="row">
-                    <div class="col-25">
-                        <label for="size1">Size of Box 1</label>
+                <?php
+                for ($i = 1; $i <= 8; $i++) {
+                echo "<div class=\"row\">
+                    <div class=\"col-25\">
+                        <label for=\"size" . $i . "\">Size of Box " . $i . "</label>
                     </div>
-                    <div class="col-75">
-                        <select id="size1" name="size1">
-                            <option value="small">Small</option>
-                            <option value="medium">Medium</option>
-                            <option value="large">Large</option>
-                            <option value="long">Long</option>
-                            <option value="whole">Whole Page</option>
-                            <option value="none">Invisible</option>
+                    <div class=\"col-75\">
+                        <select id=\"size" . $i . "\"name=\"size" . $i . "\">
+                            <option value=\"small\">Small</option>
+                            <option value=\"medium\">Medium</option>
+                            <option value=\"large\">Large</option>
+                            <option value=\"long\">Long</option>
+                            <option value=\"whole\">Whole Page</option>
+                            <option value=\"none\">Invisible</option>
                         </select>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="size2">Size of Box 2</label>
-                    </div>
-                    <div class="col-75">
-                        <select id="size2" name="size2">
-                            <option value="small">Small</option>
-                            <option value="medium">Medium</option>
-                            <option value="large">Large</option>
-                            <option value="long">Long</option>
-                            <option value="whole">Whole Page</option>
-                            <option value="none">Invisible</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="size3">Size of Box 3</label>
-                    </div>
-                    <div class="col-75">
-                        <select id="size3" name="size3">
-                            <option value="small">Small</option>
-                            <option value="medium">Medium</option>
-                            <option value="large">Large</option>
-                            <option value="long">Long</option>
-                            <option value="whole">Whole Page</option>
-                            <option value="none">Invisible</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="size4">Size of Box 4</label>
-                    </div>
-                    <div class="col-75">
-                        <select id="size4" name="size4">
-                            <option value="small">Small</option>
-                            <option value="medium">Medium</option>
-                            <option value="large">Large</option>
-                            <option value="long">Long</option>
-                            <option value="whole">Whole Page</option>
-                            <option value="none">Invisible</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="size5">Size of Box 5</label>
-                    </div>
-                    <div class="col-75">
-                        <select id="size5" name="size5">
-                            <option value="small">Small</option>
-                            <option value="medium">Medium</option>
-                            <option value="large">Large</option>
-                            <option value="long">Long</option>
-                            <option value="whole">Whole Page</option>
-                            <option value="none">Invisible</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="size6">Size of Box 6</label>
-                    </div>
-                    <div class="col-75">
-                        <select id="size6" name="size6">
-                            <option value="small">Small</option>
-                            <option value="medium">Medium</option>
-                            <option value="large">Large</option>
-                            <option value="long">Long</option>
-                            <option value="whole">Whole Page</option>
-                            <option value="none">Invisible</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="size7">Size of Box 7</label>
-                    </div>
-                    <div class="col-75">
-                        <select id="size7" name="size7">
-                            <option value="small">Small</option>
-                            <option value="medium">Medium</option>
-                            <option value="large">Large</option>
-                            <option value="long">Long</option>
-                            <option value="whole">Whole Page</option>
-                            <option value="none">Invisible</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="size8">Size of Box 8</label>
-                    </div>
-                    <div class="col-75">
-                        <select id="size8" name="size8">
-                            <option value="small">Small</option>
-                            <option value="medium">Medium</option>
-                            <option value="large">Large</option>
-                            <option value="long">Long</option>
-                            <option value="whole">Whole Page</option>
-                            <option value="none">Invisible</option>
-                        </select>
-                    </div>
-                </div>
+                </div>\r\n";
+                }
+                ?>
 
                 <!--End of box sizes-->
                 <div class="row">
@@ -422,22 +164,19 @@
             </form>
         </div>
         <!--End of the third-party form -- my code resumes-->
-        
+
         <script>
-            
+
         </script>
-        
+
         <table class="pagelist" id="pagelist1">
             <tr>
                 <th>Page Number</th>
-                <th>Heading 1</th>
-                <th>Heading 2</th>
-                <th>Heading 3</th>
-                <th>Heading 4</th>
-                <th>Heading 5</th>
-                <th>Heading 6</th>
-                <th>Heading 7</th>
-                <th>Heading 8</th>
+                <?php
+                for ($i = 1; $i <= 8; $i++) {
+                echo "                <th>Heading " . $i . "</th>\r\n";
+                }
+                ?>
             </tr>
 
             <?php
@@ -450,28 +189,19 @@
                 if ($result->num_rows > 0) {
                     //Loop through the results:
                     while($row = $result->fetch_assoc()){
-                        $pagenum=$row["pagenum"];
-                        $heading1=$row["heading1"];
-                        $heading2=$row["heading2"];
-                        $heading3=$row["heading3"];
-                        $heading4=$row["heading4"];
-                        $heading5=$row["heading5"];
-                        $heading6=$row["heading6"];
-                        $heading7=$row["heading7"];
-                        $heading8=$row["heading8"];
             ?>
-            
+
             <!--Write up the results every time:-->
             <tr>
-                <td><?php echo "$pagenum";?></td>
-                <td><?php echo "$heading1";?></td>
-                <td><?php echo "$heading2";?></td>
-                <td><?php echo "$heading3";?></td>
-                <td><?php echo "$heading4";?></td>
-                <td><?php echo "$heading5";?></td>
-                <td><?php echo "$heading6";?></td>
-                <td><?php echo "$heading7";?></td>
-                <td><?php echo "$heading8";?></td>
+                <td><?php echo $row["pagenum"];?></td>
+                <td><?php echo $row["heading1"];?></td>
+                <td><?php echo $row["heading2"];?></td>
+                <td><?php echo $row["heading3"];?></td>
+                <td><?php echo $row["heading4"];?></td>
+                <td><?php echo $row["heading5"];?></td>
+                <td><?php echo $row["heading6"];?></td>
+                <td><?php echo $row["heading7"];?></td>
+                <td><?php echo $row["heading8"];?></td>
             </tr>
             <?php
                     }
@@ -483,17 +213,14 @@
                     $conn->close();
                     ?>
         </table>
-            <table class="pagelist" id="pagelist2">
+        <table class="pagelist" id="pagelist2">
             <tr>
                 <th>Page Number</th>
-                <th>Paragraph 1</th>
-                <th>Paragraph 2</th>
-                <th>Paragraph 3</th>
-                <th>Paragraph 4</th>
-                <th>Paragraph 5</th>
-                <th>Paragraph 6</th>
-                <th>Paragraph 7</th>
-                <th>Paragraph 8</th>
+                <?php
+                for ($i = 1; $i <= 8; $i++) {
+                echo "                <th>Paragraph " . $i . "</th>\r\n";
+                }
+                ?>
             </tr>
 
             <?php
@@ -506,28 +233,19 @@
                 if ($result->num_rows > 0) {
                     //Loop through the results:
                     while($row = $result->fetch_assoc()){
-                        $pagenum=$row["pagenum"];
-                        $text1=$row["text1"];
-                        $text2=$row["text2"];
-                        $text3=$row["text3"];
-                        $text4=$row["text4"];
-                        $text5=$row["text5"];
-                        $text6=$row["text6"];
-                        $text7=$row["text7"];
-                        $text8=$row["text8"];
             ?>
-            
+
             <!--Write up the results every time:-->
             <tr>
-                <td><?php echo "$pagenum";?></td>
-                <td><?php echo "$text1";?></td>
-                <td><?php echo "$text2";?></td>
-                <td><?php echo "$text3";?></td>
-                <td><?php echo "$text4";?></td>
-                <td><?php echo "$text5";?></td>
-                <td><?php echo "$text6";?></td>
-                <td><?php echo "$text7";?></td>
-                <td><?php echo "$text8";?></td>
+                <td><?php echo $row["pagenum"];?></td>
+                <td><?php echo $row["text1"];?></td>
+                <td><?php echo $row["text2"];?></td>
+                <td><?php echo $row["text3"];?></td>
+                <td><?php echo $row["text4"];?></td>
+                <td><?php echo $row["text5"];?></td>
+                <td><?php echo $row["text6"];?></td>
+                <td><?php echo $row["text7"];?></td>
+                <td><?php echo $row["text8"];?></td>
             </tr>
             <?php
                     }
@@ -539,18 +257,14 @@
                     $conn->close();
                     ?>
         </table>
-                <table class="pagelist" id="pagelist3">
+        <table class="pagelist" id="pagelist3">
             <tr>
                 <th>Page Number</th>
-                <th>Video 1</th>
-                <th>Video 2</th>
-                <th>Video 3</th>
-                <th>Video 4</th>
-                <th>Video 5</th>
-                <th>Video 6</th>
-                <th>Video 7</th>
-                <th>Video 8</th>
-                
+                <?php
+                for ($i = 1; $i <= 8; $i++) {
+                echo "                <th> Video " . $i . "</th>\r\n";
+                }
+                ?>
             </tr>
 
             <?php
@@ -563,29 +277,20 @@
                 if ($result->num_rows > 0) {
                     //Loop through the results:
                     while($row = $result->fetch_assoc()){
-                        $pagenum=$row["pagenum"];
-                        $video1=$row["video1"];
-                        $video2=$row["video2"];
-                        $video3=$row["video3"];
-                        $video4=$row["video4"];
-                        $video5=$row["video5"];
-                        $video6=$row["video6"];
-                        $video7=$row["video7"];
-                        $video8=$row["video8"];
                         
             ?>
-            
+
             <!--Write up the results every time:-->
             <tr>
-                <td><?php echo "$pagenum";?></td>
-                <td><?php echo "$video1";?></td>
-                <td><?php echo "$video2";?></td>
-                <td><?php echo "$video3";?></td>
-                <td><?php echo "$video4";?></td>
-                <td><?php echo "$video5";?></td>
-                <td><?php echo "$video6";?></td>
-                <td><?php echo "$video7";?></td>
-                <td><?php echo "$video8";?></td>
+                <td><?php echo $row["pagenum"];?></td>
+                <td><?php echo $row["video1"];?></td>
+                <td><?php echo $row["video2"];?></td>
+                <td><?php echo $row["video3"];?></td>
+                <td><?php echo $row["video4"];?></td>
+                <td><?php echo $row["video5"];?></td>
+                <td><?php echo $row["video6"];?></td>
+                <td><?php echo $row["video7"];?></td>
+                <td><?php echo $row["video8"];?></td>
             </tr>
             <?php
                     }
@@ -597,17 +302,15 @@
                     $conn->close();
                     ?>
         </table>
-            <table class="pagelist" id="pagelist4">
+        <table class="pagelist" id="pagelist4">
             <tr>
                 <th>Page Number</th>
-                <th>Size 1</th>
-                <th>Size 2</th>
-                <th>Size 3</th>
-                <th>Size 4</th>
-                <th>Size 5</th>
-                <th>Size 6</th>
-                <th>Size 7</th>
-                <th>Size 8</th>
+                <th>Page Number</th>
+                <?php
+                for ($i = 1; $i <= 8; $i++) {
+                echo "                <th> Size " . $i . "</th>\r\n";
+                }
+                ?>
             </tr>
 
             <?php
@@ -620,28 +323,19 @@
                 if ($result->num_rows > 0) {
                     //Loop through the results:
                     while($row = $result->fetch_assoc()){
-                        $pagenum=$row["pagenum"];
-                        $size1=$row["size1"];
-                        $size2=$row["size1"];
-                        $size3=$row["size1"];
-                        $size4=$row["size1"];
-                        $size5=$row["size1"];
-                        $size6=$row["size1"];
-                        $size7=$row["size1"];
-                        $size8=$row["size1"];
             ?>
-            
+
             <!--Write up the results every time:-->
             <tr>
-                <td><?php echo "$pagenum";?></td>
-                <td><?php echo "$size1";?></td>
-                <td><?php echo "$size2";?></td>
-                <td><?php echo "$size3";?></td>
-                <td><?php echo "$size4";?></td>
-                <td><?php echo "$size5";?></td>
-                <td><?php echo "$size6";?></td>
-                <td><?php echo "$size7";?></td>
-                <td><?php echo "$size8";?></td>
+                <td><?php echo $row["pagenum"];?></td>
+                <td><?php echo $row["size1"];?></td>
+                <td><?php echo $row["size2"];?></td>
+                <td><?php echo $row["size3"];?></td>
+                <td><?php echo $row["size4"];?></td>
+                <td><?php echo $row["size5"];?></td>
+                <td><?php echo $row["size6"];?></td>
+                <td><?php echo $row["size7"];?></td>
+                <td><?php echo $row["size8"];?></td>
             </tr>
             <?php
                     }
@@ -653,10 +347,10 @@
                     $conn->close();
                     ?>
         </table>
-        
+
         <div class="container" id="updatepage" style="display:none">
             <form action="databaseUpdate.php" method="POST">
-            <div class="row">
+                <div class="row">
                     <div class="col-25">
                         <label for="updatepagenum">Page to Update:</label>
                     </div>
@@ -729,10 +423,10 @@
                 </div>
             </form>
         </div>
-        
+
         <div class="container" id="delpage" style="display:none">
             <form action="databaseDel.php" method="POST">
-            <div class="row">
+                <div class="row">
                     <div class="col-25">
                         <label for="delpagenum">Page to Delete:</label>
                     </div>
@@ -751,13 +445,13 @@
                         </select>
                     </div>
                 </div>
-                
+
                 <div class="row">
                     <input type="submit" value="Submit">
                 </div>
             </form>
         </div>
-        
+
     </div>
     <footer>
         <!--Whatever needs to go here:-->
