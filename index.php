@@ -35,7 +35,7 @@
     //Try for what page the user wants:
     $Page = $_GET['page'];
     //Need to login to the database:
-    include "setup.php";
+    include "php/setup.php";
     //Get the data that corrosponds to the current page:
     $sql = "SELECT * FROM pages where pagenum = $Page";
     $result = $conn->query($sql);

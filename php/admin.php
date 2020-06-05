@@ -21,12 +21,12 @@
     <meta name="theme-color" content="#6e3bb0">
 
     <!--CSS reset, followed by CSS library, followed by site stylesheet (order is important)-->
-    <link rel="stylesheet" href="css/reset.css" type="text/css" "media=screen">
-    <link rel="stylesheet" href="css/style.css" type="text/css" "media=screen">
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" "media=screen">
+    <link rel="stylesheet" href="../css/style.css" type="text/css" "media=screen">
     <!--Additional stylesheet for admin form-->
-    <link rel="stylesheet" href="css/admin.css" type="text/css" "media=screen">
+    <link rel="stylesheet" href="../css/admin.css" type="text/css" "media=screen">
 
-    <script type="text/javascript" src="js/admin.js"></script>
+    <script type="text/javascript" src="../js/admin.js"></script>
 
 </head>
 
@@ -42,16 +42,16 @@
                 <li><a href="index.php?page=1">
                         <h1>Python's Web</h1>
                     </a></li>
-                <li><a href="index.php?page=2">Register/Login</a></li>
-                <li><a href="index.php?page=3">Share With Class</a></li>
+                <li><a href="../index.php?page=2">Register/Login</a></li>
+                <li><a href="../index.php?page=3">Share With Class</a></li>
             </ul>
             <ul class="navbar">
-                <li><a href="index.php?page=4">Search</a></li>
-                <li><a href="index.php?page=5">Coursework</a></li>
-                <li><a href="index.php?page=6">Donate</a></li>
-                <li><a href="index.php?page=7">News</a></li>
-                <li><a href="index.php?page=8">F. A. Q.</a></li>
-                <li><a href="index.php?page=9">Reference</a></li>
+                <li><a href="../index.php?page=4">Search</a></li>
+                <li><a href="../index.php?page=5">Coursework</a></li>
+                <li><a href="../index.php?page=6">Donate</a></li>
+                <li><a href="../index.php?page=7">News</a></li>
+                <li><a href="../index.php?page=8">F. A. Q.</a></li>
+                <li><a href="../index.php?page=9">Reference</a></li>
             </ul>
         </nav>
     </header>
