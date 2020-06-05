@@ -21,10 +21,9 @@
 
     <!--For Mobile users:-->
     <meta name="theme-color" content="#6e3bb0">
-    
+
     <!--CSS reset, followed by CSS library, followed by site stylesheet (order is important)-->
     <link rel="stylesheet" href="css/reset.css" type="text/css" "media=screen">
-    <link rel="stylesheet" href="https://sublime-css.github.io/SublimeCSS/code/css/sublime.css">
     <link rel="stylesheet" href="css/style.css" type="text/css" "media=screen">
 </head>
 
@@ -78,38 +77,75 @@
     <!--The main body of the site, where content goes-->
     <div class="body">
         <!--PHP - Here Be Dragons (dynamic content)-->
-        <div class="<?php echo"dynamic " . $row["size1"]?>">
-            <h1><?php echo $row["heading1"]?></h1>
-            <p><?php echo $row["text1"]?></p>
-        </div>
-        <div class="<?php echo"dynamic " . $row["size2"]?>">
-            <h1><?php echo $row["heading2"]?></h1>
-            <p><?php echo $row["text2"]?></p>
-        </div>
-        <div class="<?php echo"dynamic " . $row["size3"]?>">
-            <h1><?php echo $row["heading3"]?></h1>
-            <p><?php echo $row["text3"]?></p>
-        </div>
-        <div class="<?php echo"dynamic " . $row["size4"]?>">
-            <h1><?php echo $row["heading4"]?></h1>
-            <p><?php echo $row["text4"]?></p>
-        </div>
-        <div class="<?php echo"dynamic " . $row["size5"]?>">
-            <h1><?php echo $row["heading5"]?></h1>
-            <p><?php echo $row["text5"]?></p>
-        </div>
-        <div class="<?php echo"dynamic " . $row["size6"]?>">
-            <h1><?php echo $row["heading6"]?></h1>
-            <p><?php echo $row["text6"]?></p>
-        </div>
-        <div class="<?php echo"dynamic " . $row["size7"]?>">
-            <h1><?php echo $row["heading7"]?></h1>
-            <p><?php echo $row["text7"]?></p>
-        </div>
-        <div class="<?php echo"dynamic " . $row["size8"]?>">
-            <h1><?php echo $row["heading8"]?></h1>
-            <p><?php echo $row["text8"]?></p>
-        </div>
+        <!--Does the page display text, or videos?-->
+        <?php if ($row["video1"] == ""){
+            ?><div class="<?php echo"dynamic " . $row["size1"]?>">
+                <h1><?php echo $row["heading1"];?></h1>
+                <p><?php echo $row["text1"];?></p>
+            </div>
+            <div class="<?php echo"dynamic " . $row["size2"];?>">
+                <h1><?php echo $row["heading2"];?></h1>
+                <p><?php echo $row["text2"];?></p>
+            </div>
+            <div class="<?php echo"dynamic " . $row["size3"];?>">
+                <h1><?php echo $row["heading3"];?></h1>
+                <p><?php echo $row["text3"];?></p>
+            </div>
+            <div class="<?php echo"dynamic " . $row["size4"];?>">
+                <h1><?php echo $row["heading4"];?></h1>
+                <p><?php echo $row["text4"];?></p>
+            </div>
+            <div class="<?php echo"dynamic " . $row["size5"];?>">
+                <h1><?php echo $row["heading5"];?></h1>
+                <p><?php echo $row["text5"];?></p>
+            </div>
+            <div class="<?php echo"dynamic " . $row["size6"];?>">
+                <h1><?php echo $row["heading6"];?></h1>
+                <p><?php echo $row["text6"];?></p>
+            </div>
+            <div class="<?php echo"dynamic " . $row["size7"];?>">
+                <h1><?php echo $row["heading7"];?></h1>
+                <p><?php echo $row["text7"];?></p>
+            </div>
+            <div class="<?php echo"dynamic " . $row["size8"];?>">
+                <h1><?php echo $row["heading8"];?></h1>
+                <p><?php echo $row["text8"]?></p>
+            </div>
+        <?php
+             } else {
+            ?><div class="<?php echo"dynamic " . $row["size1"]?>">
+                <h1><?php echo $row["heading1"];?></h1>
+                <p><?php echo $row["video1"];?></p>
+            </div>
+            <div class="<?php echo"dynamic " . $row["size2"];?>">
+                <h1><?php echo $row["heading2"];?></h1>
+                <p><?php echo $row["video2"];?></p>
+            </div>
+            <div class="<?php echo"dynamic " . $row["size3"];?>">
+                <h1><?php echo $row["heading3"];?></h1>
+                <p><?php echo $row["video3"];?></p>
+            </div>
+            <div class="<?php echo"dynamic " . $row["size4"];?>">
+                <h1><?php echo $row["heading4"];?></h1>
+                <p><?php echo $row["text4"];?></p>
+            </div>
+            <div class="<?php echo"dynamic " . $row["size5"];?>">
+                <h1><?php echo $row["heading5"];?></h1>
+                <p><?php echo $row["video5"];?></p>
+            </div>
+            <div class="<?php echo"dynamic " . $row["size6"];?>">
+                <h1><?php echo $row["heading6"];?></h1>
+                <p><?php echo $row["video6"];?></p>
+            </div>
+            <div class="<?php echo"dynamic " . $row["size7"];?>">
+                <h1><?php echo $row["heading7"];?></h1>
+                <p><?php echo $row["video7"];?></p>
+            </div>
+            <div class="<?php echo"dynamic " . $row["size8"];?>">
+                <h1><?php echo $row["heading8"];?></h1>
+                <p><?php echo $row["video8"]?></p>
+            </div><?php
+             }?>
         <!--End of Dragon's territory-->
     </div>
     <footer>
