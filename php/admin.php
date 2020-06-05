@@ -66,7 +66,7 @@
         <!--A form for the admin to add new content:-->
         <!--Found at https://www.w3schools.com/howto/howto_css_responsive_form.asp, and-->
         <!--modified exsensively for my use (see write-up). The form used to be HTML but-->
-        <!--now it is PHP that writes the form at runtime.-->
+        <!--Now it is PHP that writes the form at runtime.-->
         <button class="tabbutton" onclick="newpage()">New Page:</button>
         <button class="tabbutton" onclick="editpage()">Edit Page:</button>
         <button class="tabbutton" onclick="delpage()">Delete Page:</button>

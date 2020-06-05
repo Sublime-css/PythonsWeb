@@ -1,0 +1,25 @@
+bughunting:
+
+--hovering on the first navlink makes a hover background that obscures the border, this is not present in any other navlink!
+--Third and fourth table in the pagelist don't take up whole screen width!
+--Admin buttons need a doubleclick the first time the page is visited!
+--databaseInsert crashes when a pagee already exists with that pagenum, and sometimes for no (known) reason at all!
+--navbar links get a 1px space between them when on tablet-sized screen.
+--
+
+TODO now:
+
+--visual diary (permanant).
+--fix the text spacing in dynamic content boxes.
+--make videos embed properly.
+--insert/delete should only list pagenum values that are available.
+--index.php needs a better fallback than to shout about the lack of data.
+--
+
+TODO future:
+
+--Admin authentication?
+--Sign in?
+--Share with class?
+--search function?
+--
