@@ -25,6 +25,7 @@
     <!--CSS reset, followed by CSS library, followed by site stylesheet (order is important)-->
     <link rel="stylesheet" href="css/reset.css" type="text/css" "media=screen">
     <link rel="stylesheet" href="css/style.css" type="text/css" "media=screen">
+    <script type="text/javascript" src="js/mobile.js"></script>
 </head>
 
 <!--PHP is used to pull data from the database-->
@@ -51,7 +52,7 @@
     ?>
 
 <body>
-    <header>
+    <header id="header">
         <!--The header is a navigation bar in this design-->
         <nav>
             <!--There are two levels of navbar -- each level is a list of links-->
@@ -73,7 +74,9 @@
             </ul>
         </nav>
     </header>
-
+    <div id="mobileHeader"><p id="mobileName">Python's Web</p>
+    <div onclick="menuTab()" id="menuTab">≡</div>
+    </div>
     <!--The main body of the site, where content goes-->
     <div class="body">
         <!--PHP - Here Be Dragons (dynamic content)-->

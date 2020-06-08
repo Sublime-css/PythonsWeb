@@ -4,7 +4,7 @@ bughunting:
 --Third and fourth table in the pagelist don't take up whole screen width!
 --Admin buttons need a doubleclick the first time the page is visited!
 --databaseInsert crashes when a pagee already exists with that pagenum, and sometimes for no (known) reason at all!
---navbar links get a 1px space between them when on tablet-sized screen.
+--navbar links get a 1px space between them when on tablet-sized screen!
 --
 
 TODO now:
