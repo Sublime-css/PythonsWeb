@@ -2,7 +2,7 @@ bughunting:
 
 --hovering on the first navlink makes a hover background that obscures the border, this is not present in any other navlink!
 --Third and fourth table in the pagelist don't take up whole screen width!
---Admin buttons need a doubleclick the first time the page is visited!
+--Admin buttons need a doubleclick the first time the page is visited! //Fixed, document.getElementById().style.display defaults to "" not "none" or "null".
 --databaseInsert crashes when a pagee already exists with that pagenum, and sometimes for no (known) reason at all!
 ------navbar links get a 1px space between them when on tablet-sized screen! //Fixed, this is an issue with the google renderer.
 ------debug messages appear 4 times on admin page //Fixed, didn't need to reconnect to the database 4 times in the same page:thinking:.

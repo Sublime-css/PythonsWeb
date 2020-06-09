@@ -10,7 +10,7 @@ function alltab() {
 
 function editpage() {
     var x = document.getElementById("updatepage");
-    if (x.style.display === "none") {
+    if (x.style.display != "block") {
         alltab();
         x.style.display = "block";
     } else {
@@ -20,7 +20,7 @@ function editpage() {
 
 function newpage() {
     var x = document.getElementById("newpage");
-    if (x.style.display === "none") {
+    if (x.style.display != "block") {
         alltab();
         x.style.display = "block";
     } else {
@@ -30,7 +30,7 @@ function newpage() {
 
 function delpage() {
     var x = document.getElementById("delpage");
-    if (x.style.display === "none") {
+    if (x.style.display != "block") {
         alltab();
         x.style.display = "block";
     } else {
@@ -40,7 +40,7 @@ function delpage() {
 
 function pagelist1() {
     var x = document.getElementById("pagelist1");
-    if (x.style.display === "none") {
+    if (x.style.display != "block") {
         alltab();
         x.style.display = "block";
     } else {
@@ -50,7 +50,7 @@ function pagelist1() {
 
 function pagelist2() {
     var x = document.getElementById("pagelist2");
-    if (x.style.display === "none") {
+    if (x.style.display != "block") {
         alltab();
         x.style.display = "block";
     } else {
@@ -60,7 +60,7 @@ function pagelist2() {
 
 function pagelist3() {
     var x = document.getElementById("pagelist3");
-    if (x.style.display === "none") {
+    if (x.style.display != "block") {
         alltab();
         x.style.display = "block";
     } else {
@@ -70,7 +70,7 @@ function pagelist3() {
 
 function pagelist4() {
     var x = document.getElementById("pagelist4");
-    if (x.style.display === "none") {
+    if (x.style.display != "block") {
         alltab();
         x.style.display = "block";
     } else {
