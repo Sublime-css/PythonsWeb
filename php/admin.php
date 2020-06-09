@@ -60,7 +60,7 @@
     <div class="body">
         <?php
             if (true){//Admin authentication goes here eventually.
-                echo "<p style=\"color: #63ebb0; position: absolute; top:2rem\">Logged in with remote admin privileges</p>";
+                echo "<p style=\"color: #63ebb0; position: absolute; top:2rem\">Logged in with remote admin privileges.</p>";
             }
         ?>
         <!--A form for the admin to add new content:-->
@@ -201,12 +201,6 @@
             </tr>
             <?php
                     }
-                }
-                else {
-                    //Explain what went wrong:
-                    echo "<p style=\"color: red\">ERROR: Database error -- Tried to load page " . $Page . " (Content nonexistent -- pending upload)</p>";
-                    }
-                    $conn->close();
                     ?>
         </table>
         <table class="pagelist" id="pagelist2">
@@ -220,14 +214,7 @@
             </tr>
 
             <?php
-                //Need to login to the database:
-                include "setup.php";
-                //Get the data that corrosponds to the current page:
-                $sql = "SELECT * FROM pages";
                 $result = $conn->query($sql);
-                //Check that we got something, or error if we didn't:
-                if ($result->num_rows > 0) {
-                    //Loop through the results:
                     while($row = $result->fetch_assoc()){
             ?>
 
@@ -245,12 +232,6 @@
             </tr>
             <?php
                     }
-                }
-                else {
-                    //Explain what went wrong:
-                    echo "<p style=\"color: red\">ERROR: Database error -- Tried to load page " . $Page . " (Content nonexistent -- pending upload)</p>";
-                    }
-                    $conn->close();
                     ?>
         </table>
         <table class="pagelist" id="pagelist3">
@@ -264,14 +245,7 @@
             </tr>
 
             <?php
-                //Need to login to the database:
-                include "setup.php";
-                //Get the data that corrosponds to the current page:
-                $sql = "SELECT * FROM pages";
                 $result = $conn->query($sql);
-                //Check that we got something, or error if we didn't:
-                if ($result->num_rows > 0) {
-                    //Loop through the results:
                     while($row = $result->fetch_assoc()){
                         
             ?>
@@ -290,12 +264,6 @@
             </tr>
             <?php
                     }
-                }
-                else {
-                    //Explain what went wrong:
-                    echo "<p style=\"color: red\">ERROR: Database error -- Tried to load page " . $Page . " (Content nonexistent -- pending upload)</p>";
-                    }
-                    $conn->close();
                     ?>
         </table>
         <table class="pagelist" id="pagelist4">
@@ -309,14 +277,7 @@
             </tr>
 
             <?php
-                //Need to login to the database:
-                include "setup.php";
-                //Get the data that corrosponds to the current page:
-                $sql = "SELECT * FROM pages";
                 $result = $conn->query($sql);
-                //Check that we got something, or error if we didn't:
-                if ($result->num_rows > 0) {
-                    //Loop through the results:
                     while($row = $result->fetch_assoc()){
             ?>
 
@@ -334,12 +295,6 @@
             </tr>
             <?php
                     }
-                }
-                else {
-                    //Explain what went wrong:
-                    echo "<p style=\"color: red\">ERROR: Database error -- Tried to load page " . $Page . " (Content nonexistent -- pending upload)</p>";
-                    }
-                    $conn->close();
                     ?>
         </table>
 
@@ -422,6 +377,14 @@
     <footer>
         <!--Whatever needs to go here:-->
     </footer>
+    <?php
+        }
+        else {
+            //Explain what went wrong:
+            echo "<p style=\"color: red\">ERROR: Database error -- Tried to load data " . $Page . " (Content nonexistent -- pending upload)</p>";
+        }
+    $conn->close();
+    ?>
 </body>
 
 </html>
