@@ -4,7 +4,7 @@
     <meta http-equiv="refresh" content="3;url=admin.php">
     <?php
 //Store data in variables:
-$updatefield= $_POST["updatefield"];
+$updatefield = str_replace("'","\'",$_POST["updatefield"]);
 $updatevalue= $_POST["updatevalue"];
 $updatepagenum= $_POST["updatepagenum"];
 //Log into the database:
