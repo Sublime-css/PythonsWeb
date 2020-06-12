@@ -3,45 +3,32 @@
 <html>
     <meta http-equiv="refresh" content="3;url=admin.php">
     <?php
-        //Store data in variables:
-        $pagenum= $_POST["pagenum"];
-        $video1= $_POST["video1"];
-        $video2= $_POST["video2"];
-        $video3= $_POST["video3"];
-        $video4= $_POST["video4"];
-        $video5= $_POST["video5"];
-        $video6= $_POST["video6"];
-        $video7= $_POST["video7"];
-        $video8= $_POST["video8"];
-        $heading1= $_POST["heading1"];
-        $heading2= $_POST["heading2"];
-        $heading3= $_POST["heading3"];
-        $heading4= $_POST["heading4"];
-        $heading5= $_POST["heading5"];
-        $heading6= $_POST["heading6"];
-        $heading7= $_POST["heading7"];
-        $heading8= $_POST["heading8"];
-        $text1= $_POST["text1"];
-        $text2= $_POST["text2"];
-        $text3= $_POST["text3"];
-        $text4= $_POST["text4"];
-        $text5= $_POST["text5"];
-        $text6= $_POST["text6"];
-        $text7= $_POST["text7"];
-        $text8= $_POST["text8"];
-        $size1= $_POST["size1"];
-        $size2= $_POST["size2"];
-        $size3= $_POST["size3"];
-        $size4= $_POST["size4"];
-        $size5= $_POST["size5"];
-        $size6= $_POST["size6"];
-        $size7= $_POST["size7"];
-        $size8= $_POST["size8"];
+        //Store SQL syntax in a string, starting with the columns:
+        $sql = "INSERT INTO pages (";
+        foreach ($_POST as $key => $value) {
+            //Append the key to the SQL string:
+            $sql = $sql . $key . ",";
+        }
+        //cut the extra , or SQL will complain and things will explode:
+        $sql = substr($sql, 0, -1);
+        //now its time for the actual values:
+        $sql = $sql . ") VALUES (";
+        //Loop through POST and get the data, turning it into a string SQL will accept.
+        foreach ($_POST as $key => $value) {
+            //the ' character breaks everything as it inverts the string-ness of the entire string. Lets add a backslash so it won't explode...
+            $_POST[$value] = str_replace("'","\'",$value);
+            //Append the sanitised data to the SQL string:
+            $sql = $sql . "'" . $_POST[$value] . "',";
+        }
+        //There's a really annoying last comma that breaks everything, it needs to be disposed of:
+        $sql = substr($sql, 0, -1);
+        //Close bracket is that last thing the string needs:
+        $sql = $sql . ")";
+        
+        //Now time to actually use the SQL string!
         //Log into the database:
         include"setup.php";
         //Insert data by SQL:
-        $sql = "INSERT INTO pages (pagenum, video1, video2, video3, video4, video5, video6, video7, video8, heading1, heading2, heading3, heading4, heading5, heading6, heading7, heading8, text1, text2, text3, text4, text5, text6, text7, text8, size1, size2, size3, size4, size5, size6, size7, size8)
-        VALUES ('$pagenum', '$video1', '$video2','$video3','$video4','$video5','$video6','$video7','$video8','$heading1','$heading2','$heading3','$heading4','$heading5','$heading6','$heading7','$heading8','$text1','$text2','$text3','$text4','$text5','$text6','$text7','$text8','$size1','$size2','$size3','$size4','$size5','$size6','$size7','$size8')";
         //Check that attempt was successfull:
         if ($conn->query($sql) === TRUE) {
             //give some feedback:

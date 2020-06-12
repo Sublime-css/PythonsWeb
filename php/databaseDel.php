@@ -13,7 +13,7 @@
         //Check that attempt was successfull:
         if ($conn->query($sql) === TRUE) {
             //give some feedback:
-            echo "<p style=\"color: #63ebb0\"size=\"5rem\">Page Removed Successfully.</p>";
+            echo "<p style=\"color: #63ebb0; position: absolute; top: 2rem\"size=\"5rem\">Page Removed Successfully.</p>";
         }
         //Tell the user that it didn't work:
         else {

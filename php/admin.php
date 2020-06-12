@@ -295,6 +295,11 @@
             </tr>
             <?php
                     }
+            }
+        else {
+            //Explain what went wrong:
+            echo "<p style=\"color: red\">ERROR: Database error -- Tried to load data (Content nonexistent -- pending upload)</p>";
+        }
                     ?>
         </table>
 
@@ -378,11 +383,6 @@
         <!--Whatever needs to go here:-->
     </footer>
     <?php
-        }
-        else {
-            //Explain what went wrong:
-            echo "<p style=\"color: red\">ERROR: Database error -- Tried to load data " . $Page . " (Content nonexistent -- pending upload)</p>";
-        }
     $conn->close();
     ?>
 </body>

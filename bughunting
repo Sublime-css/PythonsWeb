@@ -1,0 +1,22 @@
+//crash dump for stoopid things that happen and checking syntax:
+
+newpage ERROR:
+
+Connected to database successfully.Error: INSERT INTO pages (pagenum, video1, video2, video3, video4, video5, video6, video7, video8, heading1, heading2, heading3, heading4, heading5, heading6, heading7, heading8, text1, text2, text3, text4, text5, text6, text7, text8, size1, size2, size3, size4, size5, size6, size7, size8) VALUES ('2', '', '','','','','','','','the database doesn't work if theres no stuffs','','','','','','','','so...','plz no explode','','','','','','','small','medium','none','none','none','none','none','none')
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 't work if theres no stuffs','','','','','','','','so...','plz no explode','','',' at line 2No changes have been made.
+
+Connected to database successfully.Error: INSERT INTO pages (pagenum, video1, video2, video3, video4, video5, video6, video7, video8, heading1, heading2, heading3, heading4, heading5, heading6, heading7, heading8, text1, text2, text3, text4, text5, text6, text7, text8, size1, size2, size3, size4, size5, size6, size7, size8) VALUES ('1', '', '','','','','','','','the ' is bad','','','','','','','','reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee','','','','','','','','small','small','small','small','small','small','small','small')
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'bad','','','','','','','','reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee' at line 2No changes have been made.
+
+' character in text?
+
+fixes?!? --> php str_replace()
+
+
+INSERT INTO pages (pagenum, video1, video2, video3, video4, video5, video6, video7, video8, heading1, heading2, heading3, heading4, heading5, heading6, heading7, heading8, text1, text2, text3, text4, text5, text6, text7, text8, size1, size2, size3, size4, size5, size6, size7, size8) VALUES ('1','mad lad put a ITS BROKENNNNNNNNNNN in the ITS BROKENNNNNNNNNNNing ITS BROKENNNNNNNNNNNext','','','','','','','','','','','','','','','','','','','','','','','','small','small','small','small','small','small','small','small',)
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 2No changes have been made.
+--extra , at the end of the data.
+
+Error: INSERT INTO pages (pagenum,video1,video2,video3,video4,video5,video6,video7,video8,heading1,heading2,heading3,heading4,heading5,heading6,heading7,heading8,text1,text2,text3,text4,text5,text6,text7,text8,size1,size2,size3,size4,size5,size6,size7,size8, ) VALUES ('3','mad lad put a \' in the \'ing \'ext','','','','','','','','','','','','','','','','','','','','','','','','small','small','small','small','small','small','small','small')
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') VALUES ('3','mad lad put a \' in the \'ing \'ext','','','','','','','','','','' at line 1No changes have been made.
+--extra , in column list
