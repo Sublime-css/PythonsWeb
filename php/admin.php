@@ -33,13 +33,17 @@
 <!--PHP is used to pull data from the database-->
 
 <body>
+    <?php
+    //Need to log into the database:
+        include"setup.php";
+    ?>
     <header>
         <!--The header is a navigation bar in this design-->
         <nav>
             <!--There are two levels of navbar -- each level is a list of links-->
             <!--CSS is structured so only the list needs a class -- this prevents destroying other lists on the page-->
             <ul class="navbar">
-                <li><a href="index.php?page=1">
+                <li><a href="../index.php?page=1">
                         <h1>Python's Web</h1>
                     </a></li>
                 <li><a href="../index.php?page=2">Register/Login</a></li>
@@ -84,8 +88,15 @@
                     <div class="col-75">
                         <select id="pagenum" name="pagenum">
                             <?php
-                for ($i = 1; $i <= 10; $i++) {
-                echo "<option value=\"" . $i . "\">" . $i . "</option>\r\n";
+                            //We only want to be able to add pages that arn't made already
+                            $sql = "SELECT pagenum FROM pages";
+                            $result = $conn->query($sql);
+                            $pages = [];
+                            while($num = $result->fetch_assoc()){
+                                array_push($pages, $num);
+                            }
+                foreach ($pages as $i) {
+                echo "<option value=\"" . implode($i) . "\">" . implode($i) . "</option>\r\n";
                 }
                 ?>
                         </select>
@@ -174,8 +185,6 @@
             </tr>
 
             <?php
-                //Need to login to the database:
-                include "setup.php";
                 //Get the data that corrosponds to the current page:
                 $sql = "SELECT * FROM pages";
                 $result = $conn->query($sql);
