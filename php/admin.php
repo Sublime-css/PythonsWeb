@@ -93,10 +93,15 @@
                             $result = $conn->query($sql);
                             $pages = [];
                             while($num = $result->fetch_assoc()){
-                                array_push($pages, $num);
+                                array_push($pages, implode($num));
                             }
-                foreach ($pages as $i) {
-                echo "<option value=\"" . implode($i) . "\">" . implode($i) . "</option>\r\n";
+                            $inverse = [0,1,2,3,4,5,6,7,8,9,10];
+                            $test = array_diff($inverse, $pages);
+//                             print_r($pages);
+//                            print_r($inverse);
+//                            print_r ($test);
+                foreach ($test as $i) {
+                echo "<option value=\"" . $i . "\">" . $i . "</option>\r\n";
                 }
                 ?>
                         </select>
@@ -373,9 +378,20 @@
                     </div>
                     <div class="col-75">
                         <select id="delpagenum" name="delpagenum">
-                            <?php for ($i = 1; $i <= 10; $i++) {
-                                echo "<option value=\"$i\">$i</option>";
+                            <?php
+                            
+                            //We only want to be able to add pages that arn't made already
+                            $sql = "SELECT pagenum FROM pages";
+                            $result = $conn->query($sql);
+                            $pages = [];
+                            while($num = $result->fetch_assoc()){
+                                array_push($pages, $num);
                             }
+                            
+                            foreach ($pages as $i) {
+                                echo "<option value=\"" . implode($i) . "\">" . implode($i) . "</option>\r\n";
+                            }
+                            
                             ?>
                         </select>
                     </div>
