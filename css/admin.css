@@ -8,6 +8,7 @@ Style inputs, select elements and textareas */
       border-radius: 4px;
       box-sizing: border-box;
       resize: vertical;
+      background: #ffffff;
     }
 
     /* Style the label to display next to the inputs */
