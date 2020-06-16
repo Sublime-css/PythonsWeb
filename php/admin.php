@@ -93,14 +93,12 @@
                             $result = $conn->query($sql);
                             $pages = [];
                             while($num = $result->fetch_assoc()){
+                                //Put the list of current pages into an array:
                                 array_push($pages, implode($num));
                             }
-                            $inverse = [0,1,2,3,4,5,6,7,8,9,10];
-                            $test = array_diff($inverse, $pages);
-//                             print_r($pages);
-//                            print_r($inverse);
-//                            print_r ($test);
-                foreach ($test as $i) {
+                            //get only the page numbers that have not yet been created:
+                            $inverse = array_diff([1,2,3,4,5,6,7,8,9,10], $pages);
+                foreach ($inverse as $i) {
                 echo "<option value=\"" . $i . "\">" . $i . "</option>\r\n";
                 }
                 ?>
@@ -325,9 +323,17 @@
                     </div>
                     <div class="col-75">
                         <select id="updatepagenum" name="updatepagenum">
-                            <?php for ($i = 1; $i <= 10; $i++) {
-                            echo "<option value=\"$i\">$i</option>\r\n";
-                            }
+                            <?php 
+                                //We only want to be able to add pages that arn't made already
+                                $sql = "SELECT pagenum FROM pages";
+                                $result = $conn->query($sql);
+                                $pages = [];
+                                while($num = $result->fetch_assoc()){
+                                    array_push($pages, implode($num));
+                                }
+                                foreach ($pages as $i) {
+                                    echo "<option value=\"" . $i . "\">" . $i . "</option>\r\n";
+                                }
                             ?>
                         </select>
                     </div>
@@ -385,11 +391,11 @@
                             $result = $conn->query($sql);
                             $pages = [];
                             while($num = $result->fetch_assoc()){
-                                array_push($pages, $num);
+                                array_push($pages, implode($num));
                             }
                             
                             foreach ($pages as $i) {
-                                echo "<option value=\"" . implode($i) . "\">" . implode($i) . "</option>\r\n";
+                                echo "<option value=\"" . $i . "\">" . $i . "</option>\r\n";
                             }
                             
                             ?>
