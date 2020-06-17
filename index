@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<!--Landing page will redirect to the PHP directory to allow for modulisation of PHP pages-->
+<html>
+    <head>
+        <meta http-equiv="refresh" content="1;url=php/index.php">
+    </head>
+    <body>
+    </body>
+</html>

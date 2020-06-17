@@ -8,63 +8,26 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!--To appear at the top of the page, and also for SEO-->
-    <title>Python's Web</title>
-
-    <!--For SEO and screen readers-->
-    <meta name="description" content="Learn to code Python online!">
-
-    <!--For Mobile users -- colour the browser window:-->
-    <meta name="theme-color" content="#6e3bb0">
-
-    <!--CSS reset, followed by CSS library, followed by site stylesheet (order is important)-->
-    <link rel="stylesheet" href="../css/reset.css" type="text/css" "media=screen">
-    <link rel="stylesheet" href="../css/style.css" type="text/css" "media=screen">
+    <?php include "head.php";?>
     <!--Additional stylesheet for admin form-->
     <link rel="stylesheet" href="../css/admin.css" type="text/css" "media=screen">
-
-    <script type="text/javascript" src="../js/admin.js"></script>
-
 </head>
-
-<!--PHP is used to pull data from the database-->
 
 <body>
     <?php
     //Need to log into the database:
         include"setup.php";
+        include "nav.php";
     ?>
-    <header>
-        <!--The header is a navigation bar in this design-->
-        <nav>
-            <!--There are two levels of navbar -- each level is a list of links-->
-            <!--CSS is structured so only the list needs a class -- this prevents destroying other lists on the page-->
-            <ul class="navbar">
-                <li><a href="../index.php?page=1">
-                        <h1>Python's Web</h1>
-                    </a></li>
-                <li><a href="../index.php?page=2">Register/Login</a></li>
-                <li><a href="../index.php?page=3">Share With Class</a></li>
-            </ul>
-            <ul class="navbar">
-                <li><a href="../index.php?page=4">Search</a></li>
-                <li><a href="../index.php?page=5">Coursework</a></li>
-                <li><a href="../index.php?page=6">Donate</a></li>
-                <li><a href="../index.php?page=7">News</a></li>
-                <li><a href="../index.php?page=8">F. A. Q.</a></li>
-                <li><a href="../index.php?page=9">Reference</a></li>
-            </ul>
-        </nav>
-    </header>
 
     <!--The main body of the site, where content goes-->
     <div class="body">
         <?php
             if (true){//Admin authentication goes here eventually.
                 echo "<p style=\"color: #63ebb0; position: absolute; top:2rem\">Logged in with remote admin privileges.</p>";
+            } else {
+                echo "<p style=\"color: red; position: absolute; top:2rem\">You are not an administrator. Administrator privileges denied.</p>";
+                die("Error: You have failed to authenticate as an admin.");
             }
         ?>
         <!--A form for the admin to add new content:-->
@@ -156,12 +119,12 @@
                     </div>
                     <div class=\"col-75\">
                         <select id=\"size" . $i . "\"name=\"size" . $i . "\">
+                            <option value=\"none\">Invisible</option>
                             <option value=\"small\">Small</option>
                             <option value=\"medium\">Medium</option>
                             <option value=\"large\">Large</option>
                             <option value=\"long\">Long</option>
                             <option value=\"whole\">Whole Page</option>
-                            <option value=\"none\">Invisible</option>
                         </select>
                     </div>
                 </div>\r\n";
@@ -186,7 +149,6 @@
                 }
                 ?>
             </tr>
-
             <?php
                 //Get the data that corrosponds to the current page:
                 $sql = "SELECT * FROM pages";
@@ -195,11 +157,10 @@
                 if ($result->num_rows > 0) {
                     //Loop through the results:
                     while($row = $result->fetch_assoc()){
+                        //Write up the results every time:
+                        //I could do this with PHP using a loop and an eval(), but using eval() for user generated data is an extreme security risk because it allows arbitrary RCE.
+                        //This method does not allow RCE because PHP does not recursively execute.
             ?>
-
-            <!--Write up the results every time:-->
-            <!--I could do this with PHP using a loop and an eval(), but using eval() for user generated data is an extreme security risk because it allows arbitrary RCE.-->
-            <!--This method does not allow RCE because PHP does not recursively execute.-->
             <tr>
                 <td><?php echo $row["pagenum"];?></td>
                 <td><?php echo $row["heading1"];?></td>
@@ -211,9 +172,7 @@
                 <td><?php echo $row["heading7"];?></td>
                 <td><?php echo $row["heading8"];?></td>
             </tr>
-            <?php
-                    }
-                    ?>
+            <?php } ?>
         </table>
         <table class="pagelist" id="pagelist2">
             <tr>
@@ -228,9 +187,8 @@
             <?php
                 $result = $conn->query($sql);
                     while($row = $result->fetch_assoc()){
+                        //Write up the results every time:
             ?>
-
-            <!--Write up the results every time:-->
             <tr>
                 <td><?php echo $row["pagenum"];?></td>
                 <td><?php echo $row["text1"];?></td>
@@ -242,9 +200,9 @@
                 <td><?php echo $row["text7"];?></td>
                 <td><?php echo $row["text8"];?></td>
             </tr>
-            <?php
-                    }
-                    ?>
+            
+            <?php } ?>
+        
         </table>
         <table class="pagelist" id="pagelist3">
             <tr>
@@ -259,10 +217,9 @@
             <?php
                 $result = $conn->query($sql);
                     while($row = $result->fetch_assoc()){
-                        
+                        //Write up the results every time:
             ?>
 
-            <!--Write up the results every time:-->
             <tr>
                 <td><?php echo $row["pagenum"];?></td>
                 <td><?php echo $row["video1"];?></td>
@@ -274,9 +231,7 @@
                 <td><?php echo $row["video7"];?></td>
                 <td><?php echo $row["video8"];?></td>
             </tr>
-            <?php
-                    }
-                    ?>
+            <?php } ?>
         </table>
         <table class="pagelist" id="pagelist4">
             <tr>
@@ -311,8 +266,7 @@
         else {
             //Explain what went wrong:
             echo "<p style=\"color: red\">ERROR: Database error -- Tried to load data (Content nonexistent -- pending upload)</p>";
-        }
-                    ?>
+        } ?>
         </table>
 
         <div class="container" id="updatepage" style="display:none">
@@ -324,13 +278,7 @@
                     <div class="col-75">
                         <select id="updatepagenum" name="updatepagenum">
                             <?php 
-                                //We only want to be able to add pages that arn't made already
-                                $sql = "SELECT pagenum FROM pages";
-                                $result = $conn->query($sql);
-                                $pages = [];
-                                while($num = $result->fetch_assoc()){
-                                    array_push($pages, implode($num));
-                                }
+                                //We only want to be able to add pages that aren't made already, but we already calculated the list:
                                 foreach ($pages as $i) {
                                     echo "<option value=\"" . $i . "\">" . $i . "</option>\r\n";
                                 }
@@ -386,14 +334,7 @@
                         <select id="delpagenum" name="delpagenum">
                             <?php
                             
-                            //We only want to be able to add pages that arn't made already
-                            $sql = "SELECT pagenum FROM pages";
-                            $result = $conn->query($sql);
-                            $pages = [];
-                            while($num = $result->fetch_assoc()){
-                                array_push($pages, implode($num));
-                            }
-                            
+                            //We only want to be able to add pages that aren't made already, but we already cauculated the list:
                             foreach ($pages as $i) {
                                 echo "<option value=\"" . $i . "\">" . $i . "</option>\r\n";
                             }
@@ -408,7 +349,6 @@
                 </div>
             </form>
         </div>
-
     </div>
     <footer>
         <!--Whatever needs to go here:-->
