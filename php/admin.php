@@ -27,7 +27,7 @@
         <?php
         include "frontEndLogin.php";
         include "backEndLogin.php";
-            if (login()){//Admin authentication goes here eventually.
+            if (login("admin")){//Admin authentication goes here eventually.
                 echo "<p style=\"color: #63ebb0; position: absolute; top:2rem\">Logged in with remote admin privileges.</p>";
             } else {
                 echo "<p style=\"color: red; position: absolute; top:2rem\">You are not an administrator. Administrator privileges denied.</p>";

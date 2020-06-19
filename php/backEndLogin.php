@@ -1,5 +1,5 @@
 <?php
-function login(){
+function login($perms){
     $servername = "localhost";
     $username = "sec_user";
     $password = "GreenChair153";
@@ -14,7 +14,7 @@ function login(){
     }
     echo "<p style=\"color: #63ebb0; position: absolute; top:1rem\">Connected to database successfully.</p>";
 
-    $result = mysqli_query($conn,"SELECT * FROM login WHERE username='" . $_SESSION["username"] . "' and password = '". $_SESSION["password"]."'");
+    $result = mysqli_query($conn,"SELECT * FROM login WHERE username='" . $_SESSION["username"] . "' and password = '". $_SESSION["password"]."' and perms='" . $perms . "'");
         $count  = mysqli_num_rows($result);
         if($count == 0) {
             return false;
