@@ -17,9 +17,10 @@ function login($perms){
     $result = mysqli_query($conn,"SELECT * FROM login WHERE username='" . $_SESSION["username"] . "' and password = '". $_SESSION["password"]."' and perms='" . $perms . "'");
         $count  = mysqli_num_rows($result);
         if($count == 0) {
-            return false;
+            echo "<p style=\"color: red; position: absolute; top:2rem\">You are not an administrator. Administrator privileges denied.</p>";
+            die("Error: Incorrect credentials, or insufficient permissions.");
         } else {
-            return true;
+            echo "<p style=\"color: #63ebb0; position: absolute; top:2rem\">Logged in with remote admin privileges.</p>";
         }
     }
 ?>
