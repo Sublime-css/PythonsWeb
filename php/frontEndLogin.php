@@ -1,4 +1,4 @@
-<div class="container" id="login" style="position: absolute; width: 500px; height: 25vh; display: block; left: 10%;">
+<div class="container" style="position: absolute; width: 500px; height: 500px; display: block;">
     <form action="" method="POST">
         <div class="row">
             <div class="col-25">
@@ -20,11 +20,10 @@
                     <input type="submit" name="submit" value="Submit">
                 </div>
     </form>
-</div>
 <?php 
+        session_start;
         if (isset($_POST["submit"])){
             $_SESSION['username'] = $_POST['username'];
-            //Send a sha256 hash to the server for security purposes:
-            $_SESSION['password'] = hash("sha256", $_POST["password"]);
+            $_SESSION['password'] = $_POST['password'];
         }
 ?>
