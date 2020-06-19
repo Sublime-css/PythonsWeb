@@ -11,6 +11,8 @@
     <?php include "head.php";?>
     <!--Additional stylesheet for admin form-->
     <link rel="stylesheet" href="../css/admin.css" type="text/css" "media=screen">
+    <!--JS for the admin page-->
+    <script type="text/javascript" src="../js/admin.js"></script>
 </head>
 
 <body>
@@ -23,7 +25,9 @@
     <!--The main body of the site, where content goes-->
     <div class="body">
         <?php
-            if (true){//Admin authentication goes here eventually.
+        include "frontEndLogin.php";
+        include "backEndLogin.php";
+            if (login()){//Admin authentication goes here eventually.
                 echo "<p style=\"color: #63ebb0; position: absolute; top:2rem\">Logged in with remote admin privileges.</p>";
             } else {
                 echo "<p style=\"color: red; position: absolute; top:2rem\">You are not an administrator. Administrator privileges denied.</p>";
@@ -41,7 +45,7 @@
         <button class="tabbutton" onclick="pagelist2()">Page Text</button>
         <button class="tabbutton" onclick="pagelist3()">Page Videos</button>
         <button class="tabbutton" onclick="pagelist4()">Page Sizing</button>
-
+        
         <div class="container" id="newpage" style="display:none">
             <form action="databaseInsertion.php" method="POST">
                 <div class="row">

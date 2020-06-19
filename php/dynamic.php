@@ -1,3 +1,30 @@
+<!--Dynamic content for the website:-->
+<!--Video embeds are not implemented so the video links just display like the text for now-->
+
+<?php
+    echo "<p style=\"color: #707070; position: absolute\">Debug:</p>";
+    //Default to the gallery:
+    $Page = '5';
+    //Try for what page the user wants, and dont explode if there isn't one:
+    if (empty($_GET) != true){
+    $Page = $_GET['page'];}
+    //Need to login to the database:
+    include "setup.php";
+    //Get the data that corrosponds to the current page:
+    $sql = "SELECT * FROM pages where pagenum = $Page";
+    $result = $conn->query($sql);
+    //Check that we got something, or error if we didn't:
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        echo "<p style=\"color: #63ebb0; position: absolute;top:2rem\">Successfully loaded page " . $Page . ".</p>";
+    } else {
+        //Explain what went wrong:
+        echo "<p style=\"color: red; position: absolute;top:2rem\">ERROR: Database error -- Tried to load page " . $Page . " (Content nonexistent)</p>";
+    }
+    $conn->close();
+    ?>
+
+
 <?php if (empty($row["text1"]) == false){
     ?><div class="<?php echo"dynamic " . $row["size1"]?>">
         <h1><?php echo $row["heading1"];?></h1>
