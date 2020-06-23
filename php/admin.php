@@ -18,7 +18,7 @@
 <body>
     <?php
     //Need to log into the database:
-        include"setup.php";
+        require_once("setup.php");
         include "nav.php";
     ?>
 
@@ -26,6 +26,7 @@
     <div class="body">
         <?php
         include "login.php";
+        loginWindow(78.75);
         login("admin");
         ?>
         <!--A form for the admin to add new content:-->

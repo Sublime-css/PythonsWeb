@@ -25,6 +25,16 @@
         //Close bracket is that last thing the string needs:
         $sql = $sql . ")";
         
+        //Due to security vunerbilities discovered in penetration testing, i need to sanitise the data:
+        
+        $illegal = ["<script>", "</script>", "\\", "<?php", "?>"];
+        foreach ($illegal as $hack){
+            if (strpos($sql, $hack) !== false){
+                echo "<p style=\"color: red\"size=\"5rem\">Illegal characters used: \"&ltscript&gt\", \"&lt/script&gt\", \"\\\", \"&lt?php\", \"?&gt\" are not permitted";
+                die();
+            }
+        }
+            
         //Now time to actually use the SQL string!
         //Log into the database:
         include"setup.php";

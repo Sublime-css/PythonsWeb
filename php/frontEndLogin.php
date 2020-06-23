@@ -1,4 +1,5 @@
-<div class="container" id="login" style="position: absolute; width: 500px; height: 25vh; display: block; left: 10%;">
+<?php function loginWindow($height){?>
+<div class="container" id="login" style="position: absolute; width: 100vw; height: <?php echo ($height) . "vh;";?> display: block; bottom: 0px; overflow: clip;">
     <form action="" method="POST">
         <div class="row">
             <div class="col-25">
@@ -21,10 +22,11 @@
                 </div>
     </form>
 </div>
-<?php 
-        if (isset($_POST["submit"])){
-            $_SESSION['username'] = $_POST['username'];
-            //Send a sha256 hash to the server for security purposes:
-            $_SESSION['password'] = hash("sha256", $_POST["password"]);
-        }
+<?php   
+}
+if (isset($_POST["submit"])){
+    //Send a sha256 hash to the server for security purposes:
+    $_SESSION['username'] = hash("sha256", $_POST["username"]);
+    $_SESSION['password'] = hash("sha256", $_POST["password"]);
+}
 ?>

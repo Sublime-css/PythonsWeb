@@ -6,10 +6,13 @@
     //Default to the gallery:
     $Page = '5';
     //Try for what page the user wants, and dont explode if there isn't one:
-    if (empty($_GET) != true){
-    $Page = $_GET['page'];}
+    //Also make sure that the GET is 0 or 1 character in length, because otherwise anyone can write SQL in the URL bar which will be arbitrarilly executed.
+    //Before this was patched, adding "; DROP * FROM pages" to the URL would have deleted the website's database. This is a major security vunerability.
+    if (empty($_GET) != true and strlen($_GET["page"]) <= 1){
+        $Page = $_GET['page'];
+    }
     //Need to login to the database:
-    include "setup.php";
+    require_once("setup.php");
     //Get the data that corrosponds to the current page:
     $sql = "SELECT * FROM pages where pagenum = $Page";
     $result = $conn->query($sql);
