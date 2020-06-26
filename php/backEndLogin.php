@@ -30,6 +30,8 @@ function login($perms){
             echo "<p style=\"color: #63ebb0; position: absolute; top:2rem\">Logged in with elevated privileges.</p>";
             //Add the login to the session to make life easier next time:
             $_SESSION["login"] = $perms;
+            //Refresh the page with the new perms to get the restricted page:
+            echo("<meta http-equiv='refresh' content='0'>");
         }
     }
 }
