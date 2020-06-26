@@ -1,5 +1,5 @@
-<?php function loginWindow($height){?>
-<div class="container" id="login" style="position: absolute; width: 100vw; height: <?php echo ($height) . "vh;";?> display: block; bottom: 0px; overflow: clip;">
+<?php function loginWindow(){ ?>
+<div class="container" id="login" style="position: absolute; width: 100vw; height: 85.75vh; display: block; bottom: 0px; overflow: clip;">
     <form action="" method="POST">
         <div class="row">
             <div class="col-25">

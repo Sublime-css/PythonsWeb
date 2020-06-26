@@ -1,5 +1,11 @@
 <?php
 function login($perms){
+    if (isset($_SESSION["login"]) and $_SESSION["login"] == $perms){
+        return true;
+    }
+    else{
+    include "frontEndLogin.php";
+    loginWindow();
     //Obfuscating the login technique can help to keep the website secure in the case of a data breach:
     //The database password is stored in plaintext if we don't obfuscate this:
     eval(base64_decode('JHNlcnZlcm5hbWUgPSAibG9jYWxob3N0IjsgJHVzZXJuYW1lID0gInNlY191c2VyIjsgJHBhc3N3b3JkID0gIkdyZWVuQ2hhaXIxNTMiOyAkZGF0YWJhc2UgPSAicHl0aG9uc3dlYiI7'));
@@ -17,9 +23,12 @@ function login($perms){
         $count  = mysqli_num_rows($result);
         if($count == 0) {
             echo "<p style=\"color: red; position: absolute; top:2rem\">Access denied. You have incorrect privileges.</p>";
+            $_SESSION["login"] = "";
             die("Error: Incorrect credentials, or insufficient permissions.");
         } else {
             echo "<p style=\"color: #63ebb0; position: absolute; top:2rem\">Logged in with elevated privileges.</p>";
+            $_SESSION["login"] = $perms;
         }
     }
+}
 ?>

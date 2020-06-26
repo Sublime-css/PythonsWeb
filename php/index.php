@@ -10,15 +10,14 @@
             <?php include "dynamic.php"; //Get the modular content display system
             //Some pages are special:
             //Page 2 is the login page, display the login form there
-            if ($Page == "2"){         
-                require_once("setup.php");
-                include "login.php";
-                loginWindow(85.75);
+            if ($Page == "2"){
                 ?><style><?php
                 include "../css/admin.css";?>
-                </style><?php login("user");
-            }    
-            ?>
+                </style><?php
+                require_once("setup.php");
+                include "backEndLogin.php";
+                login("user");
+                } ?>
         </div>
     </body>
 </html>

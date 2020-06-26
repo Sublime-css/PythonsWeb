@@ -25,8 +25,7 @@
     <!--The main body of the site, where content goes-->
     <div class="body">
         <?php
-        include "login.php";
-        loginWindow(78.75);
+        include "backEndLogin.php";
         login("admin");
         ?>
         <!--A form for the admin to add new content:-->
