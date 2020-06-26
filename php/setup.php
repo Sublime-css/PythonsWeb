@@ -1,19 +1,8 @@
-<?php 
-//obfuscated for security
-eval(base64_decode('CiBnb3RvIG5pWGF1OyBxczVLTjogJGNvbm4gPSBuZXcgbXlzcWxpKCRzZXJ2ZXJuYW1lLCAkdXNlcm5hbWUsICRwYXNzd29yZCwgJGRhdGFiYXNlKTsgZ290byBZQzhKbDsgdjF1WVo6IGVjaG8gIlx4M2NcMTYwXDQwXHg3M1wxNjRceDc5XDE1NFwxNDVcNzVcNDJceDYzXHg2Zlx4NmNcMTU3XHg3Mlx4M2FcNDBcNDNceDM2XDYzXDE0NVwxNDJceDYyXDYwXDczXDQwXDE2MFx4NmZcMTYzXHg2OVx4NzRcMTUxXDE1N1x4NmVceDNhXHgyMFx4NjFceDYyXHg3M1x4NmZceDZjXDE2NVwxNjRcMTQ1XHgzYlx4MjBceDc0XHg2ZlwxNjBceDNhXDYxXDE2Mlx4NjVceDZkXDQyXHgzZVx4NDNceDZmXDE1Nlx4NmVceDY1XDE0M1x4NzRceDY1XDE0NFx4MjBceDc0XDE1N1w0MFx4NjRcMTQxXHg3NFwxNDFceDYyXDE0MVwxNjNceDY1XDQwXHg3M1wxNjVcMTQzXHg2M1x4NjVcMTYzXDE2M1wxNDZcMTY1XDE1NFwxNTRceDc5XHgyZVx4M2NcNTdcMTYwXHgzZSI7IGdvdG8geE52S0c7IG5pWGF1OiAkc2VydmVybmFtZSA9ICJceDZjXDE1N1wxNDNcMTQxXDE1NFwxNTBcMTU3XHg3M1x4NzQiOyBnb3RvIFl5WVFxOyBZQzhKbDogaWYgKCRjb25uLT5jb25uZWN0X2Vycm9yKSB7IGRpZSgiXDc0XHg3MFw0MFwxNjNceDc0XHg3OVx4NmNcMTQ1XDc1XHgyMlx4NjNcMTU3XDE1NFwxNTdceDcyXHgzYVx4MjBcMTYyXDE0NVx4NjRceDNiXHgyMFx4NzBcMTU3XHg3M1wxNTFcMTY0XHg2OVx4NmZceDZlXHgzYVx4MjBcMTQxXDE0Mlx4NzNcMTU3XHg2Y1wxNjVcMTY0XDE0NVw3M1w0MFx4NzRcMTU3XHg3MFw3Mlx4MzFceDcyXDE0NVwxNTVcNDJcNzZceDQzXHg2ZlwxNTZceDZlXHg2NVx4NjNcMTY0XDE1MVx4NmZceDZlXDQwXDE0Nlx4NjFcMTUxXDE1NFx4NjVceDY0XDcyXDQwIiAuICRjb25uLT5jb25uZWN0X2Vycm9yIC4gIlx4M2NcNTdcMTYwXDc2Iik7IH0gZ290byB2MXVZWjsgWXlZUXE6ICR1c2VybmFtZSA9ICJceDczXHg2NVx4NjNcMTM3XDE2NVwxNjNceDY1XHg3MiI7IGdvdG8gR2F6aF87IEdhemhfOiAkcGFzc3dvcmQgPSAiXDEwN1x4NzJceDY1XHg2NVx4NmVceDQzXHg2OFwxNDFceDY5XHg3Mlx4MzFcNjVceDMzIjsgZ290byBxQjluNzsgcUI5bjc6ICRkYXRhYmFzZSA9ICJcMTYwXHg3OVx4NzRceDY4XHg2ZlwxNTZcMTYzXDE2N1wxNDVcMTQyIjsgZ290byBxczVLTjsgeE52S0c6IA=='));
-?>
-
 <?php
-//pre-obfuscation:
-//$servername = "localhost";
-//$username = "sec_user";
-//$password = "GreenChair153";
-//$database = "pythonsweb";
-//
-//$conn = new mysqli($servername, $username, $password, $database);
-//
-//if ($conn->connect_error) {
-//    die("<p style=\"color: red; position: absolute; top:1rem\">Connection failed: " . $conn->connect_error . "</p>");
-//}
-//echo "<p style=\"color: #63ebb0; position: absolute; top:1rem\">Connected to database successfully.</p>";
+$conn = new mysqli("localhost", "sec_user", "GreenChair153", "pythonsweb");
+
+if ($conn->connect_error) {
+    die("<p style=\"color: red; position: absolute; top:1rem\">Connection failed: " . $conn->connect_error . "</p>");
+}
+echo "<p style=\"color: #63ebb0; position: absolute; top:1rem\">Connected to database successfully.</p>";
 ?>

@@ -11,11 +11,15 @@
             //Some pages are special:
             //Page 2 is the login page, display the login form there
             if ($Page == "2"){
+                //Get the admin page with PHP because this isn't the dcocument's head
                 ?><style><?php
                 include "../css/admin.css";?>
                 </style><?php
+                //Get this if its not used already
                 require_once("setup.php");
+                //Prepare to login
                 include "backEndLogin.php";
+                //Attempt login with user perms:
                 login("user");
                 } ?>
         </div>

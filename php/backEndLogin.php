@@ -1,18 +1,17 @@
 <?php
 function login($perms){
+    //The user might already be logged in using the browsing session:
     if (isset($_SESSION["login"]) and $_SESSION["login"] == $perms){
         return true;
     }
+    //Logging in for the first time during the session:
     else{
     include "frontEndLogin.php";
     loginWindow();
-    //Obfuscating the login technique can help to keep the website secure in the case of a data breach:
-    //The database password is stored in plaintext if we don't obfuscate this:
-    eval(base64_decode('JHNlcnZlcm5hbWUgPSAibG9jYWxob3N0IjsgJHVzZXJuYW1lID0gInNlY191c2VyIjsgJHBhc3N3b3JkID0gIkdyZWVuQ2hhaXIxNTMiOyAkZGF0YWJhc2UgPSAicHl0aG9uc3dlYiI7'));
 
     // Create connection
-    $conn = new mysqli($servername, $username, $password, $database);
-
+    $conn = new mysqli("localhost", "sec_user", "GreenChair153", "pythonsweb");
+        
     // Check connection
     if ($conn->connect_error) {
         die("<p style=\"color: red; position: absolute; top:1rem\">Connection failed: " . $conn->connect_error . "</p>");
@@ -21,12 +20,15 @@ function login($perms){
 
     $result = mysqli_query($conn,"SELECT * FROM login WHERE username='" . $_SESSION["username"] . "' and password = '". $_SESSION["password"]."' and perms='" . $perms . "'");
         $count  = mysqli_num_rows($result);
+        //If there are no records with the correct username/password/perms combo:
         if($count == 0) {
             echo "<p style=\"color: red; position: absolute; top:2rem\">Access denied. You have incorrect privileges.</p>";
+            //Log the user out:
             $_SESSION["login"] = "";
             die("Error: Incorrect credentials, or insufficient permissions.");
         } else {
             echo "<p style=\"color: #63ebb0; position: absolute; top:2rem\">Logged in with elevated privileges.</p>";
+            //Add the login to the session to make life easier next time:
             $_SESSION["login"] = $perms;
         }
     }
