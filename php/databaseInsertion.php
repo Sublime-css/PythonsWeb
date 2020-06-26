@@ -1,6 +1,7 @@
 <!--Insert information gathered into the database with admin perms:-->
 <!DOCTYPE html>
 <html>
+    <!--Go back to the admin page after: 1) the user has been informed the edit worked 2) this page has finished executing-->
     <meta http-equiv="refresh" content="3;url=admin.php">
     <?php
         //Store SQL syntax in a string, starting with the columns:

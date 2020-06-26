@@ -14,7 +14,7 @@
                 <label for="video2">Password:</label>
             </div>
             <div class="col-75">
-                <input type="text" name="password" placeholder="...">
+                <input type="password" name="password" placeholder="...">
             </div>
         </div>
         <div class="row">
