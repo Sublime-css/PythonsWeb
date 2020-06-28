@@ -27,11 +27,10 @@
         $sql = $sql . ")";
         
         //Due to security vunerbilities discovered in penetration testing, i need to sanitise the data:
-        
         $illegal = ["<script>", "</script>", "\\", "<?php", "?>"];
         foreach ($illegal as $hack){
             if (strpos($sql, $hack) !== false){
-                echo "<p style=\"color: red\"size=\"5rem\">Illegal characters used: \"&ltscript&gt\", \"&lt/script&gt\", \"\\\", \"&lt?php\", \"?&gt\" are not permitted";
+                echo "<p style=\"color: red\"size=\"5rem\">Illegal characters used: \"&ltscript&gt\", \"&lt/script&gt\", \"\\\", \"&lt?php\", \"?&gt\" are not permitted for security reasons.";
                 die();
             }
         }
@@ -41,7 +40,7 @@
         include"setup.php";
         //Insert data by SQL:
         //Check that attempt was successfull:
-        if ($conn->query($sql) === TRUE) {
+        if ($conn->query($sql) === true) {
             //give some feedback:
             echo "<p style=\"color: #63ebb0\"size=\"5rem\">New record created successfully in database.</p>";
         }
