@@ -6,7 +6,7 @@
                 <label for="email">Email Address:</label>
             </div>
             <div class="col-75">
-                <input type="text" name="email" placeholder="Enter an email address to create an account or leave blank to sign in...">
+                <input type="text" name="email" placeholder="Enter an email address to register...">
             </div>
         </div>
         <div class="row">
@@ -26,13 +26,26 @@
             </div>
         </div>
         <div class="row">
-                    <input type="submit" name="submit" value="Login">
+                    <div class="col-25">
+                        <label for="loginOrRegister">Register or login?</label>
+                    </div>
+                    <div class="col-75">
+                        <select id="loginOrRegister" name="loginOrRegister">
+                            <option value="login" selected>Login</option>
+                            <option value="register" >Register</option>
+                        </select>
+                    </div>
+                </div>
+        
+        <div class="row">
+                    <input type="submit" name="submit" value="Submit">
                 </div>
     </form>
 </div>
 <?php   
 }
 if (isset($_POST["submit"])){
+    $_SESSION['loginOrRegister'] = $_POST["loginOrRegister"];
     $_SESSION['email'] = $_POST["email"];
     //Send a sha256 hash to the server for security purposes:
     $_SESSION['username'] = hash("sha256", $_POST["username"]);
