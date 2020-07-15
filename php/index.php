@@ -16,7 +16,7 @@
                 include "../css/admin.css";?>
                 </style><?php
                 //Get this if its not used already
-                require_once("setup.php");
+                require_once("setup_sec.php");
                 //Prepare to login
                 include "backEndLogin.php";
                 //Attempt login with user perms:

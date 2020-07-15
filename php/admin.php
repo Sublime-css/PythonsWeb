@@ -18,7 +18,7 @@
 <body>
     <?php
     //Need to log into the database:
-        require_once("setup.php");
+        require_once("setup_sec.php");
         include "nav.php";
     ?>
 
@@ -51,7 +51,7 @@
                             <?php
                             //We only want to be able to add pages that arn't made already
                             $sql = "SELECT pagenum FROM pages";
-                            $result = $conn->query($sql);
+                            $result = $conn_sec->query($sql);
                             $pages = [];
                             while($num = $result->fetch_assoc()){
                                 //Put the list of current pages into an array:
@@ -150,7 +150,7 @@
             <?php
                 //Get the data that corrosponds to the current page:
                 $sql = "SELECT * FROM pages";
-                $result = $conn->query($sql);
+                $result = $conn_sec->query($sql);
                 //Check that we got something, or error if we didn't:
                 if ($result->num_rows > 0) {
                     //Loop through the results:
@@ -183,7 +183,7 @@
             </tr>
 
             <?php
-                $result = $conn->query($sql);
+                $result = $conn_sec->query($sql);
                     while($row = $result->fetch_assoc()){
                         //Write up the results every time:
             ?>
@@ -213,7 +213,7 @@
             </tr>
 
             <?php
-                $result = $conn->query($sql);
+                $result = $conn_sec->query($sql);
                     while($row = $result->fetch_assoc()){
                         //Write up the results every time:
             ?>
@@ -242,7 +242,7 @@
             </tr>
 
             <?php
-                $result = $conn->query($sql);
+                $result = $conn_sec->query($sql);
                     while($row = $result->fetch_assoc()){
             ?>
 
@@ -352,7 +352,7 @@
         <!--Whatever needs to go here:-->
     </footer>
     <?php
-    $conn->close();
+    $conn_sec->close();
     ?>
 </body>
 

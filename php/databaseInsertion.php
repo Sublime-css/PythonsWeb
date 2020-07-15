@@ -37,7 +37,7 @@
             
         //Now time to actually use the SQL string!
         //Log into the database:
-        include"setup.php";
+        include"setup_sec.php";
         //Insert data by SQL:
         //Check that attempt was successfull:
         if ($conn->query($sql) === true) {

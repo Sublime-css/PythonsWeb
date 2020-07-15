@@ -1,4 +1,3 @@
-<?php function loginWindow(){ ?>
 <div class="container" id="login" style="position: absolute; width: 100vw; height: 85.75vh; display: block; bottom: 0px; overflow: clip;">
     <form action="" method="POST">
         <div class="row">
@@ -43,7 +42,6 @@
     </form>
 </div>
 <?php   
-}
 if (isset($_POST["submit"])){
     $_SESSION['loginOrRegister'] = $_POST["loginOrRegister"];
     $_SESSION['email'] = $_POST["email"];
