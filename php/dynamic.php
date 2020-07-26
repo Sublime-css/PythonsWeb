@@ -14,28 +14,39 @@
     //Need to login to the database -- insecure because all we need to do is read data:
     require_once("setup_insec.php");
     //Get the data that corrosponds to the current page:
-    $sql = "SELECT * FROM pages INNER JOIN videos ON pages.id = videos.id INNER JOIN headings ON pages.id = headings.id INNER JOIN texts ON pages.id = texts.id INNER JOIN sizes ON pages.id = sizes.id WHERE pagenum = $Page";
+    $sql = "SELECT id, display FROM pages WHERE pagenum = $Page";
     $result = $conn_insec->query($sql);
-    //Check that we got something, or error if we didn't:
-    if ($result->num_rows > 0) {
+    if ($result->num_rows == 1){
         $row = $result->fetch_assoc();
-        echo "<p style=\"color: #63ebb0; position: absolute;top:2rem\">Successfully loaded page " . $Page . ".</p>";
-    } else {
-        //Explain what went wrong:
-        echo "<p style=\"color: red; position: absolute;top:2rem\">ERROR: Database error -- Tried to load page " . $Page . " (Content nonexistent) ". $conn_insec->error . "</p>";
+        if ($row["display"] == "video"){
+            $sql = "SELECT * FROM videos WHERE pageid = " . $row["id"];
+            $result = $conn_insec->query($sql);
+            //Check that we got something, or error if we didn't:
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()){
+                    echo "<p style=\"color: #63ebb0; position: absolute;top:2rem\">Successfully loaded page " . $Page . ".</p>";
+                    ?><div class="<?php echo"dynamic " . $row["size" . $i]?>">
+                        <h1><?php echo $row["title"];?></h1>
+                        <p><?php echo $row["text"];?></p>
+                        <p><a href="../videos/<?php echo $row['link'];?>">Link: </a></p>
+                    </div><?php
+                }
+            }
+        }
+        elseif ($row["display"] == "text"){
+        $sql = "SELECT * FROM texts WHERE pageid = " . $row["id"];
+            $result = $conn_insec->query($sql);
+            //Check that we got something, or error if we didn't:
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()){
+                    echo "<p style=\"color: #63ebb0; position: absolute;top:2rem\">Successfully loaded page " . $Page . ".</p>";
+                    ?><div class="<?php echo"dynamic " . $row["size" . $i]?>">
+                        <h1><?php echo $row["title"];?></h1>
+                        <p><?php echo $row["text"];?></p>
+                    </div><?php
+                }
+            }
+        }
     }
-    $conn_insec->close();
-
-    if ($row["display"] == "text"){
-        for ($i = 1; $i <= 8; $i++) {
-            ?><div class="<?php echo"dynamic " . $row["size" . $i]?>">
-                <h1><?php echo $row["heading" . $i];?></h1>
-                <p><?php echo $row["text" . $i];?></p>
-            </div>
-    <?php } } else if ($row["display"] == "video") {
-        for ($i = 1; $i <= 8; $i++) {?>
-            <div class="<?php echo"dynamic " . $row["size" . $i]?>">
-                <h1><?php echo $row["heading" . $i];?></h1>
-                <p><?php echo $row["video" . $i];?></p>
-            </div>
-        <?php } } ?>
+$conn_insec->close();
+?>

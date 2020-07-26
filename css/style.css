@@ -92,12 +92,16 @@ header > nav > .navbar:first-child > li:first-child {
 
 .dynamic > h1 {
     padding-left: 1rem;
-    padding-top: 1rem;
+    padding-top: 0.75rem;
+    font-size: 1.75rem;
 }
 
 .dynamic > p {
     padding-left: 1rem;
+    padding-right: 1rem;
     padding-top: 0.5rem;
+    font-size: 0.8rem;
+    line-height: 1.25;
 }
 
 /*PHP will dynamically assign these classes where they are needed*/

@@ -149,7 +149,7 @@
             </tr>
             <?php
                 //Get the data that corrosponds to the current page:
-                $sql = "SELECT * FROM pages";
+                $sql = "SELECT * FROM pages INNER JOIN videos ON pages.id = videos.id INNER JOIN headings ON pages.id = headings.id INNER JOIN texts ON pages.id = texts.id INNER JOIN sizes ON pages.id = sizes.id";
                 $result = $conn_sec->query($sql);
                 //Check that we got something, or error if we didn't:
                 if ($result->num_rows > 0) {
