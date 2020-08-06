@@ -34,10 +34,11 @@ Style inputs, select elements and textareas */
     /*  border-radius: 5px;*/
       background-color: #ffffff;
       padding: 20px;
-      display: none;
         font-size: 1rem;
     }
-
+    .invis {
+      display: none;
+    }
     /* Floating column for labels: 25% width */
     .col-25 {
       float: left;
@@ -67,14 +68,6 @@ Style inputs, select elements and textareas */
       }
     }
 /*End of CSS that came with the responsive form*/
-.pagelist{
-    font-size: 1rem;
-    background-color: #ffffff;
-    display: none;
-    width: 100vw;
-    border-collapse: collapse;
-    table-layout: fixed;
-}
 
 .tabbutton{
     width: 14.2857%;

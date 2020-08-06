@@ -88,11 +88,13 @@ header > nav > .navbar:first-child > li:first-child {
     margin: 1% 0% 0% 1%;
     background-color: #ffffff;
     border-radius: 1rem;
+    cursor: pointer;
 }
 
 .dynamic > h1 {
     padding-left: 1rem;
     padding-top: 0.75rem;
+    padding-right: 1rem;
     font-size: 1.75rem;
 }
 

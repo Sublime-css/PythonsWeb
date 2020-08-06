@@ -1,7 +1,7 @@
 bughunting:
 
 --hovering on the first navlink makes a hover background that obscures the border, this is not present in any other navlink!
---Third and fourth table in the pagelist don't take up whole screen width!
+--Third and fourth table in the pagelist don't take up whole screen width! //Depricated, tables don't exist anymore
 ------Admin buttons need a doubleclick the first time the page is visited! //Fixed, document.getElementById().style.display defaults to "" not "none" or "null".
 ------databaseInsert crashes when a pagee already exists with that pagenum, and sometimes for no (known) reason at all! //Fixed, page number list only shows those that do not already exist and quote marks -------no longer break everything.
 ------navbar links get a 1px space between them when on tablet-sized screen! //Fixed, this is an issue with the google renderer.
@@ -12,9 +12,9 @@ TODO now:
 
 --visual diary (permanant).
 --fix the text spacing in dynamic content boxes.
---make videos embed properly.
+--make videos embed properly. //Done
 --insert/delete should only list pagenum values that are available. //Done
---index.php needs a better fallback than to shout about the lack of data.
+--index.php needs a better fallback than to shout about the lack of data. //Done
 --
 
 TODO future:
