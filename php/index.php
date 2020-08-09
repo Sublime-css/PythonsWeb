@@ -5,6 +5,7 @@
     </head>
     <body>
         
+        <div class="wrapper" style="width: 80vw">
         <?php include "nav.php";?><!--Get the modular navigation bar-->
         <div class="body">
             <?php include "dynamic.php"; //Get the modular content display system
@@ -12,9 +13,7 @@
             //Page 2 is the login page, display the login form there
             if ($Page == "2"){
                 //Get the admin page with PHP because this isn't the dcocument's head
-                ?><style><?php
-                include "../css/admin.css";?>
-                </style><?php
+                echo "\n<link rel=\"stylesheet\" href=\"../css/admin.css\" type=\"text/css\" \"media=screen\">\n";
                 //Get this if its not used already
                 require_once("setup_sec.php");
                 //Prepare to login
@@ -22,6 +21,7 @@
                 //Attempt login with user perms:
                 login("user");
                 } ?>
+        </div>
         </div>
     </body>
 </html>

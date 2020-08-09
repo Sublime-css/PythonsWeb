@@ -1,7 +1,5 @@
-<!--Dynamic content for the website:-->
-<!--Video embeds are not implemented so the video links just display like the text for now-->
-
 <?php
+    //Dynamic content for the website:
     echo "<p style=\"color: #707070; position: absolute\">Debug:</p>";
     //Default to the gallery:
     $Page = '5';

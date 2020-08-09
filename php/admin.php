@@ -19,7 +19,6 @@ New techniques:
     <link rel="stylesheet" href="../css/admin.css" type="text/css" "media=screen">
     <!--JS for the admin page-->
     <script type="text/javascript" src="../js/admin.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -49,7 +48,7 @@ New techniques:
         include "adminCRUD/newPage.php";
         include "adminCRUD/updatePage.php";
         include "adminCRUD/delPage.php";
-        include "adminCRUD/pages.php";
+        //include "adminCRUD/pages.php";
         ?>
     </div>
 </body>

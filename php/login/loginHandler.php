@@ -10,8 +10,11 @@ if ($pepper ==  ""){
     $lines[30] = "     " . bin2hex(random_bytes(64)) . "\n";
     //Replace the config file with the editited version, now containing the pepper:
     file_put_contents($config, implode($lines));
-    //go back home
+    //go back home, and try again with a new pepper:
+    //This has to be done from scratch, incase there is a problem with saving in `config.yaml`.
+    //If the pepper changes, all DB password hashes become unuseable.
     echo("<meta http-equiv='refresh' content='0; http://" . $_SERVER["HTTP_HOST"] . "/PythonsWeb/'>");
+    die("This is normal for the very first login, just reload your page. If you keep seeing this, please contact us.");
 }
 //Start the session once
 require_once("../session.php");
@@ -27,7 +30,7 @@ if($_POST["loginOrRegister"] == "login"){
     if($count == 0) {
         //Log the user out:
         $_SESSION["login_currentPerms"] = "";
-        //go back from whence we came
+        //go back from whence we came:
         echo("<meta http-equiv='refresh' content='0; http://" . $_SESSION["login_path"] . "'>");
         //If the redirect fails:
         echo"Error: " . $sql . "<br>" . $conn_insec->error;

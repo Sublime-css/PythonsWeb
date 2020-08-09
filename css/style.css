@@ -129,6 +129,19 @@ header > nav > .navbar:first-child > li:first-child {
     display: none;
 }
 
+/*PHP can dynamically assign this too -- for login purpose*/
+.loginWindow{
+    position: absolute;
+    width: 100vw;
+    height: 85.75vh;
+    display: block;
+    bottom: 0px;
+    overflow: clip;
+    background-color: #ffffff;
+    padding: 20px;
+    font-size: 1rem;
+}
+
 #mobileHeader{
     display: none;
     width: 100%;

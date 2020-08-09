@@ -1,4 +1,4 @@
-<div class="container" id="login" style="position: absolute; width: 100vw; height: 85.75vh; display: block; bottom: 0px; overflow: clip;">
+<div class="loginWindow" id="login">
     <form action="login/loginHandler.php" method="POST">
         <div class="row" id="login_email">
             <div class="col-25">

@@ -2,7 +2,7 @@
 #Stores database login details and crypto secrets. `insec_user` MUST start at line 6, `sec_user` MUST start at line 18, `cryptographic pepper`MUST start at line 30.
 Users:
 #Limited permissions, only for pulling data from the server. Used by users.
-#Perms: SELECT, INSERT to login database in the event a user is registering for an account.
+#Perms: SELECT, INSERT for login table only in the event a user is registering for an account.
     insec_user:
         host:
             localhost
@@ -25,8 +25,8 @@ Users:
         database:
             pythonsweb
 
-#Pepper: constant appended when hashing password, as opposed to a salt which is unique to each variable:
-#This is randomly generated once at first init:
+#Pepper: constant appended when hashing password, stored outside of DB, as opposed to a salt which is unique to each password and stored within DB:
+#This is randomly generated once at the first init of login/loginHandler.php, and used forevermore:
 Cryptographic pepper:
      fe3136f2501e8eb46436917d16bb9b7394bb23291ce3da3f5b6168ea8cd51472cc2c7c37440a88a940c993a1b681cff5fc69c460b15a905df8f74e81d2caf095
 ...

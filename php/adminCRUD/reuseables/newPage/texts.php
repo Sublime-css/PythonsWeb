@@ -39,4 +39,4 @@ if(! isset($texts_loop)){
             <option value="none">None</option>
         </select>
     </div>
-</div>
+</div
