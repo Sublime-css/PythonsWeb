@@ -15,14 +15,21 @@ html {
     color: #707070;
     cursor: crosshair;
 }
-
 body{
-    background-color: #707070;
+    background-image: url(../img/background.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.wrapper{
+    margin-left: 10vw;
+    width: 80vw;
+    font-family: 'Quicksand', sans-serif;
+    height: 100vh;
 }
 /*need some nice fonts for the website, font inheritance can save some space here*/
-.body {
-    font-family: 'Quicksand', sans-serif;
-}
 
 header {
     font-family: 'Source Code Pro', monospace;
@@ -35,6 +42,7 @@ header {
 /*Navbar needs to take up the whole page width*/
 .navbar {
     width: 100%;
+    opacity: 0.8;
 }
 
 /*Make the buttons turn the highlight colour when a user hovers over them: more for desktop use than mobile/tablet*/
@@ -89,6 +97,8 @@ header > nav > .navbar:first-child > li:first-child {
     background-color: #ffffff;
     border-radius: 1rem;
     cursor: pointer;
+    box-shadow: 0px 0px 10px #000000;
+    opacity: 0.8;
 }
 
 .dynamic > h1 {
@@ -189,4 +199,9 @@ header > nav > .navbar:first-child > li:first-child {
     #mobileHeader{
         display: block;
     }
+}
+
+footer > p {
+    line-height: 3rem;
+    color: #63ebb0;
 }
