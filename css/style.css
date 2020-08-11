@@ -16,11 +16,11 @@ html {
     cursor: crosshair;
 }
 body{
-    background-image: url(../img/background.png);
-    background-size: 100%;
+    background-image: url(../img/background.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    background-position: bottom;
 }
 
 .wrapper{
@@ -28,6 +28,15 @@ body{
     width: 80vw;
     font-family: 'Quicksand', sans-serif;
     height: 100vh;
+}
+
+/*Smaller gutters for the mobile version:*/
+@media only screen and (max-width: 600px) {
+    .wrapper{
+        margin-left: 5vw;
+        width: 90vw;
+    }
+
 }
 /*need some nice fonts for the website, font inheritance can save some space here*/
 
@@ -142,6 +151,7 @@ header > nav > .navbar:first-child > li:first-child {
 /*PHP can dynamically assign this too -- for login purpose*/
 .loginWindow{
     position: absolute;
+    left: 0;
     width: 100vw;
     height: 85.75vh;
     display: block;
@@ -150,6 +160,7 @@ header > nav > .navbar:first-child > li:first-child {
     background-color: #ffffff;
     padding: 20px;
     font-size: 1rem;
+    opacity: 0.8;
 }
 
 #mobileHeader{
@@ -201,7 +212,12 @@ header > nav > .navbar:first-child > li:first-child {
     }
 }
 
+/*make sure the footer dosen't get hung up on weird dynamic layouts*/
+footer{
+    float: left;
+}
+
 footer > p {
     line-height: 3rem;
-    color: #63ebb0;
+    color: #707070;
 }

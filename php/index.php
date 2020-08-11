@@ -4,8 +4,8 @@
         <?php include "head.php";?><!--Get the modular page header-->
     </head>
     <body>
-        <?php include "nav.php";?><!--Get the modular navigation bar-->
-            <div class="wrapper">
+            <?php include "nav.php";?><!--Get the modular navigation bar-->
+        <div class="wrapper">
                 <?php include "dynamic.php"; //Get the modular content display system
                 //Some pages are special:
                 //Page 2 is the login page, display the login form there

@@ -33,7 +33,7 @@ New techniques:
     <div class="body">
         <?php
         include "login/backEndLogin.php";
-        login("admin");
+        if(login("admin")){
         ?>
         <button class="tabbutton" onclick="newpage()">New Page:</button>
         <button class="tabbutton" onclick="editpage()">Edit Page:</button>
@@ -51,6 +51,7 @@ New techniques:
         //include "adminCRUD/pages.php";
         ?>
     </div>
+    <?php } ?>
 </body>
 
 </html>
