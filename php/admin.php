@@ -22,15 +22,14 @@ New techniques:
 </head>
 
 <body>
-    <?php
-    require_once("session.php");
-    //Need to log into the database:
-        require_once("setup_sec.php");
-        include "nav.php";
-    ?>
+        <?php
+        require_once("session.php");
+        //Need to log into the database:
+            require_once("setup_sec.php");
+            include "nav.php";
+        ?>
 
-    <!--The main body of the site, where content goes-->
-    <div class="body">
+        <!--The main body of the site, where content goes-->
         <?php
         include "login/backEndLogin.php";
         if(login("admin")){
@@ -50,7 +49,6 @@ New techniques:
         include "adminCRUD/delPage.php";
         //include "adminCRUD/pages.php";
         ?>
-    </div>
     <?php } ?>
 </body>
 

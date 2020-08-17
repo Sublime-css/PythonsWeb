@@ -12,7 +12,7 @@
         WHERE pagenum = $delpagenum;";
         //Now that the record is gone from the pages table, clean up the mess in other tables as it is just wasted data
         //List the table names -- be sure to also update this list in trim.php
-        foreach (["videos", "headings", "sizes", "texts"] as $table){
+        foreach (["videos", "texts"] as $table){
             $sql = $sql . "DELETE FROM $table WHERE pageid NOT IN (SELECT id FROM pages);";
         }
         //Check that attempt was successfull:

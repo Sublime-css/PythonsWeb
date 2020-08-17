@@ -1,27 +1,44 @@
 <!--Insert information gathered into the database with admin perms:-->
 <!DOCTYPE html>
 <html>
-<!--Go back to the admin page after: 1) the user has been informed the edit worked 2) this page has finished executing-->
-<meta http-equiv="refresh" content="3;url=admin.php">
 <?php
-
     print_r($_POST);
-    $sql = "";
+    require_once("session.php");
+    include"setup_sec.php";
+    if (!isset($_POST["pagenum"]) and isset($_SESSION["updatePage_pagenum"])){
+        $_POST["pagenum"] = $_SESSION["updatePage_pagenum"];
+        echo "catastrophy averted -- " . $_POST["pagenum"];
+    }
     
-    foreach ($_POST as $key => $value) {
-        $i++;
-        if($value){
-            $names = $names . "," . $key;
-            $values = "'" . $values . "',";
-        }
-        if(in_array($i, $tables)){
-            $sql = $sql . "; INSERT INTO" . $tables[$t];
-            
-            $t++;
+    $sql = "INSERT INTO pages (pagenum) VALUES ('" . $_POST["pagenum"] . "');";
+    $conn_sec->query($sql);
+    
+    $sql = "SELECT id FROM pages WHERE pagenum = " . $_POST["pagenum"];
+    $result = $conn_sec->query($sql);
+    if ($result -> num_rows > 0){
+        $row = $result->fetch_assoc();
+    }
+    
+    $sql = "";
+    $i = 0;
+    while (true){
+        if(isset($_POST["videos_title" . $i])){
+            $sql = $sql . "INSERT INTO videos (pageid, title, link, text, size) VALUES ('" . $row["id"] . "', '" . $_POST["videos_title" . $i] . "', '" . $_POST["videos_link" . $i] . "', '" . $_POST["videos_text" . $i] . "', '" . $_POST["videos_size" . $i] . "'); ";
+            $i++;
+        } else{
+            break;
         }
     }
-    //**Everything from here down is unchanged and known to work**//
-
+    while (true){
+        if(isset($_POST["texts_title" . $i])){
+            $sql = $sql . "INSERT INTO texts (pageid, title, link, text, size) VALUES ('" . $row["id"] . "', '" . $_POST["texts_title" . $i] . "', '" . $_POST["texts_text" . $i] . "', '" . $_POST["texts_size" . $i] . "'); ";
+            $i++;
+        } else{
+            break;
+        }
+    }
+    echo "<br>SQL query: " . $sql . "<br>";
+    
     //Due to security vunerbilities discovered in penetration testing, i need to sanitise the data:
     $illegal = ["<script>", "</script>", "\\", "<?php", "?>"];
     foreach ($illegal as $hack){
@@ -32,10 +49,9 @@
     }
     //Now time to actually use the SQL string!
     //Log into the database:
-    include"setup_sec.php";
     //Insert data by SQL:
     //Check that attempt was successfull:
-    if ($conn_sec->query($sql) === true) {
+    if ($conn_sec->multi_query($sql) === true) {
         //give some feedback:
         echo "<p style=\"color: #63ebb0\"size=\"5rem\">New record created successfully in database.</p>";
     }
@@ -48,11 +64,5 @@
     $conn_sec->close();
 ?>
 
-<body>
-
-</body>
-
+<!--<meta http-equiv="refresh" content="3;url=admin.php">-->
 </html>
-<!--
-
--->

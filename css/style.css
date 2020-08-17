@@ -28,6 +28,7 @@ body{
     width: 80vw;
     font-family: 'Quicksand', sans-serif;
     height: 100vh;
+    padding:0px;
 }
 
 /*Smaller gutters for the mobile version:*/

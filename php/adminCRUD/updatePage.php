@@ -35,7 +35,7 @@
     </form>
 
 <!--Make a form preloaded with all the data that constitutes the page using PHP-->
-<form action="" method="POST">
+<form action="databaseInsertion.php" method="POST">
     <?php
         $sql="SELECT * FROM pages INNER JOIN videos ON pages.id = videos.pageid WHERE pagenum = " . $_GET["updatePage_pagenum"];
         include "setup_sec.php";
@@ -67,7 +67,10 @@ $conn_sec->close();
     <?php } ?>
 </form>
 <?php
-$conn_sec->close();
+    //We need to pass the page number to the database insertion script:
+    require_once("session.php");
+    $_SESSION["updatePage_pagenum"] = $_GET["updatePage_pagenum"];
+    $conn_sec->close();
 ?>
 
 </div>
