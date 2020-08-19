@@ -25,6 +25,9 @@
             for ($i = 1; $i <= $_SESSION["admin_texts"]; $i++) {
                 include("reuseables/newPage/texts.php");
             }?>
+        <select name="insert_type" class = "invis">
+            <option selected value="new"></option>
+        </select>
         <div class="row">
             <input type="submit" value="Create">
         </div>

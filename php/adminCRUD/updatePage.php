@@ -1,76 +1,74 @@
-<?php
-    if(! isset($_GET["updatePage_pagenum"])){
-        if(count($admin_pages) > 0){
-            $_GET["updatePage_pagenum"] = $admin_pages[0];
-        } else {
-            echo "There are no pages to update!";
-            die();
-        }
-    }
-?>
 <div class="container invis" id="updatepage" style="display:none">
-    <form action="" method="GET">
-        <div class="row">
-            <div class="col-25">
-                <label for="updatePage_pagenum">Page to Update:</label>
-            </div>
-            <div class="col-75">
-                <select name="updatePage_pagenum">
-                    <?php 
-                        //We only want to be able to add pages that aren't made already, but we already calculated the list:
-                        foreach ($admin_pages as $i) {
-                            if($i == $_GET["updatePage_pagenum"]){
-                            echo "<option selected=\"selected\" value=\"" . $i . "\">" . $i . "</option>\r\n";    
-                            } else{
-                            echo "<option value=\"" . $i . "\">" . $i . "</option>\r\n";
-                            }
-                        }
-                    ?>
-                </select>
-            </div>
-        </div>
-        <div class="row">
-            <input type="submit" value="View">
-        </div>
-    </form>
 
 <!--Make a form preloaded with all the data that constitutes the page using PHP-->
+<?php include "adminCRUD/add.php";?>
 <form action="databaseInsertion.php" method="POST">
     <?php
-        $sql="SELECT * FROM pages INNER JOIN videos ON pages.id = videos.pageid WHERE pagenum = " . $_GET["updatePage_pagenum"];
+        $sql="SELECT * FROM videos";
         include "setup_sec.php";
         $result = $conn_sec->query($sql);
         while($row = $result->fetch_assoc()){
             include "reuseables/updatePage/videos.php";
         }
-    if($result->num_rows > 0){?>
-        <div class="row">
-            <input type="submit" value="Update">
-        </div>
-    <?php } ?>
-</form>
-<?php
-$conn_sec->close();
-?>
-<form action="" method="POST">
-    <?php
-        $sql="SELECT * FROM pages INNER JOIN texts ON pages.id = texts.pageid WHERE pagenum = " . $_GET["updatePage_pagenum"];
+        $sql="SELECT * FROM texts";
         include "setup_sec.php";
         $result = $conn_sec->query($sql);
         while($row = $result->fetch_assoc()){
             include "reuseables/updatePage/texts.php";
         }
-    if($result->num_rows > 0){?>
-        <div class="row">
-            <input type="submit" value="Update">
-        </div>
-    <?php } ?>
+    if(isset($_SESSION["admin_videos"]) or isset($_SESSION["admin_texts"])){
+            for ($i = 1; $i <= $_SESSION["admin_videos"]; $i++) {
+                include("reuseables/newPage/videos.php");?>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="videos_pagenum<?php echo $videos_loop;?>">Page Number</label>
+                    </div>
+                <div class = "col-75">
+                    <select name="videos_pagenum<?php echo $videos_loop;?>">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+            </div><?php
+            }
+            for ($i = 1; $i <= $_SESSION["admin_texts"]; $i++) {
+                include("reuseables/newPage/texts.php");?>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="texts_pagenum<?php echo $texts_loop;?>">Page Number</label>
+                    </div>
+                <div class = "col-75">
+                    <select name="texts_pagenum<?php echo $texts_loop;?>">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+            </div><?php
+            }}?>
+        <select name="insert_type" class="invis">
+            <option selected value="update"></option>
+        </select>
+    <div class="row">
+        <input type="submit" value="Update">
+    </div>
 </form>
 <?php
-    //We need to pass the page number to the database insertion script:
-    require_once("session.php");
-    $_SESSION["updatePage_pagenum"] = $_GET["updatePage_pagenum"];
-    $conn_sec->close();
+$conn_sec->close();
 ?>
-
 </div>

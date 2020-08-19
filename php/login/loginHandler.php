@@ -13,7 +13,7 @@ if ($pepper ==  ""){
     //go back home, and try again with a new pepper:
     //This has to be done from scratch, incase there is a problem with saving in `config.yaml`.
     //If the pepper changes, all DB password hashes become unuseable.
-    echo("<meta http-equiv='refresh' content='0; http://" . $_SERVER["HTTP_HOST"] . "/PythonsWeb/'>");
+    echo("<meta http-equiv='refresh' content='5; http://" . $_SERVER["HTTP_HOST"] . "/PythonsWeb/'>");
     die("This is normal for the very first login, just reload your page. If you keep seeing this, please contact us.");
 }
 //Start the session once
@@ -31,7 +31,7 @@ if($_POST["loginOrRegister"] == "login"){
         //Log the user out:
         $_SESSION["login_currentPerms"] = "";
         //go back from whence we came:
-        echo("<meta http-equiv='refresh' content='0; http://" . $_SESSION["login_path"] . "'>");
+        echo("<meta http-equiv='refresh' content='5; http://" . $_SESSION["login_path"] . "'>");
         //If the redirect fails:
         echo"Error: " . $sql . "<br>" . $conn_insec->error;
         die("<p style=\"color: red; position: absolute; top:1rem\">Login failed, have another go?</p>");
@@ -43,7 +43,7 @@ if($_POST["loginOrRegister"] == "login"){
         if($count == 0) {
             //Log the user out:
             $_SESSION["login_currentPerms"] = "";
-            echo("<meta http-equiv='refresh' content='0; http://" . $_SESSION["login_path"] . "'>");
+            echo("<meta http-equiv='refresh' content='5; http://" . $_SESSION["login_path"] . "'>");
             //If the redirect fails:
             echo"Error: " . $sql . "<br>" . $conn_insec->error;
             die("<p style=\"color: red; position: absolute; top:1rem\">Login failed, have another go?</p>");
@@ -51,7 +51,7 @@ if($_POST["loginOrRegister"] == "login"){
             //Add the login to the session to make life easier next time:
             $_SESSION["login_currentPerms"] = $_SESSION["login_recPerms"];
             //Send the user back from whence they came! we set `login_path` to the URL the user came from before.
-            echo("<meta http-equiv='refresh' content='0; http://" . $_SESSION["login_path"] . "'>");
+            echo("<meta http-equiv='refresh' content='5; http://" . $_SESSION["login_path"] . "'>");
         }
     }
     $conn_insec->close();
@@ -71,13 +71,13 @@ else{
         //It's a good idea to be conservative with the setting of login perms to a variable,
         //to avoid privilage escalation attacks.
         $_SESSION["login_currentPerms"] = "user";
-        echo("<meta http-equiv='refresh' content='0; http://" . $_SESSION["login_path"] . "'>");
+        echo("<meta http-equiv='refresh' content='5; http://" . $_SESSION["login_path"] . "'>");
         die("<p style=\"color: red; position: absolute; top:1rem\">Login failed, have another go?</p>");
     }
     //Tell the user that it didn't work:
     else {
         $_SESSION["login_currentPerms"] = "";
-        echo("<meta http-equiv='refresh' content='0; http://" . $_SESSION["login_path"] . "'>");
+        echo("<meta http-equiv='refresh' content='5; http://" . $_SESSION["login_path"] . "'>");
         echo"Error: " . $sql . "<br>" . $conn_insec->error;
         die("<p style=\"color: red; position: absolute; top:1rem\">Login failed, have another go?</p>");
     }

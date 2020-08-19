@@ -37,10 +37,6 @@ New techniques:
         <button class="tabbutton" onclick="newpage()">New Page:</button>
         <button class="tabbutton" onclick="editpage()">Edit Page:</button>
         <button class="tabbutton" onclick="delpage()">Delete Page:</button>
-        <button class="tabbutton" onclick="pages()">Pages</button>
-        <button class="tabbutton"><a href="trim.php"></a>Trim</button>
-        <button class="tabbutton">Pages</button>
-        <button class="tabbutton">Pages</button>
         
         <?php
         include "adminCRUD/calcPages.php";

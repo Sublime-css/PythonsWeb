@@ -7,13 +7,9 @@
         $delpagenum= $_POST["delpagenum"];
         //Log into the database:
         include"setup_sec.php";
-        //Insert data by SQL:
-        $sql = "DELETE FROM pages
-        WHERE pagenum = $delpagenum;";
-        //Now that the record is gone from the pages table, clean up the mess in other tables as it is just wasted data
-        //List the table names -- be sure to also update this list in trim.php
+        $sql = "";
         foreach (["videos", "texts"] as $table){
-            $sql = $sql . "DELETE FROM $table WHERE pageid NOT IN (SELECT id FROM pages);";
+            $sql = $sql . "DELETE FROM $table WHERE pagenum = $delpagenum;";
         }
         //Check that attempt was successfull:
         if ($conn_sec->multi_query($sql) === TRUE) {
@@ -28,8 +24,4 @@
         //Disconnect from database:
         $conn_sec->close();
     ?>
-    
-    <body>
-        
-    </body>
 </html>

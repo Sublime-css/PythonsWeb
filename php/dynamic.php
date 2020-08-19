@@ -9,14 +9,10 @@
     if (empty($_GET) != true and strlen($_GET["page"]) <= 1){
         $Page = $_GET['page'];
     }
-    //Need to login to the da0tabase -- insecure because all we need to do is read data:
+    //Need to login to the database -- insecure because all we need to do is read data:
     require_once("setup_insec.php");
     //Get the data that corrosponds to the current page:
-    $sql = "SELECT id FROM pages WHERE pagenum = $Page";
-    $pagesresult = $conn_insec->query($sql);
-    if ($pagesresult->num_rows == 1){
-        $pagesrow = $pagesresult->fetch_assoc();
-        $sql = "SELECT * FROM videos WHERE pageid = " . $pagesrow["id"];
+        $sql = "SELECT * FROM videos WHERE pagenum = $Page";
         $result = $conn_insec->query($sql);
         //Check that we got something, or error if we didn't:
         if ($result->num_rows > 0) {
@@ -28,7 +24,7 @@
                 </div><?php
             }
         }
-        $sql = "SELECT * FROM texts WHERE pageid = " . $pagesrow["id"];
+        $sql = "SELECT * FROM texts WHERE pagenum = $Page";
         $result = $conn_insec->query($sql);
         //Check that we got something, or error if we didn't:
         if ($result->num_rows > 0) {
@@ -40,6 +36,5 @@
                 </div><?php
             }
         }
-    }
 $conn_insec->close();
 ?>

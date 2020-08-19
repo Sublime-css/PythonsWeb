@@ -2,48 +2,49 @@
 <!DOCTYPE html>
 <html>
 <?php
-    print_r($_POST);
-    require_once("session.php");
     include"setup_sec.php";
-    if (!isset($_POST["pagenum"]) and isset($_SESSION["updatePage_pagenum"])){
-        $_POST["pagenum"] = $_SESSION["updatePage_pagenum"];
-        echo "catastrophy averted -- " . $_POST["pagenum"];
+    //to update the page, we first need to delete the old data:
+    if($_POST["insert_type"] == "update"){
+        $sql = "TRUNCATE TABLE `texts`; TRUNCATE TABLE `videos`";
+        $conn_sec->multi_query($sql);
+        $conn_sec->close();
     }
-    
-    $sql = "INSERT INTO pages (pagenum) VALUES ('" . $_POST["pagenum"] . "');";
-    $conn_sec->query($sql);
-    
-    $sql = "SELECT id FROM pages WHERE pagenum = " . $_POST["pagenum"];
-    $result = $conn_sec->query($sql);
-    if ($result -> num_rows > 0){
-        $row = $result->fetch_assoc();
+    include"setup_sec.php";
+    //remove any commas
+    foreach ($_POST as &$value){
+        $value = str_replace("'", "\'", $value);
     }
-    
     $sql = "";
-    $i = 0;
+    $i = 1;
     while (true){
         if(isset($_POST["videos_title" . $i])){
-            $sql = $sql . "INSERT INTO videos (pageid, title, link, text, size) VALUES ('" . $row["id"] . "', '" . $_POST["videos_title" . $i] . "', '" . $_POST["videos_link" . $i] . "', '" . $_POST["videos_text" . $i] . "', '" . $_POST["videos_size" . $i] . "'); ";
+            if(! isset($_POST["videos_pagenum" . $i])){
+                $_POST["videos_pagenum" . $i] = $_POST["pagenum"];
+            }
+            $sql = $sql . "INSERT INTO videos (pagenum, title, link, text, size) VALUES ('" . $_POST["videos_pagenum" . $i] . "', '" . $_POST["videos_title" . $i] . "', '" . $_POST["videos_link" . $i] . "', '" . $_POST["videos_text" . $i] . "', '" . $_POST["videos_size" . $i] . "'); ";
             $i++;
         } else{
             break;
         }
     }
+    $i = 1;
     while (true){
         if(isset($_POST["texts_title" . $i])){
-            $sql = $sql . "INSERT INTO texts (pageid, title, link, text, size) VALUES ('" . $row["id"] . "', '" . $_POST["texts_title" . $i] . "', '" . $_POST["texts_text" . $i] . "', '" . $_POST["texts_size" . $i] . "'); ";
+            if(! isset($_POST["texts_pagenum" . $i])){
+                $_POST["texts_pagenum" . $i] = $_POST["pagenum"];
+            }
+            $sql = $sql . "INSERT INTO texts (pagenum, title, text, size) VALUES ('" . $_POST["texts_pagenum" . $i] . "', '" . $_POST["texts_title" . $i] . "', '" . $_POST["texts_text" . $i] . "', '" . $_POST["texts_size" . $i] . "'); ";
             $i++;
         } else{
             break;
         }
     }
-    echo "<br>SQL query: " . $sql . "<br>";
     
     //Due to security vunerbilities discovered in penetration testing, i need to sanitise the data:
-    $illegal = ["<script>", "</script>", "\\", "<?php", "?>"];
+    $illegal = ["<script>", "</script>", "<?php", "?>"];
     foreach ($illegal as $hack){
         if (strpos($sql, $hack) !== false){
-            echo "<p style=\"color: red\"size=\"5rem\">Illegal characters used: \"&ltscript&gt\", \"&lt/script&gt\", \"\\\", \"&lt?php\", \"?&gt\" are not permitted for security reasons.";
+            echo "<p style=\"color: red\"size=\"5rem\">Illegal characters used: \"&ltscript&gt\", \"&lt/script&gt\", \"&lt?php\", \"?&gt\" are not permitted for security reasons.";
             die();
         }
     }
@@ -64,5 +65,5 @@
     $conn_sec->close();
 ?>
 
-<!--<meta http-equiv="refresh" content="3;url=admin.php">-->
+<meta http-equiv="refresh" content="0;url=admin.php">
 </html>
