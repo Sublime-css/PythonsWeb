@@ -216,9 +216,11 @@ header > nav > .navbar:first-child > li:first-child {
 /*make sure the footer dosen't get hung up on weird dynamic layouts*/
 footer{
     float: left;
+    width: 100%;
 }
 
 footer > p {
     line-height: 3rem;
-    color: #707070;
+    color: #ffffff;
+    text-align: center;
 }

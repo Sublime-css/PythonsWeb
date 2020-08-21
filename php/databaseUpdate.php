@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <?php
-    print_r($_POST);
+    //print_r($_POST);
     include"setup_sec.php";
     //remove any commas
     foreach ($_POST as &$value){
@@ -28,12 +28,12 @@
     //Check that attempt was successfull:
     if ($conn_sec->query($sql) === true) {
         //give some feedback:
-        echo "<p style=\"color: #63ebb0\"size=\"5rem\">Record Updated Successfully.</p>";
+        //echo "<p style=\"color: #63ebb0\"size=\"5rem\">Record Updated Successfully.</p>";
     }
     //Tell the user that it didn't work:
     else {
-        echo "Error: " . $sql . "<br>" . $conn_sec->error;
-        echo "No changes have been made.";
+        //echo "Error: " . $sql . "<br>" . $conn_sec->error;
+        //echo "No changes have been made.";
     }
     //Disconnect from database:
     $conn_sec->close();

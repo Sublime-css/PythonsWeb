@@ -21,7 +21,7 @@ New techniques:
     <script type="text/javascript" src="../js/admin.js"></script>
 </head>
 
-<body>
+<body onload="editpage()">
     <?php
         require_once("session.php");
         //Need to log into the database:
