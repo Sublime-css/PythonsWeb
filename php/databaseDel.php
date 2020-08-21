@@ -1,7 +1,6 @@
 <!--Insert information gathered into the database with admin perms:-->
 <!DOCTYPE html>
 <html>
-    <meta http-equiv="refresh" content="3;url=admin.php">
     <?php
         //Store data in variables:
         $delpagenum= $_POST["delpagenum"];
@@ -24,4 +23,5 @@
         //Disconnect from database:
         $conn_sec->close();
     ?>
+    <meta http-equiv="refresh" content="0;url=admin.php">
 </html>

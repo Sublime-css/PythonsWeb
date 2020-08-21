@@ -11,7 +11,7 @@ bughunting:
 TODO now:
 
 --visual diary (permanant).
---fix the text spacing in dynamic content boxes.
+--fix the text spacing in dynamic content boxes. //Done
 --make videos embed properly. //Done
 --insert/delete should only list pagenum values that are available. //Done
 --index.php needs a better fallback than to shout about the lack of data. //Done

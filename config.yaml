@@ -30,3 +30,7 @@ Users:
 Cryptographic pepper:
      fe3136f2501e8eb46436917d16bb9b7394bb23291ce3da3f5b6168ea8cd51472cc2c7c37440a88a940c993a1b681cff5fc69c460b15a905df8f74e81d2caf095
 ...
+
+#Footer line at the bottom of the webpage, change this to whatever you like:
+Footer:
+    © Luka Simpson, 2020. All rights reserved.

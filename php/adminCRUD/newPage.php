@@ -9,7 +9,7 @@
             <div class="col-75">
                 <select id="pagenum" name="pagenum">
                     <?php
-                        foreach ($admin_inverse as $i) {
+                        for ($i = 1; $i <= 10; $i++) {
                             echo "<option value=\"" . $i . "\">" . $i . "</option>\r\n";
                         }
                     ?>

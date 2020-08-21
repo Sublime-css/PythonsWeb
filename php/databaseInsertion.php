@@ -3,13 +3,6 @@
 <html>
 <?php
     include"setup_sec.php";
-    //to update the page, we first need to delete the old data:
-    if($_POST["insert_type"] == "update"){
-        $sql = "TRUNCATE TABLE `texts`; TRUNCATE TABLE `videos`";
-        $conn_sec->multi_query($sql);
-        $conn_sec->close();
-    }
-    include"setup_sec.php";
     //remove any commas
     foreach ($_POST as &$value){
         $value = str_replace("'", "\'", $value);

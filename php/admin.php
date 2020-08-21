@@ -22,30 +22,30 @@ New techniques:
 </head>
 
 <body>
-        <?php
+    <?php
         require_once("session.php");
         //Need to log into the database:
-            require_once("setup_sec.php");
-            include "nav.php";
-        ?>
+        require_once("setup_sec.php");
+        include "nav.php";?>
+    
+        <div class="wrapper" style="width: 100vw; margin-left: 0">
+            <?php
+            include "login/backEndLogin.php";
+            if(login("admin")){
+            ?>
+            <button class="tabbutton" onclick="newpage()">New Page:</button>
+            <button class="tabbutton" onclick="editpage()">Edit Page:</button>
+            <button class="tabbutton" onclick="delpage()">Delete Page:</button>
 
-        <!--The main body of the site, where content goes-->
-        <?php
-        include "login/backEndLogin.php";
-        if(login("admin")){
-        ?>
-        <button class="tabbutton" onclick="newpage()">New Page:</button>
-        <button class="tabbutton" onclick="editpage()">Edit Page:</button>
-        <button class="tabbutton" onclick="delpage()">Delete Page:</button>
-        
-        <?php
-        include "adminCRUD/calcPages.php";
-        include "adminCRUD/newPage.php";
-        include "adminCRUD/updatePage.php";
-        include "adminCRUD/delPage.php";
-        //include "adminCRUD/pages.php";
-        ?>
-    <?php } ?>
+            <?php
+            include "adminCRUD/calcPages.php";
+            include "adminCRUD/newPage.php";
+            include "adminCRUD/updatePage.php";
+            include "adminCRUD/delPage.php";
+            //include "adminCRUD/pages.php";
+            ?>
+            <?php } ?>
+        </div>
 </body>
 
 </html>

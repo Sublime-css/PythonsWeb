@@ -22,7 +22,12 @@
                     }
                 } ?>
         <footer>
-            <p><?php include "../footer.txt"; ?></p>
+            <p><?php
+                $config = "http://" . $_SERVER['HTTP_HOST'] . "/PythonsWeb/config.yaml";
+                $lines = file($config);
+                echo trim($lines[35]);
+                unset($lines);
+                ?></p>
         </footer>
         </div>
     </body>

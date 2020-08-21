@@ -1,43 +1,19 @@
-<?php
-if(! isset($videos_loop)){
-    $videos_loop = 0;
-} else {
-    $videos_loop++;
-}
-?>
+<form action="databaseUpdate.php" method="POST">
 <div class="row">
-    <p>Video, page number: <?php echo $row["pagenum"];?>, id: <?php echo $row["id"];?></p>
-</div>
-<div class ="row">
-    <div class="col-25">
-        <label for="videos_title<?php echo $videos_loop;?>">Title</label>
+    <div class="col-20">
+        <input type="text" name="videos_title" value="<?php echo $row["title"];?>">
     </div>
-    <div class="col-75">
-        <input type="text" name="videos_title<?php echo $videos_loop;?>" value="<?php echo $row["title"];?>">
+    
+    <div class="col-20">
+        <input type="text" name="videos_link" value="<?php echo $row["link"];?>">
     </div>
-</div>
-<div class ="row">
-    <div class="col-25">
-        <label for="videos_link<?php echo $videos_loop;?>">Link</label>
+    
+    <div class="col-20">
+        <textarea name="videos_text"><?php echo $row["text"];?></textarea>
     </div>
-    <div class="col-75">
-        <input type="text" name="videos_link<?php echo $videos_loop;?>" value="<?php echo $row["link"];?>">
-    </div>
-</div>
-<div class ="row">
-    <div class="col-25">
-        <label for="videos_text<?php echo $videos_loop;?>">Description</label>
-    </div>
-    <div class="col-75">
-        <textarea name="videos_text<?php echo $videos_loop;?>" style="height:200px"><?php echo $row["text"];?></textarea>
-    </div>
-</div>
-<div class ="row">
-    <div class="col-25">
-        <label for="videos_size<?php echo $videos_loop;?>">Size</label>
-    </div>
-    <div class="col-75">
-        <select name="videos_size<?php echo $videos_loop;?>">
+
+    <div class="col-125">
+        <select name="videos_size">
             <option <?php if($row["size"] == "small"){echo"selected";}?> value="small">Small</option>
             <option <?php if($row["size"] == "medium"){echo"selected";}?> value="medium">Medium</option>
             <option <?php if($row["size"] == "large"){echo"selected";}?> value="large">Half Page (widthwise)</option>
@@ -46,13 +22,9 @@ if(! isset($videos_loop)){
             <option <?php if($row["size"] == "none"){echo"selected";}?> value="none">None</option>
         </select>
     </div>
-</div>
-<div class="row">
-    <div class="col-25">
-        <label for="videos_pagenum<?php echo $videos_loop;?>">Page Number</label>
-    </div>
-    <div class = "col-75">
-        <select name="videos_pagenum<?php echo $videos_loop;?>">
+    
+    <div class = "col-125">
+        <select name="videos_pagenum">
             <option <?php if($row["pagenum"] == "1"){echo"selected";}?> value="1">1</option>
             <option <?php if($row["pagenum"] == "2"){echo"selected";}?> value="2">2</option>
             <option <?php if($row["pagenum"] == "3"){echo"selected";}?> value="3">3</option>
@@ -65,4 +37,11 @@ if(! isset($videos_loop)){
             <option <?php if($row["pagenum"] == "10"){echo"selected";}?> value="10">10</option>
         </select>
     </div>
+    <select name="id" class = "invis">
+            <option selected value="<?php echo $row["id"];?>"></option>
+    </select>
+    <div class="col-125">
+            <input type="submit" value="Update">
+    </div>
 </div>
+</form>

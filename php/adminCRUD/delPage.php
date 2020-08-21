@@ -1,6 +1,6 @@
 <!--DELPAGE.PHP-->
 <div class="container invis" id="delpage" style="display:none">
-    <form action="../databaseDel.php" method="POST">
+    <form action="databaseDel.php" method="POST">
         <div class="row">
             <div class="col-25">
                 <label for="delpagenum">Page to Delete:</label>

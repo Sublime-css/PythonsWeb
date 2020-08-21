@@ -5,5 +5,5 @@ $lines = file($config);
 $conn_sec = new mysqli(trim($lines[19]), trim($lines[21]), trim($lines[23]), trim($lines[25]));
 unset($lines);
 if ($conn_sec->connect_error) {
-    die("<p style=\"color: red; position: absolute; top:1rem\">Connection failed: " . $conn_sec->connect_error . "</p>");
+    die("<p style=\"color: red; position: absolute; top:1rem\">Connection to database failed -- some content may not display.</p>");
 }?>
