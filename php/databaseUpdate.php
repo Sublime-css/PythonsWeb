@@ -11,7 +11,7 @@
         if(isset($_POST["videos_title"])){
             $sql = "UPDATE videos SET pagenum = '" . $_POST["videos_pagenum"] . "', title = '" . $_POST["videos_title"] . "', link = '" . $_POST["videos_link"] . "', text = '" . $_POST["videos_text"] . "', size = '" . $_POST["videos_size"] . "' WHERE id = '" . $_POST["id"] . "'";
         } else{
-            $sql = "UPDATE texts SET pagenum = '" . $_POST["texts_pagenum"] . "', title = '" . $_POST["texts_title"] . "', link = '" . $_POST["texts_link"] . "', text = '" . $_POST["texts_text"] . "', size = '" . $_POST["texts_size"] . "' WHERE id = '" . $_POST["id"] . "'";
+            $sql = "UPDATE texts SET pagenum = '" . $_POST["texts_pagenum"] . "', title = '" . $_POST["texts_title"] . "', image = '" . $_POST["texts_image"] . "', text = '" . $_POST["texts_text"] . "', size = '" . $_POST["texts_size"] . "' WHERE id = '" . $_POST["id"] . "'";
         }
     
     //Due to security vunerbilities discovered in penetration testing, i need to sanitise the data:

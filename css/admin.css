@@ -1,74 +1,100 @@
 /*CSS that came with the responsive form (see form for details)
 Found at https://www.w3schools.com/howto/howto_css_responsive_form.asp
 Style inputs, select elements and textareas */
-    input[type=text], input[type=password], select, textarea{
-      width: 100%;
-      padding: 6px;
-      border: 3px solid #707070;
-      border-radius: 4px;
-      box-sizing: border-box;
-      resize: vertical;
-      background: #ffffff;
-    }
+input[type=text],
+input[type=password],
+select,
+textarea {
+    width: 100%;
+    height: 100%;
+    padding: 6px;
+    box-sizing: border-box;
+    resize: vertical;
+    background: #ffffff;
+    border: none;
+}
 
-    /* Style the label to display next to the inputs */
-    label {
-      padding: 12px 12px 12px 0;
-      display: inline-block;
-    }
+/* Style the label to display next to the inputs */
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
 
-    /* Style the submit button */
+/* Style the submit button */
+input[type=submit] {
+    width: 100%;
+    height: 33.33%;
+    background-color: #63ebb0;
+    color: #707070;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    float: right;
+    margin-top: 6px;
+}
+
+/* Style the container */
+.container {
+    background-color: #ffffff;
+    padding: 10px;
+    font-size: 0.8rem;
+}
+
+.invis {
+    display: none;
+}
+
+/* Floating column for labels: 25% width */
+.col-25 {
+    float: left;
+    width: 25%;
+    height: 100%;
+
+}
+
+/* Floating column for inputs: 75% width */
+.col-75 {
+    float: left;
+    width: 75%;
+    height: 100%;
+
+}
+
+.col-625 {
+    float: left;
+    width: 62.5%;
+    height: 100%;
+}
+
+.col-125 {
+    float: left;
+    width: 12.5%;
+    height: 100%;
+}
+
+.row-tall{
+    height: 15vh;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+
+    .col-25,
+    .col-75,
     input[type=submit] {
-      background-color: #63ebb0;
-      color: #707070;
-      padding: 12px 20px;
-      border: 3px solid #707070;
-      border-radius: 4px;
-      cursor: pointer;
-      float: right;
-        margin-top: 6px;
-    }
-
-    /* Style the container */
-    .container {
-      background-color: #ffffff;
-      padding: 10px;
-        font-size: 0.8rem;
-    }
-    .invis {
-      display: none;
-    }
-    /* Floating column for labels: 25% width */
-    .col-25 {
-      float: left;
-      width: 25%;
-      margin-top: 6px;
-    }
-
-    /* Floating column for inputs: 75% width */
-    .col-75 {
-      float: left;
-      width: 75%;
-      margin-top: 6px;
-    }
-
-    /* Clear floats after the columns */
-    .row:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
-
-    /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-    @media screen and (max-width: 600px) {
-      .col-25, .col-75, input[type=submit] {
         width: 100%;
         margin-top: 0;
-      }
     }
-/*End of CSS that came with the responsive form*/
+}
 
-.tabbutton{
+.tabbutton {
     width: 33.33333%;
     height: 7vh;
     float: left;
@@ -78,32 +104,14 @@ Style inputs, select elements and textareas */
     color: #707070;
 }
 
-.tabbutton:hover{
+.tabbutton:hover {
     background-color: #63ebb0;
 }
 
-th, tr, td {
-    border: 3px solid #707070;
-    width:11.11111%;
-    height:8.7777777777vh;
-    white-space:nowrap;
-    overflow-x: auto;
-}
 
 @media only screen and (max-width: 600px) {
-    .tabbutton{
-    width: 25%;
-    font-size: 3vw;
+    .tabbutton {
+        width: 25%;
+        font-size: 3vw;
     }
-}
-.col-125 {
-    float: left;
-    width: 12.5%;
-    margin-top: 6px;
-}
-
-.col-20 {
-    float: left;
-    width: 20%;
-    margin-top: 6px;
 }

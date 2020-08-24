@@ -18,7 +18,7 @@
                     include "login/backEndLogin.php";
                     //Attempt login with user perms:
                     if(login("user")){
-                        echo "<div class=\"loginWindow\"><h1 style=\"color: #63ebb0\">You're all logged in!</h1></div>";
+                        echo "<div class=\"loginWindow\"><h1 style=\"color: #63ebb0\">You're already logged in!</h1></div>";
                     }
                 } ?>
         <footer>

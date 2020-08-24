@@ -1,19 +1,16 @@
-<form action="databaseUpdate.php" method="POST">
-<div class="row">
-    <div class="col-20">
-        <input type="text" name="videos_title" value="<?php echo $row["title"];?>">
+<form action="databaseUpdate.php" method="POST" style="clear:both;">
+<div class="row-tall">
+    <div class="col-25">
+        <input type="text" style="height: 50%" name="videos_title" value="<?php echo $row["title"];?>">
+        <input type="text" style="height: 50%" name="videos_link" value="<?php echo $row["link"];?>">
     </div>
     
-    <div class="col-20">
-        <input type="text" name="videos_link" value="<?php echo $row["link"];?>">
-    </div>
-    
-    <div class="col-20">
+    <div class="col-625">
         <textarea name="videos_text"><?php echo $row["text"];?></textarea>
     </div>
 
     <div class="col-125">
-        <select name="videos_size">
+        <select name="videos_size" style="height: 33.33%">
             <option <?php if($row["size"] == "small"){echo"selected";}?> value="small">Small</option>
             <option <?php if($row["size"] == "medium"){echo"selected";}?> value="medium">Medium</option>
             <option <?php if($row["size"] == "large"){echo"selected";}?> value="large">Half Page (widthwise)</option>
@@ -21,10 +18,7 @@
             <option <?php if($row["size"] == "whole"){echo"selected";}?> value="whole">Whole Page</option>
             <option <?php if($row["size"] == "none"){echo"selected";}?> value="none">None</option>
         </select>
-    </div>
-    
-    <div class = "col-125">
-        <select name="videos_pagenum">
+        <select name="videos_pagenum" style="height: 33.33%">
             <option <?php if($row["pagenum"] == "1"){echo"selected";}?> value="1">1</option>
             <option <?php if($row["pagenum"] == "2"){echo"selected";}?> value="2">2</option>
             <option <?php if($row["pagenum"] == "3"){echo"selected";}?> value="3">3</option>
@@ -36,12 +30,11 @@
             <option <?php if($row["pagenum"] == "9"){echo"selected";}?> value="9">9</option>
             <option <?php if($row["pagenum"] == "10"){echo"selected";}?> value="10">10</option>
         </select>
+            <input type="submit" value="Update" style="height: 33.33%">
     </div>
     <select name="id" class = "invis">
             <option selected value="<?php echo $row["id"];?>"></option>
     </select>
-    <div class="col-125">
-            <input type="submit" value="Update">
-    </div>
 </div>
 </form>
+<hr style="clear: both;">
