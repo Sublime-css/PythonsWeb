@@ -1,3 +1,11 @@
+<?php
+if(isset($_POST["search"])){
+    $search = $_POST["search"];
+} else {
+    $search = "";
+}
+?>
+
 <header id="header">
     <nav>
         <ul class="navbar">
@@ -8,7 +16,15 @@
             <li><a href="index.php?page=3">Share With Class</a></li>
         </ul>
         <ul class="navbar">
-            <li><a href="index.php?page=4">Search</a></li>
+            <li><a>
+                    <form action="index.php?page=4" method="POST" style="clear:both;">
+                        <div class="">
+                            <div style="width: 100%;">
+                                <input type="text" style="border: none; height: 100%" name="search" value="<?php echo $search ?>">
+                            </div>
+                        </div>
+                    </form>
+                </a></li>
             <li><a href="index.php?page=5">Coursework</a></li>
             <li><a href="index.php?page=6">Donate</a></li>
             <li><a href="index.php?page=7">News</a></li>

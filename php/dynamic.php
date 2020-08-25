@@ -5,8 +5,10 @@
     //Try for what page the user wants, and dont explode if there isn't one:
     //Also make sure that the GET is 0 or 1 character in length, because otherwise anyone can write SQL in the URL bar which will be arbitrarilly executed.
     //Before this was patched, adding "; DROP * FROM pages" to the URL would have deleted the website's database. This is a major security vunerability.
-    if (empty($_GET) != true and strlen($_GET["page"]) <= 1){
-        $Page = $_GET['page'];
+    if(isset($_GET["page"])){
+        if(strlen($_GET["page"]) <= 1){
+            $Page = $_GET['page'];
+        }
     }
     //Need to login to the database -- insecure because all we need to do is read data:
     require_once("setup_insec.php");

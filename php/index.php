@@ -20,7 +20,11 @@
                     if(login("user")){
                         echo "<div class=\"loginWindow\"><h1 style=\"color: #63ebb0\">You're already logged in!</h1></div>";
                     }
-                } ?>
+                }
+                if($Page == "4"){
+                    include "search.php";
+                }
+                ?>
         <footer>
             <p><?php
                 $config = "http://" . $_SERVER['HTTP_HOST'] . "/PythonsWeb/config.yaml";
