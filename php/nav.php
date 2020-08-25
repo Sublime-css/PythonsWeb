@@ -18,9 +18,9 @@ if(isset($_POST["search"])){
         <ul class="navbar">
             <li><a>
                     <form action="index.php?page=4" method="POST" style="clear:both;">
-                        <div class="">
-                            <div style="width: 100%;">
-                                <input type="text" style="border: none; height: 100%" name="search" value="<?php echo $search ?>">
+                        <div>
+                            <div style="width: 50%;">
+                                <input type="text" style="border: none; height: 100%" name="search" value="<?php echo $search ?>" placeholder="Search...">
                             </div>
                         </div>
                     </form>
