@@ -1,2 +1,3 @@
 #Ignore the cache files in php qr library
-PythonsWeb\lib\phpqrcode\cache
+lib\phpqrcode\cache
+*.dat
