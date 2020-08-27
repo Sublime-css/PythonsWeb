@@ -217,6 +217,7 @@ header > nav > .navbar:first-child > li:first-child {
 footer{
     float: left;
     width: 100%;
+    clear:both;
 }
 
 footer > p {
