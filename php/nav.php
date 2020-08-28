@@ -20,22 +20,17 @@ if (isset($_GET["search"]))
                 <h1>Python's Web</h1> </a>
             </li>
             <li><a href="index.php?page=2">Register/Login</a></li>
-            <li><a href="<?php if (isset($_SESSION["login_currentPerms"]) and $_SESSION["login_currentPerms"] == "user")
-{
-    echo "qrgen.php?qr=" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
-    if (isset($_GET["page"]))
-    {
-        echo "&page=" . $_GET["page"];
-        if (isset($search) and $_GET["page"] == "4")
-        {
-            echo "&search=" . $search;
-        }
-    }
-}
-else
-{
-    echo "index.php?page=3";
-} ?>">Share With Class</a></li>
+            <script>
+                function shareToggle(){   
+                    if(document.getElementById('shareWithClass').style.display == 'block'){
+                        document.getElementById('shareWithClass').style.display = 'none';
+                    }
+                    else {
+                        document.getElementById('shareWithClass').style.display = 'block';
+                    }
+                }
+            </script>
+            <li><a <?php if(isset($_SESSION["login_currentPerms"]) and $_SESSION["login_currentPerms"] == "user"){ ?> onclick="shareToggle()" <?php } else{ ?>href="index.php?page=3"<?php } ?>>Share With Class</a></li>
         </ul>
         <ul class="navbar">
             <li><a>
