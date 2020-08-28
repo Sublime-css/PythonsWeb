@@ -7,7 +7,7 @@ Users:
         host:
             localhost
         username:
-            insec_user
+            sec_user
         password:
             greenChair153
         database:
