@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 21, 2020 at 02:46 AM
+-- Generation Time: Aug 28, 2020 at 02:24 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.2.32
 
@@ -66,13 +66,14 @@ CREATE TABLE `texts` (
 --
 
 INSERT INTO `texts` (`id`, `pagenum`, `title`, `text`, `image`, `size`) VALUES
-(1, 9, '', '', '', 'medium'),
-(2, 9, '', '', '', 'medium'),
+(1, 9, '', '', 'lesson1_reference.png', 'medium'),
+(2, 9, '', '', 'lesson2_reference.png', 'medium'),
 (3, 9, 'Lesson 3 Reference: Variables and Console:', '<code>Usage: tracert [-d] [-h maximum_hops] [-j host-list] [-w timeout]<br>\r\n               [-R] [-S srcaddr] [-4] [-6] target_name<br>\r\n\r\nOptions:\r\n    -d                 Do not resolve addresses to hostnames.<br>\r\n    -h maximum_hops    Maximum number of hops to search for target.<br>\r\n    -j host-list       Loose source route along host-list (IPv4-only).<br>\r\n    -w timeout         Wait timeout milliseconds for each reply.<br>\r\n    -R                 Trace round-trip path (IPv6-only).<br>\r\n    -S srcaddr         Source address to use (IPv6-only).<br>\r\n    -4                 Force using IPv4.<br>\r\n    -6                 Force using IPv6.</code>', '', 'long'),
 (4, 7, 'You\'re Early!', 'PythonsWeb is currently a website under development. Not all features are functional yet, so if things... well... explode, don\'t worry! Check back here soon for a guide on learning to program in Python!\r\nIn the mean time, it can\'t hurt to create an account. You\'ll find the register page at register/login, up the top.', '', 'medium'),
 (5, 7, 'What is PythonsWeb?', 'Good question! PythonsWeb aims to be a website where you can learn the basics of programming in Python, a computer language. PythonsWeb requires no prior knowledge, and is aimed at the beginner.', '', 'small'),
 (6, 8, 'Who is PythonsWeb aimed at?', 'PythonsWeb is aimed at anyone who would like to learn to program! You don\'t have to have any computer expertise. If you\'re a teacher, options are available to share content with your class quickly and easily.\r\n<br><br>What if you\'re at the other end of the python-skill spectrum? Well there\'s no harm in getting a refresher course of the basics. Or, if you really know what you\'re doing, you could <a href = \"mailto: help@pythonsweb.co.nz\">get in contact with us</a>. ', '', 'long'),
-(7, 7, 'PythonsWeb is almost done!', 'As you might have figured from the title, this website is almost complete. A few features need to be completed (search, share), and then it\'ll (theoretically) be plain-sailing!', '', 'small');
+(7, 7, 'PythonsWeb is almost done!', 'As you might have figured from the title, this website is almost complete. A few features need to be completed (search, share), and then it\'ll (theoretically) be plain-sailing!', '', 'small'),
+(8, 6, 'Hosting and bandwidth cost money :/', 'Its\' a sad truth, but <em>you can help!</em>. Click <a href=\"www.paypal.com\">here</a> for details!\r\n\r\nWhere does the money from donations go?\r\n<a href=\"doc.new\">here</a> is a breakdown.', '', 'whole');
 
 -- --------------------------------------------------------
 
@@ -139,7 +140,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `texts`
 --
 ALTER TABLE `texts`
-  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `videos`
