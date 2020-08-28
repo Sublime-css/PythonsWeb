@@ -18,11 +18,12 @@
         //Check that we got something, or error if we didn't:
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()){
-                ?><div class="<?php echo"dynamic " . $row["size"]?>" onclick="window.location='../videos/<?php echo $row['link'];?>';">
+                ?><div class="<?php echo"dynamic " . $row["size"]?>" onclick="document.getElementById('videoPlayer').style.display = 'block'; document.getElementById('videoPlayer').src = '../videos/<?php echo $row['link'];?>';">
                     <h1><?php echo $row["title"];?></h1>
                     <p><?php echo $row["text"];?></p>
                 </div><?php
             }
+            ?><iframe id="videoPlayer" src="" style="border: 3px solid #707070; display: none; position: absolute; bottom: 0; left: 0"></iframe><?php
         }
         $sql = "SELECT * FROM texts WHERE pagenum = $Page";
         $result = $conn_insec->query($sql);
