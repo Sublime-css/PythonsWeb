@@ -1,3 +1,4 @@
 #Ignore the cache files in php qr library
 lib\phpqrcode\cache
 *.dat
+lib/phpqrcode/errors.txt

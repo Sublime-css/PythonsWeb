@@ -12,6 +12,13 @@
     }
     //Need to login to the database -- insecure because all we need to do is read data:
     require_once("setup_insec.php");
+    $sql = "SELECT * FROM analytics WHERE PAGENUM = $Page";
+    $result = $conn_insec->query($sql);
+    if($result->num_rows == 1){
+        $row = $result->fetch_assoc();
+    }
+    $sql = "UPDATE analytics SET hits = '" . ($row["hits"] + 1) . "' WHERE id = '" . $row["id"] . "'";
+    $result = $conn_insec->query($sql);
     //Get the data that corrosponds to the current page:
         $sql = "SELECT * FROM videos WHERE pagenum = $Page";
         $result = $conn_insec->query($sql);
@@ -23,7 +30,7 @@
                     <p><?php echo $row["text"];?></p>
                 </div><?php
             }
-            ?><iframe id="videoPlayer" src="" style="border: 3px solid #707070; display: none; position: absolute; bottom: 0; left: 0"></iframe><?php
+            ?><iframe id="videoPlayer" src="" style="border: 3px solid #707070; display: none; position: fixed; bottom: 0px; left: 0px"></iframe><?php
         }
         $sql = "SELECT * FROM texts WHERE pagenum = $Page";
         $result = $conn_insec->query($sql);

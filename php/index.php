@@ -3,7 +3,7 @@
     <head>
         <?php include "head.php";?><!--Get the modular page header-->
     </head>
-    <body>
+    <body style="position: relative">
         <?php include "nav.php";?><!--Get the modular navigation bar-->
             <div class="wrapper">
                 <?php include "dynamic.php"; //Get the modular content display system
@@ -36,12 +36,12 @@
         </footer>
         </div>
         <?php
-        $_SESSION["qr"] = "http://" . $_SERVER["HTTP_HOST"] . $_SERVER["PHP_SELF"] . "?page=" . $_GET["page"];
-        if (isset($search) and $_GET["page"] == "4")
+        $_SESSION["qr"] = "http://" . $_SERVER["HTTP_HOST"] . $_SERVER["PHP_SELF"] . "?page=" . $Page;
+        if (isset($search) and $Page == "4")
         {
             $_SESSION["qr"] = $_SESSION["qr"] . "&search=" . $search;
         }
         ?>
-        <img src="qrgen.php" id= "shareWithClass" style="display: none; position: absolute; width: 25%; height: auto; left: 37.5%; top: 14vh">
+        <img src="qrgen.php" id= "shareWithClass" style="display: none; position: fixed; width: 25%; height: auto; left: 37.5%; top: 14vh">
     </body>
 </html>
