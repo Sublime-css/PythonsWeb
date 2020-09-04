@@ -26,7 +26,7 @@
             if(! isset($_POST["texts_pagenum" . $i])){
                 $_POST["texts_pagenum" . $i] = $_POST["pagenum"];
             }
-            $sql = $sql . "INSERT INTO texts (pagenum, title, text, size) VALUES ('" . $_POST["texts_pagenum" . $i] . "', '" . $_POST["texts_title" . $i] . "', '" . $_POST["texts_text" . $i] . "', '" . $_POST["texts_size" . $i] . "'); ";
+            $sql = $sql . "INSERT INTO texts (pagenum, title, image, text, size) VALUES ('" . $_POST["texts_pagenum" . $i] . "', '" . $_POST["texts_title" . $i] . "', '" . $_POST["texts_image" . $i] . "', '" . $_POST["texts_text" . $i] . "', '" . $_POST["texts_size" . $i] . "'); ";
             $i++;
         } else{
             break;

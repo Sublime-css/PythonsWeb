@@ -1,0 +1,13 @@
+Username/PW combos for testing purposes:
+
+##################################################
+#   Username    #   Password     #   Permissions #
+##################################################
+#   theadmin    #   aeroplane    #     admin     #	//Root admin account
+##################################################
+#  digger1213   # {CLIENT'S ACC} #     admin     #	//Password only known to my client
+##################################################
+#  first_user   #   user_first   #     user      #
+##################################################
+# theSecondUser #     liebe      #     user      #
+##################################################

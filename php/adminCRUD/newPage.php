@@ -10,7 +10,7 @@
                 <select id="pagenum" name="pagenum">
                     <?php
                         for ($i = 1; $i <= 10; $i++) {
-                            echo "<option value=\"" . $i . "\">" . $i . "</option>\r\n";
+                            echo "<option value=\"" . $i . "\">Page " . $i . "</option>\r\n";
                         }
                     ?>
                 </select>

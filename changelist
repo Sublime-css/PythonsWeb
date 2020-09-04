@@ -1,2 +1,6 @@
 --make dynamic.php able to use both video and text on the same page
 ----depricates pages.display
+--Depricate saltgen.php
+----could allow bad actors to determine the salt generation method
+--create USERS.txt
+----hold the username/password combos for testing the website
