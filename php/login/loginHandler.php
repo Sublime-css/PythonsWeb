@@ -14,7 +14,7 @@ if ($pepper ==  ""){
     //This has to be done from scratch, incase there is a problem with saving in `config.yaml`.
     //If the pepper changes, all DB password hashes become unuseable.
     echo("<meta http-equiv='refresh' content='0; http://" . $_SERVER["HTTP_HOST"] . "/PythonsWeb/'>");
-    die("This is normal for the very first login, just reload your page. If you keep seeing this, please contact us.");
+    die("This is likely normal, just reload your page. If you keep seeing this, please contact us.");
 }
 //Start the session once
 require_once("../session.php");
@@ -31,7 +31,7 @@ if($_POST["loginOrRegister"] == "login"){
         //Log the user out:
         $_SESSION["login_currentPerms"] = "";
         //go back from whence we came:
-        echo("<meta http-equiv='refresh' content='0; http://" . $_SESSION["login_path"] . "'>");
+        echo("<meta http-equiv='refresh' content='3; http://" . $_SESSION["login_path"] . "'>");
         //If the redirect fails:
         echo"Error: " . $sql . "<br>" . $conn_insec->error;
         die("<p style=\"color: red; position: absolute; top:1rem\">Login failed, have another go?</p>");
@@ -57,14 +57,23 @@ if($_POST["loginOrRegister"] == "login"){
     $conn_insec->close();
 }
 else{
+    #Can't have multiple users with the same username!
+    $sql = "SELECT username FROM login WHERE username = '" . $_POST["login_username"] . "'";
+    #check the database for duplicate names:
+    $result = $conn_insec->query($sql);
+    #If there are more than 0 duplicates
+    if (mysqli_num_rows($result) != 0){
+        #Go back after the user has read the error:
+        echo("<meta http-equiv='refresh' content='3; http://" . $_SESSION["login_path"] . "'>");
+        #Explain what happened:
+        die("<p style=\"color: red; position: absolute; top:1rem\">Another user has already taken this username.</p>");
+    }
     $salt = bin2hex(random_bytes(8));
     $sql = "INSERT INTO login (email, username, password, perms, salt) VALUES ('". $_POST["login_email"] . "', '" . $_POST["login_username"] . "', '"  . hash("sha512", $pepper . $_POST["login_password"] . $salt) . "', 'user' , '$salt')";
     unset($salt);
     //Insert data by SQL:
     //Check that attempt was successfull:
     if ($conn_insec->query($sql) === true) {
-        //give some feedback:
-        echo "<p style=\"color: #63ebb0\"size=\"5rem\">New account created successfully.</p>";
         //Disconnect from database:
         $conn_insec->close();
         //Log the user in (users who registered can only even have user perms)
@@ -72,12 +81,15 @@ else{
         //to avoid privilage escalation attacks.
         $_SESSION["login_currentPerms"] = "user";
         echo("<meta http-equiv='refresh' content='0; http://" . $_SESSION["login_path"] . "'>");
-        die("<p style=\"color: red; position: absolute; top:1rem\">Login failed, have another go?</p>");
+        //give some feedback:
+        echo "<p style=\"color: #63ebb0\"size=\"5rem\">New account created successfully.</p>";
+        #die with an exit code of 0:
+        die(0);
     }
     //Tell the user that it didn't work:
     else {
         $_SESSION["login_currentPerms"] = "";
-        echo("<meta http-equiv='refresh' content='0; http://" . $_SESSION["login_path"] . "'>");
+        echo("<meta http-equiv='refresh' content='3; http://" . $_SESSION["login_path"] . "'>");
         echo"Error: " . $sql . "<br>" . $conn_insec->error;
         die("<p style=\"color: red; position: absolute; top:1rem\">Login failed, have another go?</p>");
     }

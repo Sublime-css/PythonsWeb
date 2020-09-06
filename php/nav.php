@@ -11,15 +11,20 @@ if (isset($_GET["search"]))
 {
     $search = $_GET["search"];
 }
+
+$config = "http://" . $_SERVER['HTTP_HOST'] . "/PythonsWeb/config.yaml";
+$lines = file($config);
+#unset($lines);
+
 ?>
 
 <header id="header">
     <nav>
         <ul class="navbar">
             <li>
-                <h1>Python's Web</h1> </a>
+                <h1><?php echo trim($lines[41]); ?></h1> </a>
             </li>
-            <li><a href="index.php?page=2">Register/Login</a></li>
+            <li><a href="<?php echo trim($lines[48]); ?>"><?php echo trim($lines[46]); ?></a></li>
             <script>
                 function shareToggle(){   
                     if(document.getElementById('shareWithClass').style.display == 'block'){
@@ -30,23 +35,23 @@ if (isset($_GET["search"]))
                     }
                 }
             </script>
-            <li><a <?php if(isset($_SESSION["login_currentPerms"]) and $_SESSION["login_currentPerms"] == "user"){ ?> onclick="shareToggle()" <?php } else{ ?>href="index.php?page=3"<?php } ?>>Share With Class</a></li>
+            <li><a <?php if(isset($_SESSION["login_currentPerms"]) and $_SESSION["login_currentPerms"] == "user"){ ?> onclick="shareToggle()" <?php } else{ ?>href="<?php echo trim($lines[53]); ?>"<?php } ?>><?php echo trim($lines[51]); ?></a></li>
         </ul>
         <ul class="navbar">
             <li><a>
-                    <form action="index.php?page=4" method="POST" style="clear:both;">
+                    <form action="<?php echo trim($lines[58]); ?>" method="POST" style="clear:both;">
                         <div>
                             <div style="width: 50%;">
-                                <input type="text" style="border: none; height: 100%" name="search" value="<?php echo $search ?>" placeholder="Search...">
+                                <input type="text" style="border: none; height: 100%" name="search" value="<?php echo $search ?>" placeholder="<?php echo trim($lines[56]); ?>">
                             </div>
                         </div>
                     </form>
                 </a></li>
-            <li><a href="index.php?page=5">Coursework</a></li>
-            <li><a href="index.php?page=6">Donate</a></li>
-            <li><a href="index.php?page=7">News</a></li>
-            <li><a href="index.php?page=8">F. A. Q.</a></li>
-            <li><a href="index.php?page=9">Reference</a></li>
+            <li><a href="<?php echo trim($lines[63]); ?>"><?php echo trim($lines[61]); ?></a></li>
+            <li><a href="<?php echo trim($lines[68]); ?>"><?php echo trim($lines[66]); ?></a></li>
+            <li><a href="<?php echo trim($lines[73]); ?>"><?php echo trim($lines[71]); ?></a></li>
+            <li><a href="<?php echo trim($lines[78]); ?>"><?php echo trim($lines[76]); ?></a></li>
+            <li><a href="<?php echo trim($lines[83]); ?>"><?php echo trim($lines[81]); ?></a></li>
         </ul>
     </nav>
 </header>

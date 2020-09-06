@@ -164,6 +164,13 @@ header > nav > .navbar:first-child > li:first-child {
     opacity: 0.8;
 }
 
+#shareWithClass{
+    position: fixed;
+    width: 25%;
+    height: auto;
+    left: 37.5%;
+    top: 14vh;
+}
 #mobileHeader{
     display: none;
     width: 100%;
@@ -210,6 +217,14 @@ header > nav > .navbar:first-child > li:first-child {
     }
     #mobileHeader{
         display: block;
+    }
+    .loginWindow{
+        display: none;
+    }
+    #shareWithClass{
+        width: 75%;
+        left: 12.5%;
+        top: 20%;
     }
 }
 

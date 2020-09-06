@@ -42,6 +42,6 @@
             $_SESSION["qr"] = $_SESSION["qr"] . "&search=" . $search;
         }
         ?>
-        <img src="qrgen.php" id= "shareWithClass" style="display: none; position: fixed; width: 25%; height: auto; left: 37.5%; top: 14vh">
+        <img src="qrgen.php" id= "shareWithClass" style="display: block;">
     </body>
 </html>

@@ -29,8 +29,57 @@ Users:
 #This is randomly generated once at the first init of login/loginHandler.php, and used forevermore:
 Cryptographic pepper:
      fe3136f2501e8eb46436917d16bb9b7394bb23291ce3da3f5b6168ea8cd51472cc2c7c37440a88a940c993a1b681cff5fc69c460b15a905df8f74e81d2caf095
-...
 
-#Footer line at the bottom of the webpage, change this to whatever you like:
+#Footer line which will show up at the bottom of the webpage
+#Change this to whatever you like:
 Footer:
     © Luka Simpson, 2020. All rights reserved.
+
+#The customisable navbar:
+Navbar:
+    Page_1:
+        text:
+            Python's Web
+        link:
+            
+    Page_2:
+        text:
+            Register/Login
+        link:
+            index.php?page=2
+    Page_3:
+        text:
+            Share With Class
+        link:
+            index.php?page=3
+    Page_4:
+        text:
+            Search
+        link:
+            index.php?page=4
+    Page_5:
+        text:
+            Coursework
+        link:
+            index.php?page=5
+    Page_6:
+        text:
+            Donate
+        link:
+            index.php?page=6
+    Page_7:
+        text:
+            News
+        link:
+            index.php?page=7
+    Page_8:
+        text:
+            F. A. Q.
+        link:
+            index.php?page=8
+    Page_9:
+        text:
+            References
+        link:
+            index.php?page=9
+...
