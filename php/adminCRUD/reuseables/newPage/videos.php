@@ -28,3 +28,4 @@ if(! isset($videos_loop)){
         <input type="submit" value="Update" style="height: 50%">
     </div>
 </div>
+<hr style="clear: both;">

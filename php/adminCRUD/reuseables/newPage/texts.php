@@ -23,3 +23,4 @@ if(! isset($texts_loop)){
         </select>
     </div>
 </div>
+<hr style="clear: both;">

@@ -16,6 +16,7 @@
                 </select>
             </div>
         </div>
+        <hr style="clear: both;">
         <?php
         if(isset($_SESSION["admin_videos"]) or isset($_SESSION["admin_texts"])){
             for ($i = 1; $i <= $_SESSION["admin_videos"]; $i++) {

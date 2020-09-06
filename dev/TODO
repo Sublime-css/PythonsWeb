@@ -16,6 +16,8 @@ bughunting:
 ------Prevent identical users -- database questions //Squashed
 ------Customisable navbar //Done
 ------`share with class` bug on mobile -- displays tiny and over toggle button //Done
+------mobile: "you're already logged in" taking up too much space//Squashed
+------admin newpage button overlap-- display scaling? //Squashed
 
 TO-DO now:
 
@@ -23,8 +25,6 @@ TO-DO now:
 
 Bugs
 --hovering on the first navlink makes a hover background that obscures the border, this is not present in any other navlink!
---admin newpage button overlap-- display scaling?
---mobile: "you're already logged in" taking up too much space
 --safari/firefox search bar bug -- display scaling?
 
 Jobs
@@ -33,7 +33,7 @@ Jobs
 --display page hits?
 --sign out button
 
-8! current bugs/jobs
+6! current bugs/jobs
 
 TODO future:
 
