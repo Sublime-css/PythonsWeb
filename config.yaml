@@ -37,22 +37,22 @@ Footer:
 
 #The customisable navbar:
 Navbar:
-    Page_1:
+    Page_1: #The title, has no link
         text:
             Python's Web
         link:
             
-    Page_2:
+    Page_2: #Will log users in and out, don't try to put content here
         text:
             Register/Login
         link:
             index.php?page=2
-    Page_3:
+    Page_3: #The share with class function, again not for content
         text:
             Share With Class
         link:
             index.php?page=3
-    Page_4:
+    Page_4: #search bar, last not-for-content link
         text:
             Search
         link:

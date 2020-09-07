@@ -28,7 +28,7 @@ New techniques:
         require_once("setup_sec.php");
         include "nav.php";?>
     
-        <div class="wrapper" style="">
+        <div class="wrapper">
             <?php
             include "login/backEndLogin.php";
             if(login("admin")){

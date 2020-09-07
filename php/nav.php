@@ -41,7 +41,7 @@ $lines = file($config);
             <li><a>
                     <form action="<?php echo trim($lines[58]); ?>" method="POST" style="clear:both;">
                         <div>
-                            <div style="width: 50%;">
+                            <div style="width: 50%; height: 6vh">
                                 <input type="text" style="border: none; height: 100%" name="search" value="<?php echo $search ?>" placeholder="<?php echo trim($lines[56]); ?>">
                             </div>
                         </div>

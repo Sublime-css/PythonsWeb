@@ -34,13 +34,3 @@ function delpage() {
         x.style.display = "none";
     }
 }
-
-//function pages() {
-//    var x = document.getElementById("pages");
-//    if (x.style.display != "block") {
-//        alltab();
-//        x.style.display = "block";
-//    } else {
-//        x.style.display = "none";
-//    }
-//}
