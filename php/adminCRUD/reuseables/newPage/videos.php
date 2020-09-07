@@ -25,7 +25,6 @@ if(! isset($videos_loop)){
             <option value="whole">Whole Page</option>
             <option value="none">None</option>
         </select>
-        <input type="submit" value="Update" style="height: 50%">
     </div>
 </div>
 <hr style="clear: both;">

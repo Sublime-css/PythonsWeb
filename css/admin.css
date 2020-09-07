@@ -111,7 +111,11 @@ input[type=submit] {
 
 @media only screen and (max-width: 600px) {
     .tabbutton {
-        width: 25%;
+        width: 33%;
         font-size: 3vw;
+    }
+    .col-25, .col-125, .col-625, .col-75{
+        width: 100%;
+        float: both;
     }
 }

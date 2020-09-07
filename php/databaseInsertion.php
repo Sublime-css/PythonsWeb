@@ -8,7 +8,7 @@
         $value = str_replace("'", "\'", $value);
     }
     $sql = "";
-    $i = 1;
+    $i = 0;
     while (true){
         if(isset($_POST["videos_title" . $i])){
             if(! isset($_POST["videos_pagenum" . $i])){
@@ -20,7 +20,7 @@
             break;
         }
     }
-    $i = 1;
+    $i = 0;
     while (true){
         if(isset($_POST["texts_title" . $i])){
             if(! isset($_POST["texts_pagenum" . $i])){
