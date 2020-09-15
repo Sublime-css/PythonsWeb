@@ -20,6 +20,7 @@ bughunting:
 ------admin newpage button overlap-- display scaling? //Squashed
 ------make admin page reload to the previous tab //Done
 ------safari/firefox search bar bug -- display scaling? //Squashed
+------sign out button //Done
 
 TO-DO now:
 
@@ -29,9 +30,8 @@ TO-DO now:
 Bugs
 
 Jobs
---sign out button
 
-1! current bugs/jobs
+0! current bugs/jobs
 
 TODO future:
 

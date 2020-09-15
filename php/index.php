@@ -18,7 +18,9 @@
                     include "login/backEndLogin.php";
                     //Attempt login with user perms:
                     if(login("user")){
-                        echo "<div class=\"loginWindow\" id=\"loginNotice\"><h1 style=\"color: #63ebb0\">You're already logged in!</h1></div>";
+                        require_once("session.php");
+                        $_SESSION["login_path"] = $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . "?page=" . $Page;
+                        echo "<div class=\"loginWindow\" id=\"loginNotice\"><h1 style=\"color: #63ebb0\">You're already logged in!</h1><a href=\"login/signOut.php\" id=\"signOut\">Sign Out</a></div>";
                     }
                 }
                 
