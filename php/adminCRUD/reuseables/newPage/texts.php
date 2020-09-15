@@ -6,7 +6,7 @@ if(! isset($texts_loop)){
 }
 ?>
 
-<div class ="row-tall">
+<div class="row-tall mobile-row">
     <div class="col-75">
         <textarea name="texts_text<?php echo $texts_loop;?>" placeholder="Text"></textarea>
     </div>

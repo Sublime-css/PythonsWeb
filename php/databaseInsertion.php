@@ -4,10 +4,24 @@
 <?php
     include"setup_sec.php";
     //remove any commas
+    //the ampersand forces reference so changes will update the actual value
     foreach ($_POST as &$value){
         $value = str_replace("'", "\'", $value);
     }
+    
+    #Create a new analytics entry if this page dosen't currently exist:
+    $sql = "SELECT * FROM ANALYTICS WHERE pagenum = " . $_POST["pagenum"];
+    $result = $conn_sec->query($sql);
+    if(mysqli_num_rows($result) == 0){
+        $sql = "INSERT INTO `analytics` (`id`, `pagenum`, `hits`) VALUES (NULL, '" . $_POST["pagenum"] . "', '0');";
+        $conn_sec->query($sql);
+    }
+    
+    #SQL will look something like
+    //INSERT INTO `analytics` (`id`, `pagenum`, `hits`) VALUES (NULL, '9', '0');
+    
     $sql = "";
+    #a counter for the loop
     $i = 0;
     while (true){
         if(isset($_POST["videos_title" . $i])){
@@ -57,6 +71,6 @@
     //Disconnect from database:
     $conn_sec->close();
 ?>
-
-<meta http-equiv="refresh" content="0;url=admin.php">
+<!--Give the admiin some time to realise that no changes have been made-->
+<meta http-equiv="refresh" content="3;url=admin.php">
 </html>

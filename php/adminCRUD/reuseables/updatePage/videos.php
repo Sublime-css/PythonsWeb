@@ -1,5 +1,5 @@
 <form action="databaseUpdate.php" method="POST" style="clear:both;">
-<div class="row-tall">
+<div class="row-tall mobile-row">
     <div class="col-25">
         <input type="text" style="height: 50%" name="videos_title" value="<?php echo $row["title"];?>">
         <input type="text" style="height: 50%" name="videos_link" value="<?php echo $row["link"];?>">

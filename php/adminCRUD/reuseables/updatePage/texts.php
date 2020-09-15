@@ -1,5 +1,5 @@
 <form action="databaseUpdate.php" method="POST">
-    <div class ="row-tall">
+    <div class ="row-tall mobile-row">
         <div class="col-125">
             <input type="text" style="height: 50%" name="texts_title" value="<?php echo $row["title"];?>">
             <input type="text" style="height: 50%" name="texts_image" value="<?php echo $row["image"];?>">

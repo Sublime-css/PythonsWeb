@@ -2,12 +2,14 @@
 <!DOCTYPE html>
 <html>
     <?php
+        #Set the default page to delete incase the user wants to delete lots of pages:
+        $_SESSION["admin_defaultTab"] = "del";
         //Store data in variables:
         $delpagenum= $_POST["delpagenum"];
         //Log into the database:
         include"setup_sec.php";
         $sql = "";
-        foreach (["videos", "texts"] as $table){
+        foreach (["videos", "texts", "analytics"] as $table){
             $sql = $sql . "DELETE FROM $table WHERE pagenum = $delpagenum;";
         }
         //Check that attempt was successfull:

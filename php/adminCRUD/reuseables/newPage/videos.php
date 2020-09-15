@@ -6,7 +6,7 @@ if(! isset($videos_loop)){
 }
 ?>
 
-<div class="row-tall">
+<div class="row-tall mobile-row">
     <div class="col-25">
         <input type="text" style="height: 50%" name="videos_title<?php echo $videos_loop;?>" placeholder="Title">
         <input type="text" style="height: 50%" name="videos_link<?php echo $videos_loop;?>" placeholder="Link">

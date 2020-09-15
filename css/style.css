@@ -24,11 +24,13 @@ body{
 }
 
 .wrapper{
+    padding:0px;
+    padding-top: 14vh;
+    opacity: 0.8;
     margin-left: 10vw;
     width: 80vw;
     font-family: 'Quicksand', sans-serif;
     height: 100vh;
-    padding:0px;
 }
 
 /*need some nice fonts for the website, font inheritance can save some space here*/
@@ -45,6 +47,8 @@ header {
 .navbar {
     width: 100%;
     opacity: 0.8;
+    position: relative;
+    z-index: 1;
 }
 
 /*Make the buttons turn the highlight colour when a user hovers over them: more for desktop use than mobile/tablet*/
@@ -100,7 +104,6 @@ header > nav > .navbar:first-child > li:first-child {
     border-radius: 1rem;
     cursor: pointer;
     box-shadow: 0px 0px 10px #000000;
-    opacity: 0.8;
 }
 
 .dynamic > h1 {
@@ -153,7 +156,6 @@ header > nav > .navbar:first-child > li:first-child {
     background-color: #ffffff;
     padding: 20px;
     font-size: 1rem;
-    opacity: 0.8;
 }
 
 #shareWithClass{
@@ -187,6 +189,12 @@ header > nav > .navbar:first-child > li:first-child {
         .dynamic{
             width: 48.5%;
         }
+        .long{
+            width: 98%;
+        }
+        .whole{
+            width: 98%;
+        }
         .wrapper{
             margin-left: 5%;
             width: 90%;
@@ -202,6 +210,10 @@ header > nav > .navbar:first-child > li:first-child {
         width: 98%;
         height: auto;
         padding-bottom: 2.5vh;
+    }
+    
+    .navbar{
+        position: static;
     }
     
     .navbar > li {
@@ -244,9 +256,13 @@ header > nav > .navbar:first-child > li:first-child {
         margin-left: 2.5vw;
         width: 95vw;
         height: 92.5vh;
+        padding-top: 0vh;
     }
     form > .row-tall{
         height:8vh;
+    }
+    .notext{
+        height: 40vh;
     }
 }
 
@@ -263,3 +279,7 @@ footer > p {
     text-align: center;
 }
 
+footer > p > a{
+    text-decoration: inherit;
+    color: inherit;
+}

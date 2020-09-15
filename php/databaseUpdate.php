@@ -2,6 +2,9 @@
 <!DOCTYPE html>
 <html>
 <?php
+    //Set the update page as default incase the user wants to update many values:
+    require_once("session.php");
+    $_SESSION["admin_defaultTab"] = "edit";
     //print_r($_POST);
     include"setup_sec.php";
     //remove any commas

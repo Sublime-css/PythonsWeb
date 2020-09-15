@@ -18,22 +18,20 @@ bughunting:
 ------`share with class` bug on mobile -- displays tiny and over toggle button //Done
 ------mobile: "you're already logged in" taking up too much space//Squashed
 ------admin newpage button overlap-- display scaling? //Squashed
+------make admin page reload to the previous tab //Done
+------safari/firefox search bar bug -- display scaling? //Squashed
 
 TO-DO now:
 
 --visual diary (permanant).
+--code reference
 
 Bugs
---hovering on the first navlink makes a hover background that obscures the border, this is not present in any other navlink!
---safari/firefox search bar bug -- display scaling?
 
 Jobs
---make admin page reload to the previous tab
---make page hits follow page creation/deletion
---display page hits?
 --sign out button
 
-6! current bugs/jobs
+1! current bugs/jobs
 
 TODO future:
 

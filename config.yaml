@@ -33,7 +33,7 @@ Cryptographic pepper:
 #Footer line which will show up at the bottom of the webpage
 #Change this to whatever you like:
 Footer:
-    © Luka Simpson, 2020. All rights reserved.
+    © Luka Simpson, 2020. All rights reserved. Made using <a href="http://phpqrcode.sourceforge.net/">phpqrcode</a>, which is liscenced under the <a href="https://www.gnu.org/licenses/lgpl-3.0.html">GNU LGPL</a>.
 
 #The customisable navbar:
 Navbar:

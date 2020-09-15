@@ -72,6 +72,7 @@ input[type=submit] {
     height: 100%;
 }
 
+
 .row-tall{
     height: 15vh;
 }
@@ -95,7 +96,7 @@ input[type=submit] {
 }
 
 .tabbutton {
-    width: 33.33333%;
+    width: 25%;
     height: 7vh;
     float: left;
     border: 2px solid #707070;
@@ -110,12 +111,16 @@ input[type=submit] {
 
 
 @media only screen and (max-width: 600px) {
-    .tabbutton {
-        width: 33%;
-        font-size: 3vw;
-    }
+
     .col-25, .col-125, .col-625, .col-75{
         width: 100%;
+        height: auto;
         float: both;
+    }
+    textarea{
+        height: 15vh;
+    }
+    form > .mobile-row{
+        height: auto;
     }
 }
