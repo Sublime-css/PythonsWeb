@@ -25,7 +25,7 @@ if(isset($_GET["add_texts"])){
 if(isset($_GET["remove_texts"]) and $_SESSION["admin_texts"] > 0){
     $_SESSION["admin_texts"]--;
 }
-$_SESSION["admin_defaultTab"] = "new";
+$_SESSION["admin_defaultTab"] = "updatepage";
 //Refresh the page to go back home
 ?>
 <meta http-equiv="refresh" content="0;url=../admin.php">

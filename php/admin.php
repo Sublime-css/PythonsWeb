@@ -25,8 +25,7 @@ if(!isset($_SESSION["admin_defaultTab"])){
     <!--JS for the admin page-->
     <script type="text/javascript" src="../js/admin.js"></script>
 </head>
-
-<body onload="<?php echo $_SESSION["admin_defaultTab"]?>page()">
+<body onload="loadpage(document.getElementById('<?php echo $_SESSION["admin_defaultTab"]?>'))">
     <?php
         //Need to log into the database:
         require_once("setup_sec.php");
@@ -37,10 +36,10 @@ if(!isset($_SESSION["admin_defaultTab"])){
             include "login/backEndLogin.php";
             if(login("admin")){
             ?>
-            <button class="tabbutton" onclick="newpage()">New Page:</button>
-            <button class="tabbutton" onclick="editpage()">Edit Page:</button>
-            <button class="tabbutton" onclick="delpage()">Delete Page:</button>
-             <button class="tabbutton" onclick="analytics()">Analytics:</button>
+            <button class="tabbutton" onclick="loadpage(document.getElementById('<?php echo $_SESSION["admin_defaultTab"]?>'))">New Page:</button>
+            <button class="tabbutton" onclick="loadpage(document.getElementById('<?php echo $_SESSION["admin_defaultTab"]?>'))">Edit Page:</button>
+            <button class="tabbutton" onclick="loadpage(document.getElementById('<?php echo $_SESSION["admin_defaultTab"]?>'))">Delete Page:</button>
+            <button class="tabbutton" onclick="loadpage(document.getElementById('<?php echo $_SESSION["admin_defaultTab"]?>'))">Analytics:</button>
 
             <?php
             include "adminCRUD/calcPages.php";
