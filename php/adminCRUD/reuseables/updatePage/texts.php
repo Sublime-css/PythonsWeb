@@ -1,15 +1,15 @@
 <form action="databaseUpdate.php" method="POST">
-    <div class ="row-tall mobile-row">
+    <div class="row-tall mobile-row">
         <div class="col-125">
             <input type="text" style="height: 50%" name="texts_title" value="<?php echo $row["title"];?>">
             <input type="text" style="height: 50%" name="texts_image" value="<?php echo $row["image"];?>">
         </div>
-        
+
         <div class="col-75">
             <textarea name="texts_text"><?php echo $row["text"];?></textarea>
         </div>
-        
-        <select name="id" class = "invis">
+
+        <select name="id" class="invis">
             <option selected value="<?php echo $row["id"];?>"></option>
         </select>
         <div class="col-125">

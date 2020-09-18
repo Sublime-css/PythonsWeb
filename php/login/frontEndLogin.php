@@ -19,7 +19,7 @@
             <div class="col-75">
                 <select id="loginOrRegister" name="loginOrRegister">
                     <option value="login" selected>Login</option>
-                    <option value="register" >Register</option>
+                    <option value="register">Register</option>
                 </select>
             </div>
         </div>

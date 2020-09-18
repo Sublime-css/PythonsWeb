@@ -1,4 +1,3 @@
-
 function menuTab() {
     var x = document.getElementById("header");
     if (x.style.display != "block") {

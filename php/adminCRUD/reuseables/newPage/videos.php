@@ -11,7 +11,7 @@ if(! isset($videos_loop)){
         <input type="text" style="height: 50%" name="videos_title<?php echo $videos_loop;?>" placeholder="Title">
         <input type="text" style="height: 50%" name="videos_link<?php echo $videos_loop;?>" placeholder="Link">
     </div>
-    
+
     <div class="col-625">
         <textarea name="videos_text<?php echo $videos_loop;?>" placeholder="Text"></textarea>
     </div>

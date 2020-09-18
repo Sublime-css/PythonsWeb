@@ -73,7 +73,7 @@ input[type=submit] {
 }
 
 
-.row-tall{
+.row-tall {
     height: 15vh;
 }
 
@@ -82,17 +82,6 @@ input[type=submit] {
     content: "";
     display: table;
     clear: both;
-}
-
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-
-    .col-25,
-    .col-75,
-    input[type=submit] {
-        width: 100%;
-        margin-top: 0;
-    }
 }
 
 .tabbutton {
@@ -109,18 +98,34 @@ input[type=submit] {
     background-color: #63ebb0;
 }
 
+th, td, tr{
+    text-align: center;
+    font-size: 1rem;
+}
 
 @media only screen and (max-width: 600px) {
 
-    .col-25, .col-125, .col-625, .col-75{
+    .col-25,
+    .col-75,
+    input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+    
+    .col-25,
+    .col-125,
+    .col-625,
+    .col-75 {
         width: 100%;
         height: auto;
         float: both;
     }
-    textarea{
+
+    textarea {
         height: 15vh;
     }
-    form > .mobile-row{
+
+    form > .mobile-row {
         height: auto;
     }
 }

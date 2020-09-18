@@ -17,9 +17,6 @@
         $conn_sec->query($sql);
     }
     
-    #SQL will look something like
-    //INSERT INTO `analytics` (`id`, `pagenum`, `hits`) VALUES (NULL, '9', '0');
-    
     $sql = "";
     #a counter for the loop
     $i = 0;

@@ -11,8 +11,8 @@ if(! isset($texts_loop)){
         <textarea name="texts_text<?php echo $texts_loop;?>" placeholder="Text"></textarea>
     </div>
     <div class="col-25">
-    <input type="text" name="texts_title<?php echo $texts_loop;?>" style="height:33.33%" placeholder="Title">
-    <input type="text" name="texts_image<?php echo $texts_loop;?>" style="height:33.33%" placeholder="Image">
+        <input type="text" name="texts_title<?php echo $texts_loop;?>" style="height:33.33%" placeholder="Title">
+        <input type="text" name="texts_image<?php echo $texts_loop;?>" style="height:33.33%" placeholder="Image">
         <select name="texts_size<?php echo $texts_loop;?>" style="height:33.33%" placeholder="Size">
             <option value="small">Small</option>
             <option value="medium">Medium</option>

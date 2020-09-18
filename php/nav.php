@@ -26,16 +26,16 @@ $lines = file($config);
             </li>
             <li><a href="<?php echo trim($lines[48]); ?>"><?php echo trim($lines[46]); ?></a></li>
             <script>
-                function shareToggle(){   
-                    if(document.getElementById('shareWithClass').style.display == 'block'){
+                function shareToggle() {
+                    if (document.getElementById('shareWithClass').style.display == 'block') {
                         document.getElementById('shareWithClass').style.display = 'none';
-                    }
-                    else {
+                    } else {
                         document.getElementById('shareWithClass').style.display = 'block';
                     }
                 }
+
             </script>
-            <li><a <?php if(isset($_SESSION["login_currentPerms"]) and $_SESSION["login_currentPerms"] == "user"){ ?> onclick="shareToggle()" <?php } else{ ?>href="<?php echo trim($lines[53]); ?>"<?php } ?>><?php echo trim($lines[51]); ?></a></li>
+            <li><a <?php if(isset($_SESSION["login_currentPerms"]) and $_SESSION["login_currentPerms"] == "user"){ ?> onclick="shareToggle()" <?php } else{ ?>href="<?php echo trim($lines[53]); ?>" <?php } ?>><?php echo trim($lines[51]); ?></a></li>
         </ul>
         <ul class="navbar">
             <li><a>

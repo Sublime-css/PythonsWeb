@@ -1,12 +1,17 @@
-<!DOCTYPE html><!--This page displays all pages of content using PHP _GET method, eliminating the need for multiple HTML documents-->
+<!DOCTYPE html>
+<!--This page displays all pages of content using PHP _GET method, eliminating the need for multiple HTML documents-->
 <html lang="en">
-    <head>
-        <?php include "head.php";?><!--Get the modular page header-->
-    </head>
-    <body style="position: relative">
-        <?php include "nav.php";?><!--Get the modular navigation bar-->
-            <div class="wrapper">
-                <?php include "dynamic.php"; //Get the modular content display system
+
+<head>
+    <?php include "head.php";?>
+    <!--Get the modular page header-->
+</head>
+
+<body style="position: relative">
+    <?php include "nav.php";?>
+    <!--Get the modular navigation bar-->
+    <div class="wrapper">
+        <?php include "dynamic.php"; //Get the modular content display system
                 //Some pages are special:
                 //Page 2 is the login page, display the login form there
                 if ($Page == "2"){
@@ -36,14 +41,15 @@
                 unset($lines);
                 ?></p>
         </footer>
-        </div>
-        <?php
+    </div>
+    <?php
         $_SESSION["qr"] = "http://" . $_SERVER["HTTP_HOST"] . $_SERVER["PHP_SELF"] . "?page=" . $Page;
         if (isset($search) and $Page == "4")
         {
             $_SESSION["qr"] = $_SESSION["qr"] . "&search=" . $search;
         }
         ?>
-        <img src="qrgen.php" id= "shareWithClass" style="display: none;">
-    </body>
+    <img src="qrgen.php" id="shareWithClass" style="display: none;">
+</body>
+
 </html>

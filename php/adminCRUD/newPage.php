@@ -1,6 +1,6 @@
 <!--NEWPAGE.PHP-->
 <div class="container invis" id="newpage" style="display:none">
-<?php include "adminCRUD/add.php";?>
+    <?php include "adminCRUD/add.php";?>
     <form action="databaseInsertion.php" method="POST">
         <div class="row">
             <div class="col-25">
@@ -26,7 +26,7 @@
             for ($i = 1; $i <= $_SESSION["admin_texts"]; $i++) {
                 include("reuseables/newPage/texts.php");
             }?>
-        <select name="insert_type" class = "invis">
+        <select name="insert_type" class="invis">
             <option selected value="new"></option>
         </select>
         <div class="row">

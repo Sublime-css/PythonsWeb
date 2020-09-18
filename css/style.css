@@ -15,7 +15,8 @@ html {
     color: #707070;
     cursor: crosshair;
 }
-body{
+
+body {
     background-image: url(../img/background.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -23,8 +24,8 @@ body{
     background-position: bottom;
 }
 
-.wrapper{
-    padding:0px;
+.wrapper {
+    padding: 0px;
     padding-top: 14vh;
     opacity: 0.8;
     margin-left: 10vw;
@@ -131,21 +132,21 @@ header > nav > .navbar:first-child > li:first-child {
     height: 82vh;
 }
 
-.long{
+.long {
     width: 98%;
 }
 
-.whole{
+.whole {
     width: 98%;
     height: 82vh;
 }
 
-.none{
+.none {
     display: none;
 }
 
 /*PHP can dynamically assign this too -- for login purpose*/
-.loginWindow{
+.loginWindow {
     position: absolute;
     left: 0;
     width: 100vw;
@@ -158,14 +159,15 @@ header > nav > .navbar:first-child > li:first-child {
     font-size: 1rem;
 }
 
-#shareWithClass{
+#shareWithClass {
     position: fixed;
     width: 25%;
     height: auto;
     left: 37.5%;
     top: 14vh;
 }
-#mobileHeader{
+
+#mobileHeader {
     display: none;
     width: 100%;
     height: 7vh;
@@ -176,7 +178,7 @@ header > nav > .navbar:first-child > li:first-child {
 
 }
 
-#menuTab{
+#menuTab {
     font-size: 5rem;
     height: 0px;
     padding: 0px;
@@ -184,93 +186,110 @@ header > nav > .navbar:first-child > li:first-child {
     line-height: 3rem;
 }
 
+/*Tablet/Ipad*/
+
 @media only screen and (min-width: 600px) {
     @media only screen and (max-width: 1200px) {
-        .dynamic{
+        .dynamic {
             width: 48.5%;
         }
-        .long{
+
+        .long {
             width: 98%;
         }
-        .whole{
+
+        .whole {
             width: 98%;
         }
-        .wrapper{
+
+        .wrapper {
             margin-left: 5%;
             width: 90%;
         }
     }
 }
 
+/*Mobile*/
+
 @media only screen and (max-width: 600px) {
-    #header{
+    #header {
         display: none;
     }
-    .dynamic{
+
+    .dynamic {
         width: 98%;
         height: auto;
         padding-bottom: 2.5vh;
     }
-    
-    .navbar{
+
+    .navbar {
         position: static;
     }
-    
+
     .navbar > li {
-    width:100%;
-    font-size: 4vw;
+        width: 100%;
+        font-size: 4vw;
     }
 
     .navbar > li:first-child {
-    width: 100%;
-    text-align: center;
+        width: 100%;
+        text-align: center;
     }
-    
+
     header > nav > .navbar:first-child > li:first-child {
-    width: 100%;
+        width: 100%;
     }
-    #menuTab{
+
+    #menuTab {
         position: absolute;
         right: 1vh;
         top: 0vh;
     }
-    #mobileHeader{
+
+    #mobileHeader {
         display: block;
     }
-    .loginWindow{
+
+    .loginWindow {
         display: block;
         height: auto;
     }
-    #shareWithClass{
+
+    #shareWithClass {
         width: 75%;
         left: 12.5%;
         top: 20%;
     }
-    footer{
+
+    footer {
         display: none;
     }
-    body{
+
+    body {
         background: #001f3f;
     }
-      .wrapper{
+
+    .wrapper {
         margin-left: 2.5vw;
         width: 95vw;
         height: 92.5vh;
         padding-top: 0vh;
     }
-    form > .row-tall{
-        height:8vh;
+
+    form > .row-tall {
+        height: 8vh;
     }
-    .notext{
+
+    .notext {
         height: 40vh;
     }
 }
 
 /*make sure the footer dosen't get hung up on weird dynamic layouts*/
-footer{
+footer {
     float: left;
     width: 100%;
-    clear:both;
+    clear: both;
 }
 
 footer > p {
@@ -279,7 +298,7 @@ footer > p {
     text-align: center;
 }
 
-footer > p > a{
+footer > p > a {
     text-decoration: inherit;
     color: inherit;
 }
