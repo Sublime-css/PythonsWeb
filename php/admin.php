@@ -36,10 +36,10 @@ if(!isset($_SESSION["admin_defaultTab"])){
             include "login/backEndLogin.php";
             if(login("admin")){
             ?>
-            <button class="tabbutton" onclick="loadpage(document.getElementById('<?php echo $_SESSION["admin_defaultTab"]?>'))">New Page:</button>
-            <button class="tabbutton" onclick="loadpage(document.getElementById('<?php echo $_SESSION["admin_defaultTab"]?>'))">Edit Page:</button>
-            <button class="tabbutton" onclick="loadpage(document.getElementById('<?php echo $_SESSION["admin_defaultTab"]?>'))">Delete Page:</button>
-            <button class="tabbutton" onclick="loadpage(document.getElementById('<?php echo $_SESSION["admin_defaultTab"]?>'))">Analytics:</button>
+            <button class="tabbutton" onclick="loadpage(document.getElementById('newpage'))">New Page:</button>
+            <button class="tabbutton" onclick="loadpage(document.getElementById('updatepage'))">Edit Page:</button>
+            <button class="tabbutton" onclick="loadpage(document.getElementById('delpage'))">Delete Page:</button>
+            <button class="tabbutton" onclick="loadpage(document.getElementById('analytics'))">Analytics:</button>
 
             <?php
             include "adminCRUD/calcPages.php";
