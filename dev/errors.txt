@@ -1,0 +1,25 @@
+List of errors:
+
+!Error:
+#(style)Message:
+
+!No crypto pepper in conf.ini
+#(red, abs text)This is likely normal, just reload your page. If you keep seeing this, please contact us.
+
+!No results for username query
+#(red abs text)No account found with that login/password. Have another go?
+
+!No results for salt+password+pepper query
+#(red abs text)No account found with that login/password. Have another go?
+
+!Duplicate account username
+#(red, abs text)Another user has already taken this username.
+
+!SQL error:
+#(red, abs text) SQL Error: [error]. Login failed, have another go?
+
+!new mysqli error -- user:
+#(red, abs text)Connection to database failed -- some content may not display
+
+!new mysqli error -- admin:
+#(red, abs text)Connection to database with admin privileges failed -- some content may not display

@@ -34,7 +34,7 @@ if($_POST["loginOrRegister"] == "login"){
         echo("<meta http-equiv='refresh' content='3; http://" . $_SESSION["login_path"] . "'>");
         //If the redirect fails:
         echo"Error: " . $sql . "<br>" . $conn_insec->error;
-        die("<p style=\"color: red; position: absolute; top:1rem\">Login failed, have another go?</p>");
+        die("<p style=\"color: red; position: absolute; top:1rem\">No account found with that login/password. Have another go?</p>");
     } else {
         $row = $result->fetch_assoc();
         //Check for hashed, salted and peppered password:
@@ -46,7 +46,7 @@ if($_POST["loginOrRegister"] == "login"){
             echo("<meta http-equiv='refresh' content='0; http://" . $_SESSION["login_path"] . "'>");
             //If the redirect fails:
             echo"Error: " . $sql . "<br>" . $conn_insec->error;
-            die("<p style=\"color: red; position: absolute; top:1rem\">Login failed, have another go?</p>");
+            die("<p style=\"color: red; position: absolute; top:1rem\">No account found with that login/password. Have another go?</p>");
         } else {
             //Add the login to the session to make life easier next time:
             $_SESSION["login_currentPerms"] = $_SESSION["login_recPerms"];
