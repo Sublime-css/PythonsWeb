@@ -8,7 +8,21 @@ These will be used in the website, too.
 
 /*Do this here once instead of in every single page!*/
 /*Get fonts from google -- we can pull the fonts from google's CDN instead of hosting them locally to save on traffic and load times*/
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&family=Source+Code+Pro&display=swap');
+
+/*@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&family=Source+Code+Pro&display=swap');*/
+
+/*Or pull them locally for offline development/not relying on Google*/
+
+@font-face{
+    font-family: Source Code Pro;
+    src: url("../fonts/Source_Code_Pro/SourceCodePro-Regular.ttf");
+}
+
+@font-face{
+    font-family: Quicksand;
+    src: url("../fonts/Quicksand/Quicksand-Medium.ttf");
+}
+
 
 /*Colour inheritance -- puts the cascading in cascading style sheets*/
 html {
