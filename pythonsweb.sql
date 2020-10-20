@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 18, 2020 at 02:10 AM
+-- Generation Time: Oct 20, 2020 at 03:22 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -38,14 +38,14 @@ CREATE TABLE `analytics` (
 --
 
 INSERT INTO `analytics` (`id`, `pagenum`, `hits`) VALUES
-(1, 5, 193),
-(2, 6, 14),
-(3, 7, 29),
-(6, 8, 25),
-(9, 2, 113),
-(10, 3, 24),
-(11, 4, 33),
-(12, 9, 10);
+(1, 5, 457),
+(2, 6, 54),
+(3, 7, 40),
+(6, 8, 64),
+(9, 2, 296),
+(10, 3, 35),
+(11, 4, 55),
+(12, 9, 16);
 
 -- --------------------------------------------------------
 
@@ -100,11 +100,11 @@ INSERT INTO `texts` (`id`, `pagenum`, `title`, `text`, `image`, `size`) VALUES
 (5, 7, 'What is PythonsWeb?', 'Good question! PythonsWeb aims to be a website where you can learn the basics of programming in Python, a computer language. PythonsWeb requires no prior knowledge, and is aimed at the beginner.', '', 'small'),
 (6, 8, 'Who is PythonsWeb aimed at?', 'PythonsWeb is aimed at anyone who would like to learn to program! You don\'t have to have any computer expertise. If you\'re a teacher, options are available to share content with your class quickly and easily.\r\n<br><br>What if you\'re at the other end of the python-skill spectrum? Well there\'s no harm in getting a refresher course of the basics. Or, if you really know what you\'re doing, you could <a href = \"mailto: help@pythonsweb.co.nz\">get in contact with us</a>. ', '', 'long'),
 (7, 7, 'PythonsWeb is almost done!', 'As you might have figured from the title, this website is almost complete. A few features need to be completed (search, share), and then it\'ll (theoretically) be plain-sailing!', '', 'small'),
-(8, 6, 'Hosting and bandwidth cost money :/', 'Its\' a sad truth, but <em>you can help!</em>. Click <a href=\"www.paypal.com\">here</a> for details!\r\n\r\nWhere does the money from donations go?\r\n<a href=\"doc.new\">here</a> is a breakdown.', '', 'whole'),
+(8, 6, 'Hosting and bandwidth cost money :/', 'Its\' a sad truth, but <em>you can help!</em>. Click <a href=\"https://www.paypal.com\">here</a> for details!\r\n\r\nWhere does the money from donations go?\r\n<a href=\"https://doc.new\">here</a> is a breakdown.', '', 'whole'),
 (11, 7, 'This is a Newsflash:', '<p style=\"font-size: 2rem\">Fitter, happier</p>\r\n<p style=\"font-size: 1rem\">More productive</p>\r\n<p style=\"font-size: 0.9rem\">Comfortable<br>\r\nNot drinking too much</p>\r\n<p style=\"font-size: 0.7rem\">Regular exercise at the gym, three days a week\r\nGetting on better with your associate employee contemporaries\r\nAt ease\r\nEating well, no more microwave dinners and saturated fats\r\nA patient, better driver\r\nA safer car, baby smiling in back seat\r\nSleeping well, no bad dreams\r\nNo paranoia\r\nCareful to all animals, never washing spiders down the plughole</p>\r\n<p style=\"font-size: 0.5rem\">Keep in contact with old friends, enjoy a drink now and then\r\nWill frequently check credit at moral bank, hole in wall\r\nFavours for favours, fond but not in love\r\nCharity standing orders on sundays, ring-road supermarket\r\nNo killing moths or putting boiling water on the ants\r\nCar wash, also on sundays\r\nNo longer afraid of the dark or midday shadows, nothing so ridiculously teenage and desperate</p>\r\n<p style=\"font-size: 0.2rem\">Nothing so childish\r\nAt a better pace, slower and more calculated\r\nNo chance of escape\r\nNow self-employed\r\nConcerned, but powerless\r\nAn empowered and informed member of societ, pragmatism not idealism\r\nWill not cry in public\r\nLess chance of illness</p>\r\n<p style=\"font-size: 0.1rem\">Tires that grip in the wet, shot of baby strapped in backseat\r\nA good memory\r\nStill cries at a good film\r\nStill kisses with saliva\r\nNo longer empty and frantic\r\nLike a cat\r\nTied to a stick</p>\r\n<p style=\"font-size: 0.05rem\">The ability to laugh at weakness\r\nCalm, fitter, healthier and more productive\r\nA pig in a cage on antibiotics</p>', '', 'large'),
-(13, 3, 'To use this feature, you\'ll need an account.', 'Head over to <a href=\"http://localhost/PythonsWeb/php/index.php?page=2\">Register/Login</a> to make a new account, or sign into an existing one..', '', 'whole'),
-(14, 8, 'A note on Ipsum', 'According to <a href=”https://www.lipsum.com/”>https://www.lipsum.com/</a>, <br>\"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\"', '', 'medium'),
-(15, 8, 'Beware, the altered Ipsum!', 'Many passages of Ipsum available on the internet have suffered alterations such as injected humor, or randomised words which don’t even <em>look</em> latin. To use a Lorem passage for a project, you should be confident there isn\'t anything hiding in the text that you don’t want. The Ipsum generator at <a href=”https://www.lipsum.com/”>https://www.lipsum.com/</a> is free from such troubles.', '', 'medium');
+(13, 3, 'To use this feature, you\'ll need an account.', 'Head over to <a href=\"http://localhost/PythonsWeb/php/index.php?page=2\">Register/Login</a> to make a new account, or sign into an existing one.', '', 'whole'),
+(14, 8, 'A note on Ipsum', 'According to <a href=\"https://www.lipsum.com/\">www.lipsum.com/</a>, <br>\"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\"', '', 'medium'),
+(15, 8, 'Beware, the altered Ipsum!', 'Many passages of Ipsum available on the internet have suffered alterations such as injected humor, or randomised words which don’t even <em>look</em> latin. To use a Lorem passage for a project, you should be confident there isn\'t anything hiding in the text that you don’t want. The Ipsum generator at <a href=\"https://www.lipsum.com/\">www.lipsum.com/</a> is free from such troubles.', '', 'medium');
 
 -- --------------------------------------------------------
 
@@ -178,7 +178,7 @@ ALTER TABLE `analytics`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `userid` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
+  MODIFY `userid` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
 
 --
 -- AUTO_INCREMENT for table `texts`
