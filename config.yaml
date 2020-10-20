@@ -1,5 +1,5 @@
 ---
-#Stores database login details and crypto secrets. `insec_user` MUST start at line 6, `sec_user` MUST start at line 18, `cryptographic pepper`MUST start at line 30.
+#Allows customisation of the website. Do not change line numbers!
 Users:
 #Limited permissions, only for pulling data from the server. Used by users.
 #Perms: SELECT, INSERT for login table only in the event a user is registering for an account.
@@ -82,4 +82,12 @@ Navbar:
             References
         link:
             index.php?page=9
+
+#Name to appear on the tab in the browser:
+Site name:
+    Python's Web
+
+#Should the site display debug information? WARNING: Only recommended for experimentation/development!
+DEBUG:
+    false
 ...

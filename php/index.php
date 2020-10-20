@@ -3,13 +3,15 @@
 <html lang="en">
 
 <head>
-    <?php include "head.php";?>
     <!--Get the modular page header-->
+    <?php include "head.php";?>
 </head>
 
 <body style="position: relative">
-    <?php include "nav.php";?>
     <!--Get the modular navigation bar-->
+    <?php include "nav.php";?>
+    <!--get the debug script-->
+    <?php include "debug.php";?>
     <div class="wrapper">
         <?php include "dynamic.php"; //Get the modular content display system
                 //Some pages are special:

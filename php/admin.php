@@ -30,6 +30,9 @@ if(!isset($_SESSION["admin_defaultTab"])){
         //Need to log into the database:
         require_once("setup_sec.php");
         include "nav.php";?>
+        
+        <!--get the debug script-->
+        <?php include "debug.php";?>
     
         <div class="wrapper" style="">
             <?php

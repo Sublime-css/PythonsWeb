@@ -1,6 +1,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Python's Web</title>
+<title><?php 
+$config = "http://" . $_SERVER['HTTP_HOST'] . "/PythonsWeb/config.yaml";
+$lines = file($config);
+$title = trim($lines[87]);
+unset($lines);
+echo $title ?></title>
 <meta name="description" content="Learn to code Python online!">
 <meta name="theme-color" content="#6e3bb0">
 <link rel="stylesheet" href="../css/reset.css" type="text/css" "media=screen">
