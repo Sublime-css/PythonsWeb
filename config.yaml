@@ -89,5 +89,5 @@ Site name:
 
 #Should the site display debug information? WARNING: Only recommended for experimentation/development!
 DEBUG:
-    false
+    true
 ...

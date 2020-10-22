@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><?php 
-$config = "http://" . $_SERVER['HTTP_HOST'] . "/PythonsWeb/config.yaml";
+$config = "http://" . $_SERVER['HTTP_HOST'] . substr($_SERVER['PHP_SELF'], 0, (strpos($_SERVER['PHP_SELF'], "/", 1) + 1)) . "config.yaml";
 $lines = file($config);
 $title = trim($lines[87]);
 unset($lines);

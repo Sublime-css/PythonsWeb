@@ -37,7 +37,7 @@
                 ?>
         <footer>
             <p><?php
-                $config = "http://" . $_SERVER['HTTP_HOST'] . "/PythonsWeb/config.yaml";
+                $config = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . "/../../config.yaml";
                 $lines = file($config);
                 echo trim($lines[35]);
                 unset($lines);
