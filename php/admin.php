@@ -10,6 +10,8 @@ New techniques:
 
 <!--Browser needs to know what (machine) language this document is in:-->
 <!DOCTYPE html>
+<?php error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);?>
+
 <!--Googlebot and screen readers need to know what (human) language the website is in:-->
 <?php  require_once("session.php");
 if(!isset($_SESSION["admin_defaultTab"])){

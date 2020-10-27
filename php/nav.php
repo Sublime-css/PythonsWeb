@@ -14,8 +14,6 @@ if (isset($_GET["search"]))
 
 $config = "http://" . $_SERVER['HTTP_HOST'] . substr($_SERVER['PHP_SELF'], 0, (strpos($_SERVER['PHP_SELF'], "/", 1) + 1)) . "config.yaml";
 $lines = file($config);
-#unset($lines);
-
 ?>
 
 <header id="header">

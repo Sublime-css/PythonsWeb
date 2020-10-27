@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);?>
 <!--This page displays all pages of content using PHP _GET method, eliminating the need for multiple HTML documents-->
 <html lang="en">
 
