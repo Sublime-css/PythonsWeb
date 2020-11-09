@@ -27,7 +27,7 @@ if ($pepper ==  ""){
     //go back home, and try again with a new pepper:
     //This has to be done from scratch, incase there is a problem with saving in `config.yaml`.
     //If the pepper changes, all DB password hashes become unuseable.
-    echo("<meta http-equiv='refresh' content='100; http://" . $_SERVER["HTTP_HOST"] . "/PythonsWeb/'>");
+    echo("<meta http-equiv='refresh' content='100; http://" . $_SESSION["login_path"] . "'>");
     die("This is likely normal, just reload your page. If you keep seeing this, please contact us.");
 }
 //If the user is trying to login:
@@ -49,13 +49,14 @@ if($_POST["loginOrRegister"] == "login"){
         $row = $result->fetch_assoc();
         //Check for hashed, salted and peppered password:
         $sql = "SELECT username, password, perms FROM login WHERE username= '" . $_POST["login_username"] . "' and password='" . hash("sha512", $row["salt"] . $_POST["login_password"] . $pepper) . "' and perms='" . $_SESSION["login_recPerms"] . "'";
+        #echo("PEPPER:". $pepper . "?pepper");
         $result = $conn_insec->query($sql);
+        $count = $result->fetch_assoc();
         if($count == 0) {
             //Log the user out:
             $_SESSION["login_currentPerms"] = "";
             echo("<meta http-equiv='refresh' content='100; http://" . $_SESSION["login_path"] . "'>");
             //If the redirect fails:
-            echo"Error: " . $sql . "<br>" . $conn_insec->error;
             die("<p style=\"color: red; position: absolute; top:1rem\">No account found with that login/password. Have another go?</p>");
         } else {
             //Add the login to the session to make life easier next time:
