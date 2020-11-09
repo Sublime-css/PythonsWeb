@@ -11,12 +11,13 @@
     foreach ($_POST as &$value){
         $value = str_replace("'", "\'", $value);
     }
-        if(isset($_POST["videos_title"])){
-            $sql = "UPDATE videos SET pagenum = '" . $_POST["videos_pagenum"] . "', title = '" . $_POST["videos_title"] . "', link = '" . $_POST["videos_link"] . "', text = '" . $_POST["videos_text"] . "', size = '" . $_POST["videos_size"] . "' WHERE id = '" . $_POST["id"] . "'";
-        } else{
-            $sql = "UPDATE texts SET pagenum = '" . $_POST["texts_pagenum"] . "', title = '" . $_POST["texts_title"] . "', image = '" . $_POST["texts_image"] . "', text = '" . $_POST["texts_text"] . "', size = '" . $_POST["texts_size"] . "' WHERE id = '" . $_POST["id"] . "'";
-        }
-    
+    $sql = "UPDATE media SET pagenum = '" . $_POST["pagenum"] . "', title = '" . $_POST["title"] . "', url = '" . $_POST["url"] . "', text = '" . $_POST["text"] . "', size = '" . $_POST["size"];
+    if($_POST["display"] == "video"){
+        $sql = $sql . "', display = 'video'"; 
+    } else{
+        $sql = $sql . "', display = 'text'";
+    }
+    $sql = $sql . " WHERE id = '" . $_POST["id"] . "'";
     //Due to security vunerbilities discovered in penetration testing, i need to sanitise the data:
     $illegal = ["<script>", "</script>", "<?php", "?>"];
     foreach ($illegal as $hack){
@@ -42,5 +43,5 @@
     $conn_sec->close();
 ?>
 
-<meta http-equiv="refresh" content="0;url=admin.php">
+<!--<meta http-equiv="refresh" content="0;url=admin.php">-->
 </html>

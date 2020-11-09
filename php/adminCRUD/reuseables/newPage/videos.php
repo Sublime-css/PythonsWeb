@@ -1,23 +1,23 @@
 <?php
-if(! isset($videos_loop)){
-    $videos_loop = 0;
+if(! isset($loop)){
+    $loop = 0;
 } else {
-    $videos_loop++;
+    $loop++;
 }
 ?>
 
 <div class="row-tall mobile-row">
     <div class="col-25">
-        <input type="text" style="height: 50%" name="videos_title<?php echo $videos_loop;?>" placeholder="Title">
-        <input type="text" style="height: 50%" name="videos_link<?php echo $videos_loop;?>" placeholder="Link">
+        <input type="text" style="height: 50%" name="title<?php echo $loop;?>" placeholder="Title">
+        <input type="text" style="height: 50%" name="url<?php echo $loop;?>" placeholder="Link">
     </div>
 
     <div class="col-625">
-        <textarea name="videos_text<?php echo $videos_loop;?>" placeholder="Text"></textarea>
+        <textarea name="text<?php echo $loop;?>" placeholder="Text"></textarea>
     </div>
 
     <div class="col-125">
-        <select name="videos_size<?php echo $videos_loop;?>" style="height: 50%" placeholder="Size">
+        <select name="size<?php echo $loop;?>" style="height: 50%" placeholder="Size">
             <option value="small">Small</option>
             <option value="medium">Medium</option>
             <option value="large">Half Page (widthwise)</option>
@@ -26,5 +26,8 @@ if(! isset($videos_loop)){
             <option value="none">None</option>
         </select>
     </div>
+    <select name="display<?php echo $loop;?>" class="invis">
+            <option selected value="video"></option>
+    </select>
 </div>
 <hr style="clear: both;">

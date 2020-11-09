@@ -1,19 +1,19 @@
 <?php
-if(! isset($texts_loop)){
-    $texts_loop = 0;
+if(! isset($loop)){
+    $loop = 0;
 } else {
-    $texts_loop++;
+    $loop++;
 }
 ?>
 
 <div class="row-tall mobile-row">
     <div class="col-75">
-        <textarea name="texts_text<?php echo $texts_loop;?>" placeholder="Text"></textarea>
+        <textarea name="text<?php echo $loop;?>" placeholder="Text"></textarea>
     </div>
     <div class="col-25">
-        <input type="text" name="texts_title<?php echo $texts_loop;?>" style="height:33.33%" placeholder="Title">
-        <input type="text" name="texts_image<?php echo $texts_loop;?>" style="height:33.33%" placeholder="Image">
-        <select name="texts_size<?php echo $texts_loop;?>" style="height:33.33%" placeholder="Size">
+        <input type="text" name="title<?php echo $loop;?>" style="height:33.33%" placeholder="Title">
+        <input type="text" name="url<?php echo $loop;?>" style="height:33.33%" placeholder="Image">
+        <select name="size<?php echo $loop;?>" style="height:33.33%" placeholder="Size">
             <option value="small">Small</option>
             <option value="medium">Medium</option>
             <option value="large">Half Page (widthwise)</option>
@@ -22,5 +22,8 @@ if(! isset($texts_loop)){
             <option value="none">None</option>
         </select>
     </div>
+    <select name="display<?php echo $loop;?>" class="invis">
+            <option selected value="text"></option>
+    </select>
 </div>
 <hr style="clear: both;">

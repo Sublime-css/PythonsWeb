@@ -21,29 +21,23 @@
     #a counter for the loop
     $i = 0;
     while (true){
-        if(isset($_POST["videos_title" . $i])){
-            if(! isset($_POST["videos_pagenum" . $i])){
-                $_POST["videos_pagenum" . $i] = $_POST["pagenum"];
+        if(isset($_POST["title" . $i])){
+            if(! isset($_POST["pagenum" . $i])){
+                $_POST["pagenum" . $i] = $_POST["pagenum"];
             }
-            $sql = $sql . "INSERT INTO videos (pagenum, title, link, text, size) VALUES ('" . $_POST["videos_pagenum" . $i] . "', '" . $_POST["videos_title" . $i] . "', '" . $_POST["videos_link" . $i] . "', '" . $_POST["videos_text" . $i] . "', '" . $_POST["videos_size" . $i] . "'); ";
+            $sql = $sql . "INSERT INTO media (pagenum, title, url, text, size, display) VALUES ('" . $_POST["pagenum" . $i] . "', '" . $_POST["title" . $i] . "', '" . $_POST["url" . $i] . "', '" . $_POST["text" . $i] . "', '" . $_POST["size" . $i];
+            if($_POST["display" . $i] == "video"){
+                $sql = $sql . "', 'video";
+            } else{
+                $sql = $sql . "', 'text";
+            }
+            $sql = $sql . "'); ";
             $i++;
         } else{
             break;
         }
     }
-    $i = 0;
-    while (true){
-        if(isset($_POST["texts_title" . $i])){
-            if(! isset($_POST["texts_pagenum" . $i])){
-                $_POST["texts_pagenum" . $i] = $_POST["pagenum"];
-            }
-            $sql = $sql . "INSERT INTO texts (pagenum, title, image, text, size) VALUES ('" . $_POST["texts_pagenum" . $i] . "', '" . $_POST["texts_title" . $i] . "', '" . $_POST["texts_image" . $i] . "', '" . $_POST["texts_text" . $i] . "', '" . $_POST["texts_size" . $i] . "'); ";
-            $i++;
-        } else{
-            break;
-        }
-    }
-    
+    echo($sql);
     //Due to security vunerbilities discovered in penetration testing, i need to sanitise the data:
     $illegal = ["<script>", "</script>", "<?php", "?>"];
     foreach ($illegal as $hack){
@@ -69,5 +63,5 @@
     $conn_sec->close();
 ?>
 <!--Give the admiin some time to realise that no changes have been made-->
-<meta http-equiv="refresh" content="3;url=admin.php">
+<!--<meta http-equiv="refresh" content="0;url=admin.php">-->
 </html>

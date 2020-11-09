@@ -8,10 +8,8 @@
         $delpagenum= $_POST["delpagenum"];
         //Log into the database:
         include"setup_sec.php";
-        $sql = "";
-        foreach (["videos", "texts", "analytics"] as $table){
-            $sql = $sql . "DELETE FROM $table WHERE pagenum = $delpagenum;";
-        }
+        //Take advantage of foreign key CASCADE attribute to delete all media items on the page    
+        $sql = "DELETE FROM analytics WHERE pagenum = $delpagenum;";
         //Check that attempt was successfull:
         if ($conn_sec->multi_query($sql) === TRUE) {
             //give some feedback:
