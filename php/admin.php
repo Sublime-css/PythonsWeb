@@ -1,13 +1,3 @@
-<!----------------------------------------------------->
-<!--------------------Python's Web--------------------->
-<!----------------------------------------------------->
-<!--
-Reworked admin page
-New techniques:
---Break it apart into chunks that do discreet things
---use snake case for variable namespaceing
--->
-
 <!--Browser needs to know what (machine) language this document is in:-->
 <!DOCTYPE html>
 <?php error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);?>

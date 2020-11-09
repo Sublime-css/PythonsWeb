@@ -15,19 +15,18 @@ $row = $result->fetch_assoc();
 $config = "../../" . $row["url"];
 //Set the file to an array, with a line per array item:
 $lines = file($config);
-//Crypto-pepper is stored on line 31, index 30
 $pepper = trim($lines[$row["pepper_index"]]);
 
 if ($pepper ==  ""){
     //This must be the first run of the program, generate a new crypto-secure pepper
-    //64 bytes = 512 bits = length of a sha256 hash
+    //64 bytes = 512 bits = length of a sha512 hash
     $lines[$row["pepper_index"]] = "     " . bin2hex(random_bytes(64)) . "\n";
     //Replace the config file with the editited version, now containing the pepper:
     file_put_contents($config, implode($lines));
     //go back home, and try again with a new pepper:
     //This has to be done from scratch, incase there is a problem with saving in `config.yaml`.
     //If the pepper changes, all DB password hashes become unuseable.
-    echo("<meta http-equiv='refresh' content='100; http://" . $_SESSION["login_path"] . "'>");
+    echo("<meta http-equiv='refresh' content='3; http://" . $_SESSION["login_path"] . "'>");
     die("This is likely normal, just reload your page. If you keep seeing this, please contact us.");
 }
 //If the user is trying to login:
@@ -55,14 +54,14 @@ if($_POST["loginOrRegister"] == "login"){
         if($count == 0) {
             //Log the user out:
             $_SESSION["login_currentPerms"] = "";
-            echo("<meta http-equiv='refresh' content='100; http://" . $_SESSION["login_path"] . "'>");
+            echo("<meta http-equiv='refresh' content='3; http://" . $_SESSION["login_path"] . "'>");
             //If the redirect fails:
             die("<p style=\"color: red; position: absolute; top:1rem\">No account found with that login/password. Have another go?</p>");
         } else {
             //Add the login to the session to make life easier next time:
             $_SESSION["login_currentPerms"] = $_SESSION["login_recPerms"];
             //Send the user back from whence they came! we set `login_path` to the URL the user came from before.
-            echo("<meta http-equiv='refresh' content='100; http://" . $_SESSION["login_path"] . "'>");
+            echo("<meta http-equiv='refresh' content='0; http://" . $_SESSION["login_path"] . "'>");
         }
     }
     $conn_insec->close();
@@ -91,7 +90,7 @@ else{
         //It's a good idea to be conservative with the setting of login perms to a variable,
         //to avoid privilage escalation attacks.
         $_SESSION["login_currentPerms"] = "user";
-        echo("<meta http-equiv='refresh' content='100; http://" . $_SESSION["login_path"] . "'>");
+        echo("<meta http-equiv='refresh' content='0; http://" . $_SESSION["login_path"] . "'>");
         //give some feedback:
         echo "<p style=\"color: #63ebb0\"size=\"5rem\">New account created successfully.</p>";
         #die with an exit code of 0:

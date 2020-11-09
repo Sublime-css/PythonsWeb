@@ -43,5 +43,5 @@
     $conn_sec->close();
 ?>
 
-<!--<meta http-equiv="refresh" content="0;url=admin.php">-->
+<meta http-equiv="refresh" content="0;url=admin.php">
 </html>
