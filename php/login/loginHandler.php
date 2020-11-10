@@ -3,12 +3,8 @@
 require_once("../session.php");
 //Connect to DB, not as an admin:
 require_once("../setup_insec.php");
-#securely get the right pepper's location and index:
-$sql = "SELECT pepperID FROM login WHERE username='" . $_POST["login_username"] . "'";
-$result = $conn_insec->query($sql);
-$count  = mysqli_num_rows($result);
-$row = $result->fetch_assoc();
-$sql = "SELECT url, pepper_index FROM pepper WHERE id=" . $row["pepperID"];
+#securely get the right pepper's location and index with an SQL JOIN:
+$sql = "SELECT pepper.url, pepper.pepper_index FROM login INNER JOIN pepper ON login.pepperID=pepper.id WHERE login.username='" . $_POST["login_username"] . "'";
 $result = $conn_insec->query($sql);
 $count  = mysqli_num_rows($result);
 $row = $result->fetch_assoc();
