@@ -36,7 +36,7 @@
         ?><iframe id="videoPlayer" src="" style="border: 3px solid #707070; display: none; position: fixed; bottom: 0px; left: 0px"></iframe><?php
         }
         #And do a similar thing for texts:
-        $sql = "SELECT * FROM texts WHERE pagenum = $Page AND display = 'text'";
+        $sql = "SELECT * FROM media WHERE pagenum = $Page AND display = 'text'";
         $result = $conn_insec->query($sql);
         //Check that we got something, or error if we didn't:
         if ($result->num_rows > 0) {
