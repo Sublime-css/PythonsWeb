@@ -1,1 +1,1 @@
-<?php $sql="SELECT pagenum FROM videos UNION SELECT pagenum FROM texts";$result=$conn_sec->query($sql);$admin_pages=[];while($num=$result->fetch_assoc()){array_push($admin_pages,implode($num));}asort($admin_pages);$conn_sec->close(); ?>
+<?php $sql="SELECT pagenum FROM media";$result=$conn_sec->query($sql);$admin_pages=[];while($num=$result->fetch_assoc()){array_push($admin_pages,implode($num));}asort($admin_pages);$admin_pages=array_unique($admin_pages);$conn_sec->close(); ?>
