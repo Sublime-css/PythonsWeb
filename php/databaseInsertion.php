@@ -63,5 +63,5 @@
     $conn_sec->close();
 ?>
 <!--Give the admiin some time to realise that no changes have been made-->
-<!--<meta http-equiv="refresh" content="0;url=admin.php">-->
+<meta http-equiv="refresh" content="3;url=admin.php">
 </html>

@@ -1,7 +1,7 @@
 <?php
 
 include "setup_insec.php";
-$sql = "SELECT * FROM videos WHERE text LIKE '%$search%' OR title LIKE '%$search%'";
+$sql = "SELECT * FROM media WHERE text LIKE '%$search%' OR title LIKE '%$search%' AND display = 'video'";
 $result = $conn_insec->query($sql);
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()){
@@ -13,7 +13,7 @@ if ($result->num_rows > 0) {
     }
 }
 
-$sql = "SELECT * FROM texts WHERE text LIKE '%$search%' OR title LIKE '%$search%'";
+$sql = "SELECT * FROM texts WHERE text LIKE '%$search%' OR title LIKE '%$search%' AND DISPLAY = 'text'";
 $result = $conn_insec->query($sql);
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()){
