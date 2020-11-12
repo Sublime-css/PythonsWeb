@@ -1,7 +1,24 @@
 <?php
 
 include "setup_insec.php";
-$sql = "SELECT * FROM media WHERE text LIKE '%$search%' OR title LIKE '%$search%' AND display = 'video'";
+$sql = "SELECT
+        * 
+    FROM
+        ((SELECT
+            * 
+        FROM
+            media 
+        WHERE
+            media.title LIKE '%$search%' 
+            AND media.display = 'video') 
+    UNION
+    DISTINCT (SELECT
+        * 
+    FROM
+        media 
+    WHERE
+        media.text LIKE '%$search%')
+) AS union1";
 $result = $conn_insec->query($sql);
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()){
@@ -13,7 +30,24 @@ if ($result->num_rows > 0) {
     }
 }
 
-$sql = "SELECT * FROM texts WHERE text LIKE '%$search%' OR title LIKE '%$search%' AND DISPLAY = 'text'";
+$sql = "SELECT
+        * 
+    FROM
+        ((SELECT
+            * 
+        FROM
+            media 
+        WHERE
+            media.title LIKE '%$search%' 
+            AND media.display = 'text') 
+    UNION
+    DISTINCT (SELECT
+        * 
+    FROM
+        media 
+    WHERE
+        media.text LIKE '%$search%')
+) AS union1";
 $result = $conn_insec->query($sql);
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()){
