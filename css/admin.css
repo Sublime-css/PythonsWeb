@@ -141,3 +141,13 @@ th, td, tr{
         height: auto;
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .col-50{
+        width: 100%;
+        margin-left: 0;
+    }
+    .tabbutton{
+        font-size: 3vw;
+    }
+}

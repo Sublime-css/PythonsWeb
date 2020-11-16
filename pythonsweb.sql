@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2020 at 05:55 AM
+-- Generation Time: Nov 17, 2020 at 12:32 AM
 -- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.33
+-- PHP Version: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,29 +24,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `analytics`
+-- Table structure for table `lessons`
 --
 
-CREATE TABLE `analytics` (
-  `id` smallint(5) UNSIGNED NOT NULL,
+CREATE TABLE `lessons` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `userid` int(10) UNSIGNED NOT NULL,
+  `hits` int(10) UNSIGNED NOT NULL,
   `pagenum` tinyint(3) UNSIGNED NOT NULL,
-  `hits` int(11) NOT NULL
+  `latest_timestamp` date NOT NULL DEFAULT current_timestamp(),
+  `first_timestamp` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `analytics`
+-- Dumping data for table `lessons`
 --
 
-INSERT INTO `analytics` (`id`, `pagenum`, `hits`) VALUES
-(1, 5, 680),
-(2, 6, 74),
-(3, 7, 68),
-(6, 8, 75),
-(9, 2, 351),
-(10, 3, 42),
-(11, 4, 57),
-(12, 9, 33),
-(13, 1, 0);
+INSERT INTO `lessons` (`id`, `userid`, `hits`, `pagenum`, `latest_timestamp`, `first_timestamp`) VALUES
+(1, 5, 1, 5, '2020-11-17', '2020-11-17'),
+(2, 5, 1, 6, '2020-11-17', '2020-11-17'),
+(3, 5, 1, 7, '2020-11-17', '2020-11-17'),
+(4, 5, 10, 8, '2020-11-16', '2020-11-17'),
+(5, 5, 1, 2, '2020-11-17', '2020-11-17'),
+(6, 3, 6, 5, '2020-11-16', '2020-11-17'),
+(7, 3, 1, 2, '2020-11-17', '2020-11-17'),
+(8, 4, 2, 5, '2020-11-16', '2020-11-17'),
+(9, 4, 2, 6, '2020-11-16', '2020-11-17'),
+(10, 3, 5, 6, '2020-11-17', '2020-11-17'),
+(11, 3, 1, 4, '2020-11-17', '2020-11-17');
 
 -- --------------------------------------------------------
 
@@ -143,11 +148,11 @@ INSERT INTO `pepper` (`id`, `url`, `pepper_index`) VALUES
 --
 
 --
--- Indexes for table `analytics`
+-- Indexes for table `lessons`
 --
-ALTER TABLE `analytics`
+ALTER TABLE `lessons`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `pagenum` (`pagenum`);
+  ADD KEY `userid` (`userid`);
 
 --
 -- Indexes for table `login`
@@ -174,10 +179,10 @@ ALTER TABLE `pepper`
 --
 
 --
--- AUTO_INCREMENT for table `analytics`
+-- AUTO_INCREMENT for table `lessons`
 --
-ALTER TABLE `analytics`
-  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+ALTER TABLE `lessons`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `login`
@@ -202,16 +207,16 @@ ALTER TABLE `pepper`
 --
 
 --
+-- Constraints for table `lessons`
+--
+ALTER TABLE `lessons`
+  ADD CONSTRAINT `lessons_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `login` (`userid`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `login`
 --
 ALTER TABLE `login`
   ADD CONSTRAINT `login_ibfk_1` FOREIGN KEY (`pepperID`) REFERENCES `pepper` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `media`
---
-ALTER TABLE `media`
-  ADD CONSTRAINT `media_ibfk_1` FOREIGN KEY (`pagenum`) REFERENCES `analytics` (`pagenum`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -30,6 +30,9 @@ if(strtoupper($debug) == "TRUE"){
     
     echo "<p style=\"color: red; position: absolute; top:16rem; z-index: 1; background-color: #0009; line-height: 1rem\">DOC ROOT: " . $_SERVER["DOCUMENT_ROOT"] . "</p>";
     
+    echo "<p style=\"color: red; position: absolute; top:16rem; z-index: 1; background-color: #0009; line-height: 1rem\">VERSION: 17/11</p>";
+
+    
     echo "<p style=\"color: red; position: absolute; top:18rem; z-index: 1; background-color: #0009; line-height: 1rem\">DEBUGGING EXIT (0)</p>";
     
 }

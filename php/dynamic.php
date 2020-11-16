@@ -30,6 +30,7 @@
 
         if($result->num_rows > 0){
             echo("NUM_ROWS > 0 ");
+            date_default_timezone_set("GMT+12");
             $sql = "UPDATE lessons set hits = '$hits', latest_timestamp = '" . date("Y-m-d") . "' WHERE userid = '$userid' AND pagenum = '$Page'";
         } else{
             echo("NUM_ROWS < 0 ");
