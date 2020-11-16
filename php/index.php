@@ -28,7 +28,7 @@
                     if(login("user")){
                         require_once("session.php");
                         $_SESSION["login_path"] = $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . "?page=" . $Page;
-                        echo "<div class=\"loginWindow\" id=\"loginNotice\"><h1 style=\"color: #63ebb0\">You're already logged in!</h1><a href=\"login/signOut.php\" id=\"signOut\">Sign Out</a></div>";
+                        echo "<div class=\"loginWindow\" id=\"loginNotice\"><h1 style=\"color: #63ebb0\">You're already logged in, thanks to the wonder of cookies!<br>Logged in as " . $_SESSION["login_currentPerms"] . " <em>" . $_SESSION["login_username"] . "</em></h1><a href=\"login/signOut.php\" id=\"signOut\">Sign Out</a></div>";
                     }
                 }
                 

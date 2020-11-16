@@ -60,6 +60,15 @@ input[type=submit] {
 
 }
 
+/* Floating column for inputs: 50% width */
+.col-50 {
+    float: left;
+    width: 25%;
+    height: 100%;
+    margin-left: 25%;
+
+}
+
 .col-625 {
     float: left;
     width: 62.5%;
@@ -75,6 +84,9 @@ input[type=submit] {
 
 .row-tall {
     height: 15vh;
+}
+.row-med {
+    height: 7.5vh;
 }
 
 /* Clear floats after the columns */

@@ -12,13 +12,34 @@
     }
     //Need to login to the database -- insecure because all we need to do is read data:
     require_once("setup_insec.php");
-    $sql = "SELECT * FROM analytics WHERE PAGENUM = $Page";
-    $result = $conn_insec->query($sql);
-    if($result->num_rows == 1){
+
+
+
+    #update analytics in `lessons` table:
+    if(isset($_SESSION["login_currentPerms"]) and $_SESSION["login_currentPerms"] != ""){
+        echo(" USERNAME " . $_SESSION["login_username"]);
+        $sql = "SELECT userid from login WHERE username = '" . $_SESSION["login_username"] . "'";
+        $result = $conn_insec->query($sql);
         $row = $result->fetch_assoc();
+        $userid = $row["userid"];
+
+        $sql = "SELECT hits FROM `lessons` WHERE userid = '$userid' AND pagenum = '$Page'";
+        $result = $conn_insec->query($sql);
+        $row = $result->fetch_assoc();
+        $hits = $row["hits"] + 1;
+
+        if($result->num_rows > 0){
+            echo("NUM_ROWS > 0 ");
+            $sql = "UPDATE lessons set hits = '$hits', latest_timestamp = '" . date("Y-m-d") . "' WHERE userid = '$userid' AND pagenum = '$Page'";
+        } else{
+            echo("NUM_ROWS < 0 ");
+            $sql = "INSERT INTO lessons (userid, hits, pagenum) VALUES ('$userid', '1', '$Page')";
+        }
+        echo(" SQL: " . $sql) . "ENDSQL ";
+        $result = $conn_insec->query($sql);
+        echo("DEBUG: hits: $hits, userid: $userid, pagenum: $Page");
     }
-    $sql = "UPDATE analytics SET hits = '" . ($row["hits"] + 1) . "' WHERE id = '" . $row["id"] . "'";
-    $result = $conn_insec->query($sql);
+
     //Get the data that corrosponds to the current page:
     $sql = "SELECT * FROM media WHERE pagenum = $Page AND display = 'video'";
     $result = $conn_insec->query($sql);

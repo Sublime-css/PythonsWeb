@@ -43,10 +43,14 @@ if($_POST["loginOrRegister"] == "login"){
     } else {
         $row = $result->fetch_assoc();
         //Check for hashed, salted and peppered password:
-        $sql = "SELECT username, password, perms FROM login WHERE username= '" . $_POST["login_username"] . "' and password='" . hash("sha512", $row["salt"] . $_POST["login_password"] . $pepper) . "' and perms='" . $_SESSION["login_recPerms"] . "'";
-        #echo("PEPPER:". $pepper . "?pepper");
+        if($_SESSION["login_recPerms"] == "admin"){
+            $sql = "SELECT username, password, perms FROM login WHERE username= '" . $_POST["login_username"] . "' and password='" . hash("sha512", $row["salt"] . $_POST["login_password"] . $pepper) . "' and perms='admin'";
+        } else if ($_SESSION["login_recPerms"] == "user"){
+            $sql = "SELECT username, password, perms FROM login WHERE username= '" . $_POST["login_username"] . "' and password='" . hash("sha512", $row["salt"] . $_POST["login_password"] . $pepper) . "' and (perms='admin' OR perms='user')";
+        }
         $result = $conn_insec->query($sql);
-        $count = $result->fetch_assoc();
+        $row = $result->fetch_assoc();
+        $count = mysqli_num_rows($result);
         if($count == 0) {
             //Log the user out:
             $_SESSION["login_currentPerms"] = "";
@@ -55,9 +59,14 @@ if($_POST["loginOrRegister"] == "login"){
             die("<p style=\"color: red; position: absolute; top:1rem\">No account found with that login/password. Have another go?</p>");
         } else {
             //Add the login to the session to make life easier next time:
-            $_SESSION["login_currentPerms"] = $_SESSION["login_recPerms"];
+            $_SESSION["login_username"] = $_POST["login_username"];
+            $_SESSION["login_currentPerms"] = $row["perms"];
             //Send the user back from whence they came! we set `login_path` to the URL the user came from before.
-            echo("<meta http-equiv='refresh' content='0; http://" . $_SESSION["login_path"] . "'>");
+            if($row["perms"] == "admin"){
+                echo("<meta http-equiv='refresh' content='0; http://" . $_SERVER['HTTP_HOST'] . substr($_SERVER['PHP_SELF'], 0, (strpos($_SERVER['PHP_SELF'], "/", 1) + 1)) . "admin" . "'>");
+            } else {
+                echo("<meta http-equiv='refresh' content='0; http://" . $_SESSION["login_path"] . "'>");
+            }
         }
     }
     $conn_insec->close();
