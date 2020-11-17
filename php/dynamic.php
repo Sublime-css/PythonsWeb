@@ -17,7 +17,6 @@
 
     #update analytics in `lessons` table:
     if(isset($_SESSION["login_currentPerms"]) and $_SESSION["login_currentPerms"] != ""){
-        echo(" USERNAME " . $_SESSION["login_username"]);
         $sql = "SELECT userid from login WHERE username = '" . $_SESSION["login_username"] . "'";
         $result = $conn_insec->query($sql);
         $row = $result->fetch_assoc();
@@ -29,16 +28,12 @@
         $hits = $row["hits"] + 1;
 
         if($result->num_rows > 0){
-            echo("NUM_ROWS > 0 ");
             date_default_timezone_set("GMT+12");
             $sql = "UPDATE lessons set hits = '$hits', latest_timestamp = '" . date("Y-m-d") . "' WHERE userid = '$userid' AND pagenum = '$Page'";
         } else{
-            echo("NUM_ROWS < 0 ");
             $sql = "INSERT INTO lessons (userid, hits, pagenum) VALUES ('$userid', '1', '$Page')";
         }
-        echo(" SQL: " . $sql) . "ENDSQL ";
         $result = $conn_insec->query($sql);
-        echo("DEBUG: hits: $hits, userid: $userid, pagenum: $Page");
     }
 
     //Get the data that corrosponds to the current page:
