@@ -1,7 +1,7 @@
 <?php
 function login($perms){
     //The user might already be logged in using the browsing session:
-    if (isset($_SESSION["login_currentPerms"]) and $_SESSION["login_currentPerms"] == $perms){
+    if (isset($_SESSION["login_currentPerms"]) and ($_SESSION["login_currentPerms"] == $perms or $_SESSION["login_currentPerms"] == "admin")){
         return true;
     }
     //Logging in for the first time during the session:
