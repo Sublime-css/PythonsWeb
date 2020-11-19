@@ -17,3 +17,9 @@ echo $title ?></title>
 <link rel="manifest" href="../site.webmanifest"><?php require_once("session.php");?>
 <link rel="stylesheet" type="text/css" href="../css/mobile.css" media="screen and (max-width: 600px)">
 <link rel="stylesheet" type="text/css" href="../css/tablet.css" media="screen and (min-width: 601px) and (max-width: 1200px)">
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>

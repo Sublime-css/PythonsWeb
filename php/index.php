@@ -53,6 +53,7 @@
         }
         ?>
     <img src="qrgen.php" id="shareWithClass" style="display: none;">
+    <div id="google_translate_element"></div>
 </body>
 
 </html>

@@ -45,6 +45,7 @@ if(!isset($_SESSION["admin_defaultTab"])){
             ?>
             <?php } ?>
         </div>
+<div id="google_translate_element"></div>
 </body>
 
 </html>
